@@ -5,8 +5,8 @@
 GET /products/:product_id
 
 Parameters
-Parameter	Type	    Description
-product_id	        integer	Required ID of the Product requested
+Parameter	      Type	    Description
+product_id	    integer	  Required ID of the Product requested
 
 Response
 Status: 200 OK
@@ -37,8 +37,8 @@ Status: 200 OK
 GET /products/:product_id/styles
 
 Parameters
-Parameter	Type	    Description
-product_id	        integer	Required ID of the Product requested
+Parameter	      Type	    Description
+product_id	    integer	  Required ID of the Product requested
 
 Response
 Status: 200 OK
@@ -114,8 +114,8 @@ Status: 200 OK
 GET /products/:product_id/related
 
 Parameters
-Parameter	Type	    Description
-product_id	        integer	Required ID of the Product requested
+Parameter	    Type	      Description
+product_id	  integer	    Required ID of the Product requested
 
 Response
 Status: 200 OK
