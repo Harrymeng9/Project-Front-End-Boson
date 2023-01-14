@@ -11,9 +11,9 @@ var App = () => {
 
   return (
     <div>Overview</div>
+    <div>Related</div>
     <div>QandA</div>
     <div>Ratings</div>
-    <div>Related</div>
   )
 }
 
