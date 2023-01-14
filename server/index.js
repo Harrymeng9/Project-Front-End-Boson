@@ -1,7 +1,7 @@
 const path = require('path');
 const express = require('express');
 const app = express();
-
+const db = require('./db.js');
 // basic middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
