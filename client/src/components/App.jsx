@@ -10,10 +10,12 @@ var App = () => {
   //add other functions as needed here
 
   return (
-    <div>Overview</div>
-    <div>Related</div>
-    <div>QandA</div>
-    <div>Ratings</div>
+    <div>
+      <div>Overview</div>
+      <div>Related</div>
+      <div>QandA</div>
+      <div>Ratings</div>
+    </div>
   )
 }
 
