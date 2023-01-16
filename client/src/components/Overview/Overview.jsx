@@ -1,10 +1,10 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
-import AddCart from './addCart.jsx';
-import Gallery from './gallery.jsx';
-import Info from './info.jsx';
-import StyleSelect from './styleSelect.jsx';
+import AddCart from './ovComponents/addCart.jsx';
+import Gallery from './ovComponents/gallery.jsx';
+import Info from './ovComponents/info.jsx';
+import StyleSelect from './ovComponents/styleSelect.jsx';
 
 var Overview = () => {
 
