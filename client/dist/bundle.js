@@ -92,7 +92,51 @@ eval("// Add data\n\n//# sourceURL=webpack:///./client/src/components/Q&A/Q&A.js
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module './Components/ProductBreakdown.jsx'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module './Components/RatingBreakdown.jsx'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module './Components/ReviewList.jsx'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n\n\n\n\n\n\nvar Ratings = function Ratings(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h4\", null, \"RATINGS & REVIEWS\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module './Components/ProductBreakdown.jsx'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module './Components/RatingBreakdown.jsx'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(Object(function webpackMissingModule() { var e = new Error(\"Cannot find module './Components/ReviewList.jsx'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }()), null));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ratings);\n\n//# sourceURL=webpack:///./client/src/components/Ratings/Ratings.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _ratingComponents_ProductBreakdown_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ratingComponents/ProductBreakdown.jsx */ \"./client/src/components/Ratings/ratingComponents/ProductBreakdown.jsx\");\n/* harmony import */ var _ratingComponents_RatingBreakdown_jsx__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./ratingComponents/RatingBreakdown.jsx */ \"./client/src/components/Ratings/ratingComponents/RatingBreakdown.jsx\");\n/* harmony import */ var _ratingComponents_ReviewList_jsx__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./ratingComponents/ReviewList.jsx */ \"./client/src/components/Ratings/ratingComponents/ReviewList.jsx\");\n\n\n\n\n\n\nvar Ratings = function Ratings(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"h4\", null, \"RATINGS & REVIEWS\"), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ratingComponents_ProductBreakdown_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ratingComponents_RatingBreakdown_jsx__WEBPACK_IMPORTED_MODULE_2__[\"default\"], null), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ratingComponents_ReviewList_jsx__WEBPACK_IMPORTED_MODULE_3__[\"default\"], null));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Ratings);\n\n//# sourceURL=webpack:///./client/src/components/Ratings/Ratings.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Ratings/ratingComponents/ProductBreakdown.jsx":
+/*!*****************************************************************************!*\
+  !*** ./client/src/components/Ratings/ratingComponents/ProductBreakdown.jsx ***!
+  \*****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\n\nvar ProductBreakdown = function ProductBreakdown(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ProductBreakdown);\n\n//# sourceURL=webpack:///./client/src/components/Ratings/ratingComponents/ProductBreakdown.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Ratings/ratingComponents/RatingBreakdown.jsx":
+/*!****************************************************************************!*\
+  !*** ./client/src/components/Ratings/ratingComponents/RatingBreakdown.jsx ***!
+  \****************************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\n\nvar RatingBreakdown = function RatingBreakdown(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (RatingBreakdown);\n\n//# sourceURL=webpack:///./client/src/components/Ratings/ratingComponents/RatingBreakdown.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Ratings/ratingComponents/ReviewList.jsx":
+/*!***********************************************************************!*\
+  !*** ./client/src/components/Ratings/ratingComponents/ReviewList.jsx ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _ReviewTile_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ReviewTile.jsx */ \"./client/src/components/Ratings/ratingComponents/ReviewTile.jsx\");\n\n\n\n\nvar ReviewList = function ReviewList(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(_ReviewTile_jsx__WEBPACK_IMPORTED_MODULE_1__[\"default\"], null));\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewList);\n\n//# sourceURL=webpack:///./client/src/components/Ratings/ratingComponents/ReviewList.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Ratings/ratingComponents/ReviewTile.jsx":
+/*!***********************************************************************!*\
+  !*** ./client/src/components/Ratings/ratingComponents/ReviewTile.jsx ***!
+  \***********************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n\n\n\nvar ReviewTile = function ReviewTile(props) {\n  return /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0__.createElement(\"div\", null);\n};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (ReviewTile);\n\n//# sourceURL=webpack:///./client/src/components/Ratings/ratingComponents/ReviewTile.jsx?");
 
 /***/ }),
 
@@ -103,7 +147,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpac
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\nObject(function webpackMissingModule() { var e = new Error(\"Cannot find module './Card.jsx'\"); e.code = 'MODULE_NOT_FOUND'; throw e; }());\n// The Related component will display both the \"related products\" carousel and the \"my outfit\" carousel\n\n\nvar Related = function Related() {};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Related);\n\n//# sourceURL=webpack:///./client/src/components/Related/Related.jsx?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n/* harmony import */ var _relatedComponents_Card_jsx__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./relatedComponents/Card.jsx */ \"./client/src/components/Related/relatedComponents/Card.jsx\");\n// The Related component will display both the \"related products\" carousel and the \"my outfit\" carousel\n\n\nvar Related = function Related() {};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Related);\n\n//# sourceURL=webpack:///./client/src/components/Related/Related.jsx?");
+
+/***/ }),
+
+/***/ "./client/src/components/Related/relatedComponents/Card.jsx":
+/*!******************************************************************!*\
+  !*** ./client/src/components/Related/relatedComponents/Card.jsx ***!
+  \******************************************************************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export */ __webpack_require__.d(__webpack_exports__, {\n/* harmony export */   \"default\": () => (__WEBPACK_DEFAULT_EXPORT__)\n/* harmony export */ });\n/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ \"./node_modules/react/index.js\");\n// The Card component will be used for both the \"related products\" cards and the \"my outfit\" cards\n\nvar Card = function Card() {};\n/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Card);\n\n//# sourceURL=webpack:///./client/src/components/Related/relatedComponents/Card.jsx?");
 
 /***/ }),
 
