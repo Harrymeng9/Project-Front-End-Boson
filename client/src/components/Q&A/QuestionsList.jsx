@@ -12,7 +12,7 @@ and the button to submit a new question (section 1.3.5) will appear near the top
 
 //search component is rendered first
 //on page load render Question component for two questions, these should be the two
-  //with the most number of users who have indicated the question was helpful
+//  with the most number of users who have indicated the question was helpful
 //clicking the "More Answered Questions" button renders a Question component for ALL questions
 //if no questions have been asked, button to submit new question appears near top of module
 //questions appear in descending order of how many users indicated question was helpful
