@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import ProductBreakdown from './Components/ProductBreakdown.jsx';
-import RatingBreakdown from './Components/RatingBreakdown.jsx';
-import ReviewList from './Components/ReviewList.jsx';
+import ProductBreakdown from './ratingComponents/ProductBreakdown.jsx';
+import RatingBreakdown from './ratingComponents/RatingBreakdown.jsx';
+import ReviewList from './ratingComponents/ReviewList.jsx';
 
 
 var Ratings = (props) => {
