@@ -1,9 +1,15 @@
 import react from 'react';
+import Question from './Question.jsx';
 
-function QuestionList () {
+function QuestionList (props) {
 
   return (
-
+    <div>
+      Question List Here
+      <Question />
+      <Question />
+      <Question />
+    </div>
   )
 }
 

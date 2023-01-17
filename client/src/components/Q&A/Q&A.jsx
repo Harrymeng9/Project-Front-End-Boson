@@ -8,7 +8,6 @@ return (
   <div>
     Questions and Answers
     <QuestionList />
-
   </div>
 
 )

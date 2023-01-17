@@ -1,3 +1,16 @@
+import react from 'react';
+
+function Answer (props) {
+
+  return (
+    <div>
+      Individual Answer Here
+    </div>
+  )
+}
+
+export default Answer;
+
 //Each answer is rendered in the format...
 //    body text of the answer
 //    (new line) name of answerer and date answered - “[username], Month DD, YYYY”

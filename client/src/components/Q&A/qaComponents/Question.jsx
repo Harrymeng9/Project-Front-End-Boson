@@ -1,3 +1,16 @@
+import react from 'react';
+
+function Question () {
+
+  return (
+    <div>
+      Individual Question Here
+    </div>
+  )
+}
+
+export default Question;
+
 /*
 Future enhancement:
 

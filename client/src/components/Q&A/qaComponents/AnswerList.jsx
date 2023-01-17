@@ -1,3 +1,20 @@
+import react from 'react';
+import Answer from './Answer.jsx';
+
+function AnswerList () {
+
+  return (
+    <div>
+      Answer List Here
+      <Answer />
+      <Answer />
+      <Answer />
+    </div>
+  )
+}
+
+export default AnswerList;
+
 //render "A:" followed by list of answers.
 //    answers should be rendered in order of helpfulness (how many have selected the answer as helpful)
 //    initially two answers should be rendered
