@@ -5,6 +5,7 @@ const db = require('./db.js');
 // basic middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+require("dotenv").config();
 
 // will need to get webpack up and running as well as our top level React component in order to see anything in the browser
 app.use(express.static(path.join(__dirname, '../client/dist')));
