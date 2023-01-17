@@ -2,7 +2,8 @@
 
 /*
 
-GET /qa/questions Retrieves a list of questions for a particular product. This list does not include any reported questions.
+GET /qa/questions Retrieves a list of questions for a particular product.
+This list does not include any reported questions.
 
 
 Parameter	          Type	    Description
