@@ -1,3 +1,14 @@
+import react from 'react';
+
+function QuestionList () {
+
+  return (
+
+  )
+}
+
+export default QuestionList;
+
 /*
 
 "The questions and their corresponding answers within this list will be displayed in an expanding and collapsing accordion.
