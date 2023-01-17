@@ -1,6 +1,6 @@
 import react from 'react';
 
-function Question () {
+var Question = (props) => {
 
   return (
     <div>

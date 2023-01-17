@@ -1,7 +1,7 @@
 import react from 'react';
 import Question from './Question.jsx';
 
-function QuestionList (props) {
+var QuestionList = (props) => {
 
   return (
     <div>

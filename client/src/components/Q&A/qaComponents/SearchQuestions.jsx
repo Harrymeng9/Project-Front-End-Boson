@@ -1,6 +1,6 @@
 import react from 'react';
 
-function SearchQuestions () {
+var SearchQuestions = (props) => {
 
   return (
     <div>
