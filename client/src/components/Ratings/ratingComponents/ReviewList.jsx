@@ -9,7 +9,7 @@ var ReviewList = (props) => {
     <div>
       <div>Review List</div>
       <div>
-        <ReviewTile />
+        <ReviewTile reviewsList={props.reviewsList} />
       </div>
     </div>
   )
