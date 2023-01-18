@@ -10,7 +10,7 @@ var Overview = () => {
 
   //add the useState parameters here
   //use a true/false state?
-  //const [form, setForm] = useState(null);
+  const [SKUS, setProds] = useState([]);
 
     //create local variables so we can see how they're being accessed
     var category;
@@ -24,31 +24,30 @@ var Overview = () => {
     axios.get('/products')
     .then (info => {
       console.log(info)
-      let productInfo = info.data;
-      slogan = productInfo[0].slogan;
+      setProds(info.data);
     })
     .catch(err => console.log(err))
   }
-
-
 
   //useEffect calling the get here
   useEffect(() => {
     productGet();
   }, [])
 
+  console.log(SKUS)
 
   //add return/render here
   return (
     <div>
       <div>OVERVIEW IS RENDERING </div>
+      <Info things={SKUS[0]}/>
       <AddCart/>
       <Gallery/>
-      <Info/>
       <StyleSelect/>
       <div>---------------------------------------</div>
     </div>
   )
 
 }
+
 export default Overview;
