@@ -3,19 +3,20 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 var ReviewTile = (props) => {
-  // Take the second result as an example
-  var results = props.reviewsList.results;
+
+  var  review= props.review; // review = {rating: , date: , ...}
+  // Return each review for a particular product
   return (
     <div>
       <div>Review Tile</div>
-      <div>Rating: {results[2].rating}</div>
-      <div>Date: {results[2].date}</div>
-      <div>Summary: {results[2].summary}</div>
-      <div>Body: {results[2].body}</div>
-      <div>Recommend: {results[2].recommend}</div>
-      <div>Reviewer: {results[2].reviewer_name}</div>
-      <div>Response: {results[2].response}</div>
-      <div>Helpful: {results[2].helpfulness}</div>
+      <div>Rating: {review.rating}</div>
+      <div>Date: {review.date}</div>
+      <div>Summary: {review.summary}</div>
+      <div>Body: {review.body}</div>
+      <div>Recommend: {review.recommend}</div>
+      <div>Reviewer: {review.reviewer_name}</div>
+      <div>Response: {review.response}</div>
+      <div>Helpful: {review.helpfulness}</div>
     </div>
   )
 }
