@@ -11,9 +11,13 @@ var fetchQuestions = (productId, resultCount) => {
     //specify method
     method: 'get',
     //specify url
-    url: `http://www.api.com/page?product_id=${productId}&count=${resultCount}`,
+    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${productId}&count=${resultCount}`,
     //include authorization headers
+    headers: {
+      authorization: `${process.env.TOKEN}`
+    }
   });
 };
+
 
 

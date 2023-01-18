@@ -1,4 +1,5 @@
 import React from "react";
+import { useState, useEffect} from "react";
 import Overview from "./Overview/Overview.jsx";
 import QuestionAndAnswer from "./Q&A/Q&A.jsx";
 import Ratings from "./Ratings/Ratings.jsx";
@@ -6,7 +7,6 @@ import Related from "./Related/Related.jsx";
 
 var App = () => {
   //add state data as needed here
-
   //add other functions as needed here
 
   return (
