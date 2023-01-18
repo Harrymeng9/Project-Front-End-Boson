@@ -38,6 +38,33 @@ app.post('/products', (req, res) => {
 
 });
 
+/*
+-------------------------
+Ratings and Reviews
+-------------------------
+*/
+
+// return a list of reviews for a particular product
+app.get('/reviews', (req, res) => {
+  let options = {
+    url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/",
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    }
+  };
+  var product_id = req.query.product_id;
+  axios.get(options.url, { headers: options.headers, params: { product_id: product_id } })
+    .then((reviewsList) => {
+      res.status(200).send(reviewsList.data);
+    })
+    .catch((err) => {
+      res.sendStatus(404);
+    });
+});
+
+
+
 // connection (we will use the standard localhost:3000 as our development environment)
 app.listen(3000, () => {
   console.log('Listening on port 3000!');
