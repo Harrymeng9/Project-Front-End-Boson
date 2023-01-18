@@ -7,7 +7,10 @@ var ReviewList = (props) => {
 
   return (
     <div>
-      <ReviewTile />
+      <div>Review List</div>
+      <div>
+        <ReviewTile />
+      </div>
     </div>
   )
 }
