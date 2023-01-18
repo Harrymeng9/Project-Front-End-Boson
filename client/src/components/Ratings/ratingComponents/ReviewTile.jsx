@@ -5,9 +5,7 @@ import axios from 'axios';
 var ReviewTile = (props) => {
 
   return (
-    <div>
-
-    </div>
+    <div>Review Tile</div>
   )
 }
 
