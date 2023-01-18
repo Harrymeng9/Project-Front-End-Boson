@@ -6,7 +6,9 @@ var StyleSelect = () => {
   //confirm if props are being passed down
 
   //add return/render here
-
+  return (
+    <div>STYLE SELECT</div>
+  )
 }
 
 export default StyleSelect;
