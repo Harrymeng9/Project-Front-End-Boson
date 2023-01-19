@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("dotenv").config();
 const axios = require('axios');
-const {overviewAPI} = require('./overViewAPI.js');
+const {overviewAPI} = require('./helpers/overViewAPI.js');
 
 // will need to get webpack up and running as well as our top level React component in order to see anything in the browser
 app.use(express.static(path.join(__dirname, '../client/dist')));
