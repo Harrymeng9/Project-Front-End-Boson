@@ -8,8 +8,8 @@ import ReviewList from './ratingComponents/ReviewList.jsx';
 
 var Ratings = (props) => {
 
-  // const [rating, setRating] = useState('');
   const [reviewsList, setReviewsList] = useState();
+  const [productChars, setProductChar] = useState();
 
   useEffect(() => {
     // Select a particular product_id for example
@@ -21,14 +21,23 @@ var Ratings = (props) => {
       .catch((err) => {
         console.log(err);
       });
+    // To get product breakdown info (product characteristics)
+    axios.get('/reviews/meta', { params: { product_id: 71697 } })
+      .then((charsList) => {
+        console.log('charsList', charsList.data);
+        setProductChar(charsList.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }, [])
 
   return (
     <div>
       <h4>RATINGS & REVIEWS</h4>
-      <ProductBreakdown />
       <RatingBreakdown />
-        {/* Don't render ReviewList until 'reviewsList' is ready!*/}
+      {productChars && <ProductBreakdown productChars={productChars} />}
+      {/* Don't render ReviewList until 'reviewsList' is ready!*/}
       {reviewsList && <ReviewList reviewsList={reviewsList} />}
     </div>
   )

@@ -62,6 +62,25 @@ app.get('/reviews', (req, res) => {
     });
 });
 
+// return the product breakdown info for a particular product
+app.get('/reviews/meta', (req, res) => {
+  let options = {
+    url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta/",
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    }
+  };
+  var product_id = req.query.product_id;
+  axios.get(options.url, { headers: options.headers, params: { product_id: product_id } })
+    .then((productChars) => {
+      res.status(200).send(productChars.data);
+    })
+    .catch((err) => {
+      res.status(404).send('Fail to retrieve product characteristics data!');
+    });
+});
+
 
 
 // connection (we will use the standard localhost:3000 as our development environment)
