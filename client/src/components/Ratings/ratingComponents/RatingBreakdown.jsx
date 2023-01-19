@@ -5,9 +5,7 @@ import axios from 'axios';
 var RatingBreakdown = (props) => {
 
   return (
-    <div>
-
-    </div>
+    <div>Ratings Breakdown</div>
   )
 }
 

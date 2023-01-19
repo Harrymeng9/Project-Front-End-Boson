@@ -27,10 +27,10 @@ var App = () => {
 
   return (
     <div>
-      <div>Overview</div>
+      <div><Overview/></div>
       <div>Related</div>
       <div><QuestionAndAnswer questions={questions} setQuestions={setQuestions}/></div>
-      <div>Ratings</div>
+      <div><Ratings /></div>
     </div>
   )
 }

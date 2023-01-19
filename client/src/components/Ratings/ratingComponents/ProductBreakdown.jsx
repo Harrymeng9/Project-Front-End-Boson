@@ -5,9 +5,7 @@ import axios from 'axios';
 var ProductBreakdown = (props) => {
 
   return (
-    <div>
-
-    </div>
+    <div>Product Breakdown</div>
   )
 }
 
