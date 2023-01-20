@@ -7,7 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("dotenv").config();
 const axios = require('axios');
-const {getAllProducts, getOne} = require('./helpers/overViewAPI.js');
+const {getAllProducts, getOne, singleStyle} = require('./helpers/overViewAPI.js');
 
 // will need to get webpack up and running as well as our top level React component in order to see anything in the browser
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -30,6 +30,17 @@ app.get('/products', (req, res) => {
 //test for single product
 app.get('/products/71697', (req, res) => {
   getOne((fail, pass) => {
+    if (fail) {
+      res.sendStatus(404);
+    } else {
+      res.send(pass).status(200);
+    }
+  })
+});
+
+//test for single style
+app.get('/products/71697/styles', (req, res) => {
+  singleStyle((fail, pass) => {
     if (fail) {
       res.sendStatus(404);
     } else {
