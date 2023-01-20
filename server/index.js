@@ -17,6 +17,7 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+// overview server requests
 app.get('/products', (req, res) => {
   getAllProducts((fail, pass) => {
     if (fail) {
@@ -41,6 +42,16 @@ app.get('/products/71697', (req, res) => {
 //test for single style
 app.get('/products/71697/styles', (req, res) => {
   singleStyle((fail, pass) => {
+    if (fail) {
+      res.sendStatus(404);
+    } else {
+      res.send(pass).status(200);
+    }
+  })
+});
+
+app.get('/products/71697/related', (req, res) => {
+  relatedProds((fail, pass) => {
     if (fail) {
       res.sendStatus(404);
     } else {
