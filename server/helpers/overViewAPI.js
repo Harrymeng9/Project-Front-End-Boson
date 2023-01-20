@@ -2,8 +2,7 @@ require("dotenv").config();
 const axios = require('axios');
 
 // in the helper file
-let overviewAPI = (cb) => {
-
+let getAllProducts = (cb) => {
     let options = {
       url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/",
       headers: {
@@ -11,7 +10,6 @@ let overviewAPI = (cb) => {
         'Authorization': `${process.env.TOKEN}`
       }
     };
-
     axios.get(options.url, {headers: options.headers})
      .then(list => {
         console.log('Products Fetched');
@@ -22,4 +20,24 @@ let overviewAPI = (cb) => {
      });
   };
 
-module.exports.overviewAPI = overviewAPI;
+    //test for single item
+    let getOne = (cb) => {
+      let options = {
+        url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/71697",
+        headers: {
+          'User-Agent': 'request',
+          'Authorization': `${process.env.TOKEN}`
+        }
+      };
+      // get the info from the API
+      axios.get(options.url, {headers: options.headers})
+       .then(list => {
+          cb(null, list.data)
+       })
+       .catch(err => {
+        cb(err)
+       });
+    };
+
+module.exports.getAllProducts = getAllProducts;
+module.exports.getOne = getOne;
