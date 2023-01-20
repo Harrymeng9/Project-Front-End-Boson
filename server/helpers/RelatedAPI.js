@@ -2,6 +2,7 @@ require("dotenv").config();
 const axios = require('axios');
 
 let relatedProds = (cb) => {
+
   let options = {
     url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/71697/related",
     headers: {
