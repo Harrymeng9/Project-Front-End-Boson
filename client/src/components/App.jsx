@@ -1,10 +1,10 @@
 import React from "react";
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 import Overview from "./Overview/Overview.jsx";
 import QuestionAndAnswer from "./Q&A/Q&A.jsx";
 import Ratings from "./Ratings/Ratings.jsx";
 import Related from "./Related/Related.jsx";
-import fetchQuestions from ".../helpers/questionAnswerAPI.js"
+import fetchQuestions from "../../../server/helpers/questionAnswerAPI.js"
 
 var App = () => {
   //add state data as needed here
@@ -17,19 +17,19 @@ var App = () => {
   useEffect(() => {
     //make a call to the question fetcher function and update state of questions list
     fetchQuestions(product_id, 2)
-    .then((results) => {
-      setQuestions(results)
-    })
-    .catch((err) => {
-      console.log('error in useEffect from fetchQuestions function:', err)
-    })
+      .then((results) => {
+        setQuestions(results)
+      })
+      .catch((err) => {
+        console.log('error in useEffect from fetchQuestions function:', err)
+      })
   })
 
   return (
     <div>
-      <div><Overview/></div>
-      <div>Related</div>
-      <div><QuestionAndAnswer questions={questions} setQuestions={setQuestions}/></div>
+      <div><Overview /></div>
+      <div><Related /></div>
+      <div><QuestionAndAnswer questions={questions} setQuestions={setQuestions} /></div>
       <div><Ratings /></div>
     </div>
   )
