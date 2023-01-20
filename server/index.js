@@ -7,6 +7,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 require("dotenv").config();
 const axios = require('axios');
+const {overviewAPI} = require('./helpers/overViewAPI.js');
 
 // will need to get webpack up and running as well as our top level React component in order to see anything in the browser
 app.use(express.static(path.join(__dirname, '../client/dist')));
@@ -16,25 +17,14 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-app.post('/products', (req, res) => {
-  let options = {
-    url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/",
-    headers: {
-      'User-Agent': 'request',
-      'Authorization': `${process.env.TOKEN}`
+app.get('/products', (req, res) => {
+  overviewAPI((fail, pass) => {
+    if (fail) {
+      res.sendStatus(404);
+    } else {
+      res.send(pass).status(200);
     }
-  };
-
-  axios.get(options.url, {headers: options.headers})
-   .then(list => {
-      console.log('Products Fetched');
-      res.send(list.data).status(200)
-   })
-   .catch(err => {
-    console.log(err);
-    res.sendStatus(404);
-   });
-
+  })
 });
 
 /*

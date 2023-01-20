@@ -2,7 +2,7 @@ require("dotenv").config();
 const axios = require('axios');
 
 // in the helper file
-let getAPI = (cb) => {
+let overviewAPI = (cb) => {
 
     let options = {
       url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/",
@@ -22,4 +22,4 @@ let getAPI = (cb) => {
      });
   };
 
-module.exports.getAPI = getAPI;
+module.exports.overviewAPI = overviewAPI;
