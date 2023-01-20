@@ -35,11 +35,18 @@ var Ratings = (props) => {
   return (
     <div>
       <h4>RATINGS & REVIEWS</h4>
-      {productChars && <RatingBreakdown productChars={productChars}/>}
-      {productChars && <ProductBreakdown productChars={productChars} />}
-      {/* Don't render ReviewList until 'reviewsList' is ready!*/}
-      {reviewsList && <ReviewList reviewsList={reviewsList} />}
+      <div className="ratingsLeftRight">
+        <div>
+          {productChars && <RatingBreakdown productChars={productChars} />}
+          {productChars && <ProductBreakdown productChars={productChars} />}
+        </div>
+        <div>
+          {/* Don't render ReviewList until 'reviewsList' is ready!*/}
+          {reviewsList && <ReviewList reviewsList={reviewsList} />}
+        </div>
+      </div>
     </div>
+
   )
 }
 
