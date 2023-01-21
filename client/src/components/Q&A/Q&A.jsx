@@ -5,6 +5,8 @@ import SearchQuestions from './qaComponents/SearchQuestions.jsx';
 
 function QuestionAndAnswer (props) {
 
+  const [questions, setQuestions] = useState([]);
+
 return (
   <div>
     Questions and Answers
