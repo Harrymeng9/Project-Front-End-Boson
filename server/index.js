@@ -1,16 +1,13 @@
-// require("dotenv").config();
 const path = require('path');
 const express = require('express');
 const app = express();
-// basic middleware
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-// require("dotenv").config();
 const axios = require('axios');
 const { getAllProducts, getOne, singleStyle } = require('./helpers/overViewAPI.js');
 const { relatedProds } = require('./helpers/RelatedAPI.js');
 
-// will need to get webpack up and running as well as our top level React component in order to see anything in the browser
+// basic middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // basic route to get us started
@@ -37,7 +34,6 @@ app.get('/products/:id', (req, res) => {
     if (fail) {
       res.sendStatus(404);
     } else {
-      console.log('pass', pass);
       res.send(pass).status(200);
     }
   })
@@ -55,6 +51,7 @@ app.get('/products/71697/styles', (req, res) => {
 });
 
 app.get('/products/71697/related', (req, res) => {
+
   relatedProds((fail, pass) => {
     if (fail) {
       res.sendStatus(404);

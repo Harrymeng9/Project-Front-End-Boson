@@ -2,7 +2,7 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import Card from './relatedComponents/Card.jsx';
-const axios = require('axios');
+import axios from 'axios';
 
 var Related = () => {
 
