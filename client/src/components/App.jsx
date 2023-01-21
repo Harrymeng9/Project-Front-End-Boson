@@ -4,7 +4,6 @@ import Overview from "./Overview/Overview.jsx";
 import QuestionAndAnswer from "./Q&A/Q&A.jsx";
 import Ratings from "./Ratings/Ratings.jsx";
 import Related from "./Related/Related.jsx";
-import fetchQuestions from "../../../server/helpers/questionAnswerAPI.js"
 
 var App = () => {
   //add state data as needed here
@@ -15,14 +14,6 @@ var App = () => {
 
   //utilize useEffect to trigger desired actions on page load
   useEffect(() => {
-    //make a call to the question fetcher function and update state of questions list
-    fetchQuestions(product_id, 2)
-      .then((results) => {
-        setQuestions(results)
-      })
-      .catch((err) => {
-        console.log('error in useEffect from fetchQuestions function:', err)
-      })
   })
 
   return (
