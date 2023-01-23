@@ -7,7 +7,7 @@ import Related from "./Related/Related.jsx";
 
 var App = () => {
   //add state data as needed here
-
+  const [productId, setProductId] = useState(71698)
 
   //utilize useEffect to trigger desired actions on page load
   useEffect(() => {
@@ -17,7 +17,7 @@ var App = () => {
     <div>
       <div><Overview /></div>
       <div><Related /></div>
-      <div><QuestionAndAnswer /></div>
+      <div><QuestionAndAnswer productId={productId}/></div>
       <div><Ratings /></div>
     </div>
   )
