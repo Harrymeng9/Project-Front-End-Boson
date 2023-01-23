@@ -11,43 +11,54 @@ var Overview = () => {
   //add the useState parameters here
   //use a true/false state?
   const [SKUS, setProds] = useState([]);
-
-    //create local variables so we can see how they're being accessed
-    var category;
-    var default_price;
-    var description;
-    var name;
-    var slogan;
+  const [skuInfo, setInfo] = useState([])
 
   //add the axios get here
   var productGet = () => {
-    axios.get('/products')
+    axios.get('/products', { params: { product_id: 71698 } })
     .then (info => {
-      console.log(info)
       setProds(info.data);
     })
     .catch(err => console.log(err))
   }
+    var infoFetcher = function(id) {
 
-  //useEffect calling the get here
+    axios.get('/products', { params: { product_id: 71698 } })
+    .then (data => {
+      console.log('infodata', data.data)
+    })
+    .catch(err => console.log(err))
+    alert('sad trombone noises')
+  }
+
+  //useEffect calling the get
   useEffect(() => {
     productGet();
   }, [])
 
-  console.log(SKUS)
+  //this is to crate a faux loading screen while the state is being set.
+  //if the state is set, then we can fully render the app
 
-  //add return/render here
-  return (
-    <div>
-      <div>OVERVIEW IS RENDERING </div>
-      <Info things={SKUS[0]}/>
-      <AddCart/>
-      <Gallery/>
-      <StyleSelect/>
-      <div>---------------------------------------</div>
-    </div>
-  )
-
+  if (Object.entries(SKUS).length === 0) {
+    return (
+      <div>Loading your products</div>
+    )
+  } else {
+    return (
+      <div>
+        <div>OVERVIEW IS RENDERING </div>
+        <Info info={SKUS}/>
+        <AddCart cart={SKUS}/>
+        <Gallery pics={SKUS}/>
+        <StyleSelect styles={SKUS}/>
+        <button onClick={(e)=>{
+          e.preventDefault();
+          infoFetcher('71697')
+        }}>BUTTON</button>
+        <div>---------------------------------------</div>
+      </div>
+    )
+  }
 }
 
 export default Overview;
