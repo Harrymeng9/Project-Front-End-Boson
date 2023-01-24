@@ -5,29 +5,21 @@ const axios = require('axios');
 //question and answer data
 
 //create helper method for retrieving a sorted list of questions from the API
-var fetchQuestions = (productId, resultCount) => {
-  return new Promise((resolve, reject) => {
-    //make a get request to the Atelier API using axios
-    axios({
-      //specify method
-      method: 'get',
-      //specify url
-      url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions?product_id=${productId}&count=${resultCount}`,
-      //include authorization headers
-      headers: {
-        authorization: `${process.env.TOKEN}`
-      }
-    })
-      .then((results) => {
-        console.log(results);
-        resolve(results);
-      })
-      .catch((err) => {
-        console.log('error in fetchQuestions helper');
-        reject(err);
-      });
-  });
-
+var fetchQuestions = (params) => {
+  let options = {
+    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions`,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    },
+    params: {
+      product_id: params.product_id,
+      page: params.page,
+      count: params.count
+    }
+  };
+  //make a get request to the Atelier API using axios
+  return axios.get(options.url, { headers: options.headers, params: options.params});
 };
 
 module.exports.fetchQuestions = fetchQuestions;
