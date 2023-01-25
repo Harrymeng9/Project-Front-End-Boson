@@ -1,10 +1,13 @@
 import React from 'react';
+import AnswerList from './AnswerList.jsx';
 
 var Question = (props) => {
 
   return (
     <div>
-      Individual Question Here
+      Q: {props.questionBody} Add Answer
+
+      < AnswerList />
     </div>
   )
 }
@@ -23,7 +26,7 @@ A user should be able to add up to five images before the button to add disappea
 /*/
 
 //render "Q:" concatenated with the actual question string
-//    in line with question a link with the text 'Add Answer'
+// in line with question a link with the text 'Add Answer'
 //    clicking link opens up a modal window containing a form to submit answers
 //      Modal Title: “Submit your Answer”
 //      Modal Subtitle: “[Product Name]: [Question Body]”
