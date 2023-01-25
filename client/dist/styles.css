@@ -7,6 +7,17 @@
   column-gap: 200px;
 }
 
+.modal-container {
+  position: fixed;
+  width: 80%;
+  background: #3a56ab;
+  left: 10%;
+  top: 10%;
+  padding: 10px;
+}
+
+
+
 /* Related */
 #related {
   display: flex;
