@@ -41,8 +41,10 @@ app.get('/products/:id', (req, res) => {
 });
 
 //test for single style
-app.get('/products/71697/styles', (req, res) => {
-  singleStyle((fail, pass) => {
+app.get('/products/:id/styles', (req, res) => {
+  var uniqueId = req.params.id;
+
+  singleStyle(uniqueId, (fail, pass) => {
     if (fail) {
       res.sendStatus(404);
     } else {

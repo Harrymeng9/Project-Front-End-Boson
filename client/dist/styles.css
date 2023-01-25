@@ -8,6 +8,12 @@
 }
 
 /* Related */
+#related {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
 
 
 /* Q&A */
