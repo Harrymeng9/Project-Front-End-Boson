@@ -124,6 +124,7 @@ app.get('/questions', (req, res) => {
     })
     .catch((err) => {
       console.log('error in fetchQuestions helper');
+      console.log(err)
       res.sendStatus(404);
     });
   //receive incoming request from client

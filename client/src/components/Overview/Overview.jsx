@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import AddCart from './ovComponents/addCart.jsx';
 import Gallery from './ovComponents/gallery.jsx';
-import Info from './ovComponents/info.jsx';
+import InfoList from './ovComponents/infoList.jsx';
 import StyleSelect from './ovComponents/styleSelect.jsx';
 
 var Overview = () => {
@@ -49,9 +49,9 @@ var Overview = () => {
   useEffect(() => {
     productGet();
   }, [])
-  useEffect(() => {
-    setter();
-  }, [])
+  // useEffect(() => {
+  //   setter();
+  // }, [])
 
 
   //this is to crate a faux loading screen while the state is being set.
@@ -64,7 +64,7 @@ var Overview = () => {
     return (
       <div>
         <div>Product Overview </div>
-       <div>{skuInfo.length > 0 && <Info info={skuInfo}/>}</div>
+       <div>{skuInfo.length > 0 && <InfoList info={skuInfo}/>}</div>
         <AddCart cart={SKUS}/>
         <Gallery pics={SKUS}/>
         <StyleSelect styles={SKUS}/>
