@@ -4,7 +4,7 @@ const app = express();
 const axios = require('axios');
 const { getAllProducts, getOne, singleStyle } = require('./helpers/overViewAPI.js');
 const { relatedProds } = require('./helpers/RelatedAPI.js');
-const fetchQuestions = require('./helpers/questionAnswerAPI.js');
+const { fetchQuestions } = require('./helpers/questionAnswerAPI.js');
 
 // basic middleware
 app.use(express.json());
