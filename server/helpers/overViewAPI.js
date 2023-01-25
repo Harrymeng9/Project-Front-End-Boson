@@ -39,9 +39,9 @@ let getOne = (uniqueId, cb) => {
     });
 };
 
-let singleStyle = (cb) => {
+let singleStyle = (uniqueId, cb) => {
   let options = {
-    url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/71697/styles",
+    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/products/${uniqueId}/styles`,
     headers: {
       'User-Agent': 'request',
       'Authorization': `${process.env.TOKEN}`

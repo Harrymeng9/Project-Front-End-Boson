@@ -13,9 +13,18 @@ var Related = () => {
     // TO-DO: format the below endpoint to be dynamic (i.e. work for all product ids, not just 71697)
     axios.get('/products/71697/related')
       .then((results) => {
-        var promises = [];
+        var info = [];
         for (var i = 0; i < results.data.length; i++) {
-          var promise = new Promise((resolve, reject) => {
+          var image = new Promise((resolve, reject) => {
+            axios.get(`/products/${results.data[i]}/styles`)
+              .then((results) => {
+                resolve(results);
+              })
+              .catch((error) => {
+                reject(error);
+              })
+          })
+          var related = new Promise((resolve, reject) => {
             axios.get(`/products/${results.data[i]}`)
               .then((results) => {
                 resolve(results);
@@ -24,14 +33,25 @@ var Related = () => {
                 reject(error);
               })
           })
-          promises.push(promise);
+          info.push(image);
+          info.push(related);
         }
-        return Promise.all(promises);
+        return Promise.all(info);
       })
       .then((relatedInfo) => {
         var data = [];
-        for (var i = 0; i < relatedInfo.length; i++) {
-          data.push(relatedInfo[i].data);
+        for (var i = 1; i < relatedInfo.length; i += 2) {
+          var image = relatedInfo[i - 1].data.results[0].photos[0].thumbnail_url;
+          var name = relatedInfo[i].data.name;
+          var category = relatedInfo[i].data.category;
+          var price = relatedInfo[i].data.default_price;
+
+          data.push({
+            image: image,
+            name: name,
+            category: category,
+            price: price
+          });
         }
         setRelatedProducts(data);
       })
@@ -40,12 +60,10 @@ var Related = () => {
       })
   }, []);
 
-  console.log('related products', relatedProducts);
-
   var products = relatedProducts.map((prod, index) => {
-    // still need product preview image and star rating
+    // still need star rating
     return (
-      <Card key={index} name={prod.name} category={prod.category} price={prod.default_price} />
+      <Card key={index} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
     )
   });
 
