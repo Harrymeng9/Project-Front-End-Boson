@@ -5,7 +5,8 @@
     "test": "jest ./test/All.test.js",
     "related-test": "jest ./client/src/components/Related/Related.test.js",
     "rating-test": "jest ./client/src/components/Ratings/Ratings.test.js",
-    "QA-test": "jest ./client/src/components/Q&A/QA.test.js"
+    "QA-test": "jest ./client/src/components/Q&A/QA.test.js",
+    "overview-test": "jest ./client/src/components/Overview/Overview.test.js"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
