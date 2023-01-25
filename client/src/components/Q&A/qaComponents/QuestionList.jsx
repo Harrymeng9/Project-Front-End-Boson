@@ -3,12 +3,19 @@ import Question from './Question.jsx';
 
 var QuestionList = (props) => {
 
+  //iterate over the array of questions
+  //render a question component for each
+  //store the question id in each component as id or class
+  //pass necessary question info into question component when it is created
+
+
   return (
-    <div>
-      Question List Here
-      <Question />
-      <Question />
-      <Question />
+  <div>
+  Question List
+  { props.questions.map((element) => {
+    console.log(element);
+    return <Question key={element.question_id} questionBody={element.question_body}/>
+  }) }
     </div>
   )
 }

@@ -12,10 +12,10 @@ function QuestionAndAnswer (props) {
   useEffect(() => {
     //on component render
     //make axios req to server endpoint
-    axios.get('/questions', { params : {product_id: 71698, page: 1, count: 2}})
+    axios.get('/questions', { params : {product_id: 71698, page: 1, count: 3}})
       .then((results) => {
         //results returned here is the RESPONSE object from the server
-        console.log('get questions results:', results.data);
+        console.log('answers:', results.data[0].answers);
         var productQuestions = results.data;
          //set questions state equal to the results of this call
          setQuestions(productQuestions);
@@ -29,8 +29,7 @@ return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
     <SearchQuestions />
-    <QuestionList />
-    <AnswerList />
+    <QuestionList questions={questions}/>
   </div>
 
 )
