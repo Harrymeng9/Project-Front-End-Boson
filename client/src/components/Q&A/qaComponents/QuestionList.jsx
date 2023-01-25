@@ -3,10 +3,13 @@ import Question from './Question.jsx';
 
 var QuestionList = (props) => {
 
+  //iterate over the array of questions
+  //render a question component for each
+  //store the question id in each component as id or class
+
   return (
     <div>
       Question List Here
-      <Question />
       <Question />
       <Question />
     </div>
