@@ -9,36 +9,53 @@ import StyleSelect from './ovComponents/styleSelect.jsx';
 var Overview = () => {
 
   //add the useState parameters here
-  //use a true/false state?
   const [SKUS, setProds] = useState([]);
   const [skuInfo, setInfo] = useState([])
 
   //add the axios get here
   var productGet = () => {
-    axios.get('/products', { params: { product_id: 71698 } })
+    axios.get('/products')
     .then (info => {
       setProds(info.data);
     })
-    .catch(err => console.log(err))
-  }
-    var infoFetcher = function(id) {
-
-    axios.get('/products', { params: { product_id: 71698 } })
-    .then (data => {
-      console.log('infodata', data.data)
+    .then(() => {
+      setter();
     })
     .catch(err => console.log(err))
-    alert('sad trombone noises')
+  }
+
+  //single item
+  var infoFetcher = (id) => {
+      return axios.get(`/products/${id}`)
+        .then(data => {
+          return data.data;
+        })
+        .catch(err => console.log(err));
+  }
+
+
+  let setter = async () => {
+    var saver = [];
+    for (var i = 0; i < SKUS.length; i++) {
+      await infoFetcher(SKUS[i].id)
+      .then (a => {
+        saver.push(a);
+      })
+      setInfo(saver);
+    }
   }
 
   //useEffect calling the get
   useEffect(() => {
     productGet();
   }, [])
+  useEffect(() => {
+    setter();
+  }, [])
+
 
   //this is to crate a faux loading screen while the state is being set.
   //if the state is set, then we can fully render the app
-
   if (Object.entries(SKUS).length === 0) {
     return (
       <div>Loading your products</div>
@@ -46,15 +63,15 @@ var Overview = () => {
   } else {
     return (
       <div>
-        <div>OVERVIEW IS RENDERING </div>
-        <Info info={SKUS}/>
+        <div>Product Overview </div>
+       <div>{skuInfo.length > 0 && <Info info={skuInfo}/>}</div>
         <AddCart cart={SKUS}/>
         <Gallery pics={SKUS}/>
         <StyleSelect styles={SKUS}/>
-        <button onClick={(e)=>{
+        <button onClick={(e) => {
           e.preventDefault();
-          infoFetcher('71697')
-        }}>BUTTON</button>
+          setter()
+        }}>TEST</button>
         <div>---------------------------------------</div>
       </div>
     )
