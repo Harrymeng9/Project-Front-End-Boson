@@ -3,6 +3,7 @@ import QuestionList from './qaComponents/QuestionList.jsx';
 import AnswerList from './qaComponents/AnswerList.jsx';
 import SearchQuestions from './qaComponents/SearchQuestions.jsx';
 import { useState, useEffect } from "react";
+import axios from "axios";
 
 function QuestionAndAnswer (props) {
 
