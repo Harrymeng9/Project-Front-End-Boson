@@ -13,8 +13,7 @@ var QuestionList = (props) => {
   <div>
   Question List
   { props.questions.map((element) => {
-    console.log(element);
-    return <Question key={element.question_id} questionBody={element.question_body}/>
+    return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
   }) }
     </div>
   )

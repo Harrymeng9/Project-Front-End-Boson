@@ -6,8 +6,7 @@ var Question = (props) => {
   return (
     <div>
       Q: {props.questionBody} Add Answer
-
-      < AnswerList />
+      < AnswerList answers={props.answers}/>
     </div>
   )
 }

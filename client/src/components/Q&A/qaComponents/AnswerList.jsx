@@ -3,15 +3,24 @@ import Answer from './Answer.jsx';
 
 var AnswerList = (props) => {
 
+//render an answer component for each answer object
+//pass the necessary properties as props
+
+//create keys array out of object that holds list of answers
+var keys = Object.keys(props.answers);
+//iterate over the keys array
+//at each key, render an answer, passing the answer object as a prop
+
   return (
     <div>
-      Answer List Here
-      <Answer />
-      <Answer />
-      <Answer />
+      A:
+      {keys.map((answerId) => {
+        var item = props.answers[answerId];
+       return <Answer key={answerId} answerBody={item.body} author={item.answerer_name} date={item.date}/>
+      })}
     </div>
   )
-}
+      }
 
 export default AnswerList;
 
