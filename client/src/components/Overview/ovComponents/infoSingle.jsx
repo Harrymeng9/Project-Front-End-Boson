@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 
 var InfoSingle = (props) => {
+  console.log(props)
 
   // add return/render here
   if (props === undefined) {
@@ -16,6 +17,7 @@ var InfoSingle = (props) => {
         <div>{props.category}</div>
         <div>${props.default_price}</div>
         <div>{props.slogan}</div>
+        <div>{props.description}</div>
         <button onClick={() => { alert('Added to you styles') }}>STAR</button>
       </div>
     )
