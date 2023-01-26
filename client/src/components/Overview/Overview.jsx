@@ -41,8 +41,9 @@ var Overview = () => {
       .then (a => {
         saver.push(a);
       })
-      setInfo(saver);
+
     }
+    setInfo(saver);
   }
 
   //useEffect calling the get
