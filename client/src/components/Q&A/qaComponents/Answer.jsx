@@ -4,7 +4,11 @@ var Answer = (props) => {
 
   return (
     <div>
-      Individual Answer Here
+      {props.answerBody}
+      <br></br>
+      {props.author} {props.date} Helpful? Yes (#) Report
+      <br></br>
+      <br></br>
     </div>
   )
 }
