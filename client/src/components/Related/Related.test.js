@@ -1,10 +1,14 @@
+/**
+ * @jest-environment jsdom
+ */
 import React from 'react';
-import { render, screen, getByText } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import '@testing-library/jest-dom';
 import { products, Related } from './Related.jsx';
-import { Card } from './relatedComponents/Card.jsx';
+import Card from './relatedComponents/Card.jsx';
 
 describe("Related Widget Tests", function () {
-  // test that relatedProds in products function is a non-empty array
+  // unit test
   test("Products function should return an array with length equal to input array", () => {
     var relatedProducts = [
       {
@@ -29,9 +33,10 @@ describe("Related Widget Tests", function () {
     expect(products(relatedProducts).length).toBe(3);
   });
 
+  // integration test
   test("Card component should render the correct related product name", () => {
-    var expectedName = "Bright Future Sunglasses";
-    render(<Card name={expectedName} />);
-    screen.getByText(expectedName);
+    const { getByText } = render(<Card name="Bright Future Sunglasses" />);
+    const productName = getByText('Bright Future Sunglasses');
+    expect(productName).toBeInTheDocument('Bright Future Sunglasses');
   });
 });
