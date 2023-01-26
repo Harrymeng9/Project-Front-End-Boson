@@ -4,7 +4,16 @@ import { useState, useEffect } from "react";
 import Card from './relatedComponents/Card.jsx';
 import axios from 'axios';
 
-var Related = () => {
+export var products = function (relatedProds) {
+  // still need star rating
+  return relatedProds.map((prod, index) => {
+    return (
+      <Card key={index} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
+    )
+  })
+};
+
+export var Related = () => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [myOutfit, setMyOutfit] = useState([]);
@@ -60,18 +69,11 @@ var Related = () => {
       })
   }, []);
 
-  var products = relatedProducts.map((prod, index) => {
-    // still need star rating
-    return (
-      <Card key={index} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
-    )
-  });
-
   return (
     <div>
       <h4>RELATED PRODUCTS</h4>
       <div>
-        {products}
+        {products(relatedProducts)}
       </div>
       <div>
         {/* {myFit} */}
@@ -79,5 +81,3 @@ var Related = () => {
     </div>
   )
 };
-
-export default Related;
