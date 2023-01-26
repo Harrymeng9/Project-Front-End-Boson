@@ -9,9 +9,9 @@ var Card = (props) => {
   return (
     <div id="card">
       <img src={props.image}></img>
-      <li>{props.name}</li>
-      <li>{props.category}</li>
-      <li>{props.price}</li>
+      <p>{props.name}</p>
+      <p>{props.category}</p>
+      <p>{props.price}</p>
     </div>
   )
 };
