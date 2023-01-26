@@ -18,9 +18,6 @@ var Overview = () => {
     .then (info => {
       setProds(info.data);
     })
-    .then(() => {
-      setter();
-    })
     .catch(err => console.log(err))
   }
 
@@ -41,7 +38,6 @@ var Overview = () => {
       .then (a => {
         saver.push(a);
       })
-
     }
     setInfo(saver);
   }
