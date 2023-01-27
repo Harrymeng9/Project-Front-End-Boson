@@ -16,7 +16,7 @@ var App = () => {
   return (
     <div>
       <div><Overview /></div>
-      <div><Related /></div>
+      <div><Related productId={productId} /></div>
       <div><QuestionAndAnswer productId={productId} /></div>
       <div><Ratings /></div>
     </div>
