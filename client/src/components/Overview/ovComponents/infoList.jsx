@@ -4,7 +4,6 @@ import axios from 'axios';
 import InfoSingle from './infoSingle.jsx'
 
 var InfoList = (props) => {
-  console.log(props)
   //confirm if props are being passed
   // const [prodInfo, setInfo] = useState([]);
   var single = props.info;
@@ -16,6 +15,7 @@ var InfoList = (props) => {
   } else {
     return (
       <div>
+        <h2>List of Products</h2>
         <div>
           {single.map(block => {
             return (
