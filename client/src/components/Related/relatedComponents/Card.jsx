@@ -6,11 +6,15 @@ var Card = (props) => {
   product preview image, an x or a star in top right corner, depending
   on which type of card (related product or outfit) */
 
+  var handleStarButtonClick = () => {
+
+  };
+
   return (
     <div className="card">
-      <div className="relatedImageContainer">
-        <button className="relatedImageButton">Star</button>
-        <img className="relatedImage" src={props.image}></img>
+      <div className="related-image-container">
+        <button onClick={handleStarButtonClick} className="related-image-button">Star</button>
+        <img className="related-image" src={props.image}></img>
       </div>
       <div>
         <p>{props.category}</p>

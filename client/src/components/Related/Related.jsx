@@ -76,7 +76,7 @@ export var Related = () => {
         {products(relatedProducts)}
       </div>
       <h4>MY OUTFIT</h4>
-      <div className="myFit">
+      <div className="my-fit">
         {/* {myFit} */}
       </div>
     </div>

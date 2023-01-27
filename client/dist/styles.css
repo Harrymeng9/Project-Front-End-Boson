@@ -32,18 +32,18 @@
   width: 200px;
 }
 
-.relatedImage {
+.related-image {
   height: 225px;
   width: 200px;
   object-fit: cover;
 }
 
-.relatedImageContainer {
+.related-image-container {
   position: relative;
   width: 50%;
 }
 
-.relatedImageContainer .relatedImageButton {
+.related-image-container .related-image-button {
   position: absolute;
   bottom: 87%;
   left: 150%;
