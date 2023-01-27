@@ -13,10 +13,10 @@ var Card = (props) => {
         <img className="relatedImage" src={props.image}></img>
       </div>
       <div>
-        <p>{props.category}</p>
-        <p>{props.name}</p>
-        <p>{props.price}</p>
-        <p>Star Rating</p>
+        <p className="relatedDetails">{props.category}</p>
+        <p className="relatedDetails">{props.name}</p>
+        <p className="relatedDetails">{props.price}</p>
+        <p className="relatedDetails">Star Rating</p>
       </div>
     </div>
   )

@@ -28,7 +28,7 @@
 
 .card {
   border: 1px solid gray;
-  height: 385px;
+  height: 300px;
   width: 200px;
 }
 
@@ -53,6 +53,30 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+.yourFit {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  justify-content: space-between;
+}
+
+.addToYourFitCard {
+  border: 1px solid gray;
+  height: 300px;
+  width: 200px;
+}
+
+.defaultAdd {
+  height: 225px;
+  width: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.relatedDetails {
+  margin: 0;
 }
 
 
