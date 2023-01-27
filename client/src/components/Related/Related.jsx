@@ -72,10 +72,11 @@ export var Related = () => {
   return (
     <div>
       <h4>RELATED PRODUCTS</h4>
-      <div>
+      <div className="related">
         {products(relatedProducts)}
       </div>
-      <div>
+      <h4>MY OUTFIT</h4>
+      <div className="myFit">
         {/* {myFit} */}
       </div>
     </div>
