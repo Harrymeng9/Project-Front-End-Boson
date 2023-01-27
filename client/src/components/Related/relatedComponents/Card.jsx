@@ -7,10 +7,10 @@ var Card = (props) => {
   on which type of card (related product or outfit) */
 
   return (
-    <div class="card">
-      <div class="relatedImageContainer">
-        <button class="relatedImageButton">Star</button>
-        <img class="relatedImage" src={props.image}></img>
+    <div className="card">
+      <div className="relatedImageContainer">
+        <button className="relatedImageButton">Star</button>
+        <img className="relatedImage" src={props.image}></img>
       </div>
       <div>
         <p>{props.category}</p>
