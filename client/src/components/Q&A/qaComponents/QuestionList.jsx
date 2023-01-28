@@ -1,27 +1,38 @@
 import React from 'react';
 import Question from './Question.jsx';
 
-export var renderQuestions = function (questionsArr) {
+export var renderQuestions = function (count, questionsArr) {
+  //create a placeholder variable representing how many q's have been rendered set to 0
+  var done = 0;
   return questionsArr.map((element) => {
-  return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>})
+    //if placeholder is less than count
+    if (done < count) {
+      //increment placeholder
+      done++;
+      //render a question component
+      return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
+    }
+    })
 }
 
 export var QuestionList = (props) => {
 
-  //iterate over the array of questions
-  //render a question component for each
-  //store the question id in each component as id or class
-  //pass necessary question info into question component when it is created
+  var handleClick = () => {
+    var newCount = props.questionsCount + 2;
+    props.setQuestionsCount(newCount)
+  }
 
-  var questions = renderQuestions(props.questions);
+  //store current int at questionsCount state
+  var questionsCount = props.questionsCount;
+
+  var questions = renderQuestions(questionsCount, props.questions);
+
   return (
   <div>
   Question List
   {questions}
-  {/* { props.questions.map((element) => {
-    return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
-  }) } */}
-    </div>
+  {props.questions.length > 2 && <button onClick={handleClick}>More Answered Questions</button>}
+  </div>
   )
 }
 
