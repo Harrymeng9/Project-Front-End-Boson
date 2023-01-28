@@ -1,8 +1,14 @@
+/**
+ * @jest-environment jsdom
+ */
+
 import React from 'react';
 import { render, screen, getByText } from '@testing-library/react';
 import  Overview from './Overview.jsx';
 import  InfoList from './ovComponents/infoList.jsx';
-import renderer from 'react-test-renderer';
+import  InfoSingle from './ovComponents/infoSingle.jsx';
+import '@testing-library/jest-dom';
+
 
 describe("Example tests", function () {
   var stack = [];
@@ -12,35 +18,39 @@ describe("Example tests", function () {
   });
 });
 
-describe("Work Test", function () {
-  // test that relatedProds in products function is a non-empty array
-  //console.log('types', Overview().productGet)
+describe("Test Overview and Component Renders", function () {
   test("Overview is a function", () => {
-    // console.log('actual test', InfoSingle().props)
-    // screen(Overview)
     expect(typeof Overview).toBe('function')
   });
 
-  test('renders correctly', async () => {
-    var waiter = await Overview();
-    console.log('waits', waiter)
+  test('renders Overview', () => {
+    //var waiter =  Overview();
+    render(<Overview/>);
+    //render(<Overview></Overview>)
+    //console.log('waits', waiter)
+    // think of screen as the execution environment
+    //testting the code, provide the same env as we are providing
+    //screen = index.html; screen is a native html provided by testing lib
+    expect(screen.getByText(/Loading/)).toBeInTheDocument();
   });
 
+  test('renders pre-state InfoSingle', () => {
+    //var waiter =  Overview();
+    render(<InfoSingle/>);
+    expect(screen.getByText(/STAR/)).toBeInTheDocument();
+  });
 
-
-
-  // test("InfoList is a function", () => {
-  //   var props = {
-  //     name: 'Camo Onesie',
-  //     category: 'Jackets',
-  //     description: 'The So Fatigues will wake you up and fit you in. T…you blending in to even the wildest surroundings.',
-  //     default_price: '140.00',
-  //     slogan: 'Blend in to your crowd'
-  //   }
-  //   // console.log('actual test', InfoSingle().props)
-  //   render(<InfoList/>, {container});
-  //   screen.getByText(props)
-  // });
-
+  test('renders pre-state InfoSingle', () => {
+    //InfoSingle can only take in an array, since it runs a map function on the props
+    var obj = [{
+      name: 'Morning Joggers',
+      category: 'Pants',
+      description: "Whether you're a morning person or not.  Whether y…ym bound or not.  Everyone looks good in joggers.",
+      default_price: '40.00',
+      slogan: 'Make yourself a morning person'
+    }]
+    render(<InfoList info={obj}/>);
+    expect(screen.getByText(/List/)).toBeInTheDocument();
+  });
 
 });
