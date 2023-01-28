@@ -28,7 +28,7 @@
 
 .card {
   border: 1px solid gray;
-  height: 300px;
+  height: 385px;
   width: 200px;
 }
 
@@ -55,28 +55,58 @@
   cursor: pointer;
 }
 
-.yourFit {
+.your-fit {
   display: flex;
   flex-wrap: nowrap;
   overflow: auto;
   justify-content: space-between;
 }
 
-.addToYourFitCard {
+.add-to-your-fit-card {
   border: 1px solid gray;
   height: 300px;
   width: 200px;
 }
 
-.defaultAdd {
+.default-add {
   height: 225px;
   width: 200px;
   object-fit: cover;
   cursor: pointer;
 }
 
-.relatedDetails {
+.related-details {
   margin: 0;
+}
+
+.overlay-background {
+  width: 100vw;
+  height: 50vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay-container {
+  width: 300px;
+  height: 300;
+  background-color: white;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay-close-button {
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay-container-title {
+  text-align: center;
 }
 
 

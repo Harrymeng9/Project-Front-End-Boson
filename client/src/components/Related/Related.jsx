@@ -2,13 +2,14 @@
 import React from 'react';
 import { useState, useEffect } from "react";
 import Card from './relatedComponents/Card.jsx';
+import Overlay from './relatedComponents/Overlay.jsx';
 import axios from 'axios';
 
-export var products = function (relatedProds) {
+export var products = function (relatedProds, setStarButtonClick, starButtonClick) {
   // still need star rating
   return relatedProds.map((prod, index) => {
     return (
-      <Card key={index} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
+      <Card key={index} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
     )
   })
 };
@@ -17,6 +18,7 @@ export var Related = () => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [myOutfit, setMyOutfit] = useState([]);
+  const [starButtonClick, setStarButtonClick] = useState(false);
 
   useEffect(() => {
     // TO-DO: format the below endpoint to be dynamic (i.e. work for all product ids, not just 71697)
@@ -73,12 +75,13 @@ export var Related = () => {
     <div>
       <h4>RELATED PRODUCTS</h4>
       <div className="related">
-        {products(relatedProducts)}
+        {products(relatedProducts, setStarButtonClick, starButtonClick)}
+        {starButtonClick ? <Overlay setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
       </div>
       <h4>YOUR OUTFIT</h4>
-      <div className="yourFit">
-        <div className="addToYourFitCard">
-          <img className="defaultAdd" src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png"></img>
+      <div className="your-fit">
+        <div className="add-to-your-fit-card">
+          <img className="default-add" src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png"></img>
           <center>
             <p>Add to Outfit</p>
           </center>
