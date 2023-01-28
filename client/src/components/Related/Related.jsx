@@ -75,9 +75,17 @@ export var Related = () => {
       <div className="related">
         {products(relatedProducts)}
       </div>
-      <h4>MY OUTFIT</h4>
-      <div className="my-fit">
-        {/* {myFit} */}
+      <h4>YOUR OUTFIT</h4>
+      <div className="yourFit">
+        <div className="addToYourFitCard">
+          <img className="defaultAdd" src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png"></img>
+          <center>
+            <p>Add to Outfit</p>
+          </center>
+        </div>
+        <div>
+          {/* {myFitCards} */}
+        </div>
       </div>
     </div>
   )
