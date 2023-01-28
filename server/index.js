@@ -53,9 +53,11 @@ app.get('/products/:id/styles', (req, res) => {
   })
 });
 
-app.get('/products/71697/related', (req, res) => {
+app.get('/products/:id/related', (req, res) => {
 
-  relatedProds((fail, pass) => {
+  var uniqueId = req.params.id;
+
+  relatedProds(uniqueId, (fail, pass) => {
     if (fail) {
       res.sendStatus(404);
     } else {

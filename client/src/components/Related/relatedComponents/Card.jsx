@@ -7,9 +7,6 @@ var Card = (props) => {
   product preview image, an x or a star in top right corner, depending
   on which type of card (related product or outfit) */
 
-  var handleStarButtonClick = () => {
-
-  };
 
   return (
     <div className="card">
