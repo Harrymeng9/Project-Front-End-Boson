@@ -6,7 +6,8 @@
     "related-test": "jest ./client/src/components/Related/Related.test.js",
     "rating-test": "jest ./client/src/components/Ratings/Ratings.test.js",
     "QA-test": "jest ./client/src/components/Q&A/QA.test.js",
-    "overview-test": "jest ./client/src/components/Overview/Overview.test.js"
+    "overview-test": "jest ./client/src/components/Overview/Overview.test.js",
+    "coverage": "jest --coverage"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
@@ -27,6 +28,7 @@
     "jest-environment-jsdom": "^29.4.0",
     "nodemon": "^2.0.20",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-icons": "^4.7.1"
   }
 }

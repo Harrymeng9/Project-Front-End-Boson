@@ -5,26 +5,16 @@ import ProductBreakdown from './ratingComponents/ProductBreakdown.jsx';
 import RatingBreakdown from './ratingComponents/RatingBreakdown.jsx';
 import ReviewList from './ratingComponents/ReviewList.jsx';
 
-
+// export default function Ratings(props) {
 var Ratings = (props) => {
 
-  const [reviewsList, setReviewsList] = useState();
   const [productChars, setProductChar] = useState();
 
   useEffect(() => {
-    // Select a particular product_id for example
-    axios.get('/reviews', { params: { product_id: 71698 } })
-      .then((reviewsList) => {
-        console.log('reviewsList', reviewsList.data);
-        setReviewsList(reviewsList.data);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
     // To get product breakdown info (product characteristics)
     axios.get('/reviews/meta', { params: { product_id: 71697 } })
       .then((charsList) => {
-        console.log('charsList', charsList.data);
+        // console.log('charsList', charsList.data);
         setProductChar(charsList.data);
       })
       .catch((err) => {
@@ -37,16 +27,13 @@ var Ratings = (props) => {
       <h4>RATINGS & REVIEWS</h4>
       <div className="ratingsLeftRight">
         <div>
+          {/* Don't render RatingBreakdown until 'productChars' is ready!*/}
           {productChars && <RatingBreakdown productChars={productChars} />}
           {productChars && <ProductBreakdown productChars={productChars} />}
         </div>
-        <div>
-          {/* Don't render ReviewList until 'reviewsList' is ready!*/}
-          {reviewsList && <ReviewList reviewsList={reviewsList} />}
-        </div>
+        <ReviewList />
       </div>
     </div>
-
   )
 }
 

@@ -9,7 +9,7 @@ const Modal = (props) => {
   // If modal is true, then pop up the window
   if (props.modal) {
     return (
-      <div>
+      <div id='modal'>
         <div className="modal-container">
           <div>Write Your Review</div>
           <div>About the Product Name here</div>
