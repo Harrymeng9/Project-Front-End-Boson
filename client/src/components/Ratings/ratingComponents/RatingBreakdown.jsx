@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import {FaStar} from 'react-icons/fa';
 
 var RatingBreakdown = (props) => {
 
@@ -18,7 +19,20 @@ var RatingBreakdown = (props) => {
   return (
     <div id='rating'>
       <div>Ratings Breakdown</div>
-      <div>Average Rating: {averageRating.toFixed(1)} Add stars image later</div>
+      <div>Average Rating: {averageRating.toFixed(1)}</div>
+      <div>
+        {[...Array(5)].map((star, i) => {
+          const ratingValue = i + 1;
+
+          return (
+            <FaStar
+            className = 'stars'
+            key = {i} size = {30}
+            color = {ratingValue <= averageRating ? "#000000" : "#ffffff"}
+            />
+          )
+        })}
+      </div>
       <div>{recommendRate.toFixed(2) * 100 + '%'} of reviews recomment this product</div>
       <div>5 Stars {ratingList[5]}</div>
       <div>4 Stars {ratingList[4]}</div>
