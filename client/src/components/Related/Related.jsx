@@ -14,7 +14,7 @@ export var products = function (relatedProds, setStarButtonClick, starButtonClic
   })
 };
 
-export var Related = () => {
+export var Related = (props) => {
 
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [myOutfit, setMyOutfit] = useState([]);
@@ -22,7 +22,7 @@ export var Related = () => {
 
   useEffect(() => {
     // TO-DO: format the below endpoint to be dynamic (i.e. work for all product ids, not just 71697)
-    axios.get('/products/71697/related')
+    axios.get(`/products/${props.productId}/related`)
       .then((results) => {
         var info = [];
         for (var i = 0; i < results.data.length; i++) {

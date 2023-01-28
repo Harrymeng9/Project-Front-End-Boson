@@ -15,19 +15,19 @@ var Overview = () => {
   //add the axios get here
   var productGet = () => {
     axios.get('/products')
-    .then (info => {
-      setProds(info.data);
-    })
-    .catch(err => console.log(err))
+      .then(info => {
+        setProds(info.data);
+      })
+      .catch(err => console.log(err))
   }
 
   //single item
   var infoFetcher = (id) => {
-      return axios.get(`/products/${id}`)
-        .then(data => {
-          return data.data;
-        })
-        .catch(err => console.log(err));
+    return axios.get(`/products/${id}`)
+      .then(data => {
+        return data.data;
+      })
+      .catch(err => console.log(err));
   }
 
 
@@ -35,9 +35,9 @@ var Overview = () => {
     var saver = [];
     for (var i = 0; i < SKUS.length; i++) {
       await infoFetcher(SKUS[i].id)
-      .then (a => {
-        saver.push(a);
-      })
+        .then(a => {
+          saver.push(a);
+        })
     }
     setInfo(saver);
   }
@@ -61,10 +61,10 @@ var Overview = () => {
     return (
       <div>
         <div>Product Overview </div>
-       <div>{skuInfo.length > 0 && <InfoList info={skuInfo}/>}</div>
-        <AddCart cart={SKUS}/>
-        <Gallery pics={SKUS}/>
-        <StyleSelect styles={SKUS}/>
+        <div>{skuInfo.length > 0 && <InfoList info={skuInfo} />}</div>
+        <AddCart cart={SKUS} />
+        <Gallery pics={SKUS} />
+        <StyleSelect styles={SKUS} />
         <button onClick={(e) => {
           e.preventDefault();
           setter()
