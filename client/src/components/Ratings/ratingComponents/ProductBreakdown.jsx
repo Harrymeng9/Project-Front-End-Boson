@@ -9,7 +9,7 @@ var ProductBreakdown = (props) => {
   var description;
 
   return (
-    <div>
+    <div id='product'>
       <div>Product Breakdown</div>
       {categories.map((category, i) => {
         if (chars[category] !== undefined) {
