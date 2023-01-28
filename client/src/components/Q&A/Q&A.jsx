@@ -1,5 +1,5 @@
 import React from 'react';
-import QuestionList from './qaComponents/QuestionList.jsx';
+import { QuestionList } from './qaComponents/QuestionList.jsx';
 import AnswerList from './qaComponents/AnswerList.jsx';
 import SearchQuestions from './qaComponents/SearchQuestions.jsx';
 import { useState, useEffect } from "react";
@@ -8,13 +8,15 @@ import axios from "axios";
 function QuestionAndAnswer (props) {
 
   const [questions, setQuestions] = useState([]);
+  const [questionsCount, setQuestionsCount] = useState(2)
 
   useEffect(() => {
     //on component render
     //make axios req to server endpoint
-    axios.get('/questions', { params : {product_id: 71698, page: 1, count: 3}})
+    axios.get('/questions', { params : {product_id: 71705}})
       .then((results) => {
         //results returned here is the RESPONSE object from the server
+        console.log(results.data);
         var productQuestions = results.data;
          //set questions state equal to the results of this call
          setQuestions(productQuestions);
@@ -28,7 +30,7 @@ return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
     <SearchQuestions />
-    <QuestionList questions={questions}/>
+    <QuestionList questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
   </div>
 
 )

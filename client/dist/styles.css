@@ -19,10 +19,94 @@
 
 
 /* Related */
-#related {
+.related {
   display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  justify-content: space-between;
+}
+
+.card {
+  border: 1px solid gray;
+  height: 300px;
+  width: 200px;
+}
+
+.related-image {
+  height: 225px;
+  width: 200px;
+  object-fit: cover;
+}
+
+.related-image-container {
+  position: relative;
+  width: 50%;
+}
+
+.related-image-container .related-image-button {
+  position: absolute;
+  bottom: 87%;
+  left: 150%;
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.your-fit {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: auto;
+  justify-content: space-between;
+}
+
+.add-to-your-fit-card {
+  border: 1px solid gray;
+  height: 300px;
+  width: 200px;
+}
+
+.default-add {
+  height: 225px;
+  width: 200px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.related-details {
+  margin: 0;
+}
+
+.overlay-background {
+  width: 100vw;
+  height: 50vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
   align-items: center;
-  justify-content: flex-start;
+}
+
+.overlay-container {
+  width: 300px;
+  height: 300;
+  background-color: white;
+  border: 1px solid gray;
+  display: flex;
+  flex-direction: column;
+}
+
+.overlay-close-button {
+  display: flex;
+  justify-content: flex-end;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.overlay-container-title {
+  text-align: center;
 }
 
 
