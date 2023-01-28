@@ -16,7 +16,7 @@ var RatingBreakdown = (props) => {
   var recommendRate = Number(recommendList[true]) / (Number(recommendList[true]) + Number(recommendList[false]));
 
   return (
-    <div>
+    <div id='rating'>
       <div>Ratings Breakdown</div>
       <div>Average Rating: {averageRating.toFixed(1)} Add stars image later</div>
       <div>{recommendRate.toFixed(2) * 100 + '%'} of reviews recomment this product</div>
