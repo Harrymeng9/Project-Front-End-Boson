@@ -1,25 +1,29 @@
 import React from 'react';
 import Question from './Question.jsx';
 
-var QuestionList = (props) => {
+export var renderQuestions = function (questionsArr) {
+  return questionsArr.map((element) => {
+  return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>})
+}
+
+export var QuestionList = (props) => {
 
   //iterate over the array of questions
   //render a question component for each
   //store the question id in each component as id or class
   //pass necessary question info into question component when it is created
 
-
+  var questions = renderQuestions(props.questions);
   return (
   <div>
   Question List
-  { props.questions.map((element) => {
+  {questions}
+  {/* { props.questions.map((element) => {
     return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
-  }) }
+  }) } */}
     </div>
   )
 }
-
-export default QuestionList;
 
 /*
 
