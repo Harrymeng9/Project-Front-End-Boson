@@ -6,13 +6,17 @@ import Gallery from './ovComponents/gallery.jsx';
 import InfoList from './ovComponents/infoList.jsx';
 import StyleSelect from './ovComponents/styleSelect.jsx';
 
+var truth = false;
+
 var Overview = () => {
+
 
   //add the useState parameters here
   const [SKUS, setProds] = useState([]);
   const [skuInfo, setInfo] = useState([])
 
-  //add the axios get here
+
+  // //add the axios get here
   var productGet = () => {
     axios.get('/products')
     .then (info => {
@@ -42,14 +46,30 @@ var Overview = () => {
     setInfo(saver);
   }
 
+  let loader = () => {
+    //checks and runs the setter function on page render only once
+    if (truth === false) {
+      setter();
+      truth = true;
+    }
+    //returns the components when finally called
+    return (
+      <div>
+      <div>Product Overview </div>
+     <div>{skuInfo.length > 0 && <InfoList info={skuInfo}/>}</div>
+      <AddCart cart={SKUS}/>
+      <Gallery pics={SKUS}/>
+      <StyleSelect styles={SKUS}/>
+      <div>---------------------------------------</div>
+    </div>
+    )
+  }
+
+
   //useEffect calling the get
   useEffect(() => {
     productGet();
   }, [])
-  // useEffect(() => {
-  //   setter();
-  // }, [])
-
 
   //this is to crate a faux loading screen while the state is being set.
   //if the state is set, then we can fully render the app
@@ -58,21 +78,9 @@ var Overview = () => {
       <div>Loading your products</div>
     )
   } else {
-    return (
-      <div>
-        <div>Product Overview </div>
-       <div>{skuInfo.length > 0 && <InfoList info={skuInfo}/>}</div>
-        <AddCart cart={SKUS}/>
-        <Gallery pics={SKUS}/>
-        <StyleSelect styles={SKUS}/>
-        <button onClick={(e) => {
-          e.preventDefault();
-          setter()
-        }}>TEST</button>
-        <div>---------------------------------------</div>
-      </div>
-    )
+    return loader();
   }
+
 }
 
 export default Overview;
