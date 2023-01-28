@@ -11,7 +11,7 @@ var Card = (props) => {
   return (
     <div className="card">
       <div className="related-image-container">
-        <button onClick={() => { props.setStarButtonClick(!props.starButtonClick) }} className="related-image-button">Star</button>
+        <button onClick={() => { props.setStarButtonClick(!props.starButtonClick); }} className="related-image-button">Star</button>
         <img className="related-image" src={props.image}></img>
       </div>
       <div>

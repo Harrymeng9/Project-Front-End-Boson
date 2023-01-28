@@ -82,7 +82,7 @@
 .overlay-background {
   width: 100vw;
   height: 50vh;
-  position: fixed;
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
