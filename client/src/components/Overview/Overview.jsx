@@ -68,7 +68,7 @@ var Overview = () => {
         <button onClick={(e) => {
           e.preventDefault();
           setter()
-        }}>TEST</button>
+        }}>Let's see the Products!</button>
         <div>---------------------------------------</div>
       </div>
     )

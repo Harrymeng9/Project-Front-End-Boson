@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import FeaturesList from './featuresList.jsx';
 
 var InfoSingle = (props) => {
-  console.log(props)
 
   // add return/render here
   if (props === undefined) {
@@ -14,11 +14,12 @@ var InfoSingle = (props) => {
     return (
       <div>
         <h2>{props.name}</h2>
-        <div>{props.category}</div>
+        <div>Product Category: {props.category}</div>
         <div>${props.default_price}</div>
         <div>{props.slogan}</div>
         <div>{props.description}</div>
-        <button onClick={() => { alert('Added to you styles') }}>STAR</button>
+        <FeaturesList features={props.features} key={props.id} id={props.id}/>
+        <button onClick={() => { alert('Added to you styles') }}>⭐️</button>
       </div>
     )
   }
