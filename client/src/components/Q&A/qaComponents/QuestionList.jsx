@@ -18,18 +18,6 @@ export var renderQuestions = function (count, questionsArr) {
     }
   }
   return components;
-
-  // return components;
-
-  // return questionsArr.map((element) => {
-  //   //if placeholder is less than count
-  //   if (done < count) {
-  //     //increment placeholder
-  //     done++;
-  //     //render a question component
-  //     return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
-  //   }
-  //   })
 }
 
 export var QuestionList = (props) => {
@@ -45,10 +33,16 @@ export var QuestionList = (props) => {
   var questions = renderQuestions(questionsCount, props.questions);
 
   return (
+
+  //create a boolean flag to control conditional rendering of More Answered Questions button
+  //if the questions array has more than 2 questions, and the questionsCount state is less than the questions array
+  //boolean flag is true
+  //otherwise its false
+
   <div>
   Question List
   {questions}
-  {props.questions.length > 2 && <button onClick={handleClick}>More Answered Questions</button>}
+  {props.questions.length > 2 && questionsCount < props.questions.length && <button onClick={handleClick}>More Answered Questions</button>}
   </div>
   )
 }
