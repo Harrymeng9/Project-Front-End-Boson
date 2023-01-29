@@ -2,17 +2,34 @@ import React from 'react';
 import Question from './Question.jsx';
 
 export var renderQuestions = function (count, questionsArr) {
-  //create a placeholder variable representing how many q's have been rendered set to 0
-  var done = 0;
-  return questionsArr.map((element) => {
-    //if placeholder is less than count
-    if (done < count) {
-      //increment placeholder
-      done++;
-      //render a question component
-      return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
+
+  var sortedQuestions = questionsArr.sort((a, b) => {
+    return b.rating - a.rating;
+  });
+
+  var components = [];
+
+  for (var i = 0; i < sortedQuestions.length; i++) {
+    var question = questionsArr[i];
+    if (i < count) {
+      components.push(<Question key={question.question_id} questionBody={question.question_body} answers={question.answers}/>);
+    } else {
+      break;
     }
-    })
+  }
+  return components;
+
+  // return components;
+
+  // return questionsArr.map((element) => {
+  //   //if placeholder is less than count
+  //   if (done < count) {
+  //     //increment placeholder
+  //     done++;
+  //     //render a question component
+  //     return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
+  //   }
+  //   })
 }
 
 export var QuestionList = (props) => {
