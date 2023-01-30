@@ -2,17 +2,22 @@ import React from 'react';
 import Question from './Question.jsx';
 
 export var renderQuestions = function (count, questionsArr) {
-  //create a placeholder variable representing how many q's have been rendered set to 0
-  var done = 0;
-  return questionsArr.map((element) => {
-    //if placeholder is less than count
-    if (done < count) {
-      //increment placeholder
-      done++;
-      //render a question component
-      return <Question key={element.question_id} questionBody={element.question_body} answers={element.answers}/>
+
+  var sortedQuestions = questionsArr.sort((a, b) => {
+    return b.rating - a.rating;
+  });
+
+  var components = [];
+
+  for (var i = 0; i < sortedQuestions.length; i++) {
+    var question = questionsArr[i];
+    if (i < count) {
+      components.push(<Question key={question.question_id} questionBody={question.question_body} answers={question.answers}/>);
+    } else {
+      break;
     }
-    })
+  }
+  return components;
 }
 
 export var QuestionList = (props) => {
@@ -28,10 +33,16 @@ export var QuestionList = (props) => {
   var questions = renderQuestions(questionsCount, props.questions);
 
   return (
+
+  //create a boolean flag to control conditional rendering of More Answered Questions button
+  //if the questions array has more than 2 questions, and the questionsCount state is less than the questions array
+  //boolean flag is true
+  //otherwise its false
+
   <div>
   Question List
   {questions}
-  {props.questions.length > 2 && <button onClick={handleClick}>More Answered Questions</button>}
+  {props.questions.length > 2 && questionsCount < props.questions.length && <button onClick={handleClick}>More Answered Questions</button>}
   </div>
   )
 }
