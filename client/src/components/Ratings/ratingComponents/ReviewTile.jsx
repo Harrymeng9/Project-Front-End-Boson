@@ -2,6 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import {FaStar} from 'react-icons/fa';
+import Stars from './Stars.jsx';
 
 var ReviewTile = (props) => {
 
@@ -9,20 +10,7 @@ var ReviewTile = (props) => {
   // Return each review for a particular product
   return (
     <div>
-      {/* <div>Rating: {review.rating}</div> */}
-      <div>
-        {[...Array(5)].map((star, i) => {
-          const ratingValue = i + 1;
-
-          return (
-            <FaStar
-              className='stars'
-              key={i} size={30}
-              color={ratingValue <= review.rating ? "#000000" : "#ffffff"}
-            />
-          )
-        })}
-      </div>
+      <Stars singleRating = {review.rating} />
       <div>Date: {review.date}</div>
       <div>Summary: {review.summary}</div>
       <div>Body: {review.body}</div>
