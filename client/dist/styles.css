@@ -1,12 +1,39 @@
 /* Overview */
 
 
-/* Ratings */
+/*
+-----------Ratings-----------
+*/
+
+/* Ratings Component */
 .ratingsLeftRight {
   display: flex;
   column-gap: 200px;
 }
 
+/* Rating Breakdown Component */
+.avg-rating-star {
+  display: flex;
+}
+.avg-rating-score {
+  font-size: 50px;
+  font-weight: bolder;
+}
+.totalReviews{
+  margin-bottom: 10px;
+}
+
+.review-percentage {
+  margin-bottom: 10px;
+}
+
+/* Product Breakdown Component */
+
+/* ReviewList Component */
+
+/* ReviewTile Component */
+
+/* Modal Component */
 .modal-container {
   position: fixed;
   width: 80%;
@@ -16,6 +43,30 @@
   padding: 10px;
 }
 
+/* Bar Component */
+.stars-bar-score {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.stars-decoration {
+  text-decoration: underline;
+}
+
+.greenBar {
+  height: 20px;
+  background:rgb(70, 117, 70);
+  margin-left: 10px;
+}
+.greyBar {
+  height: 20px;
+  background:rgb(206, 204, 204);
+}
+.star-reviews{
+  margin-left:10px;
+}
+
+/* Stars Component */
 
 
 /* Related */
