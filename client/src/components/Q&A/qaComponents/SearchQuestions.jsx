@@ -37,8 +37,11 @@ export var SearchQuestions = (props) => {
             //answer.answerId.body
           //push the current question to the array
     }
-    //set questions state equal to the filtered array
   }
+  props.setQuestions(filtered);
+}
+
+export var SearchQuestions = (props) => {
 
   return (
     <div>
@@ -54,7 +57,6 @@ export var SearchQuestions = (props) => {
   )
 }
 
-export default SearchQuestions;
 
 
 //# A search bar will appear above the questions list.
