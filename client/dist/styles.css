@@ -11,6 +11,10 @@
   column-gap: 200px;
 }
 
+#rating {
+  margin-bottom: 30px;
+}
+
 /* Rating Breakdown Component */
 .avg-rating-star {
   display: flex;
@@ -30,6 +34,38 @@
 }
 
 /* Product Breakdown Component */
+.product-set {
+  margin-bottom: 20px;
+}
+
+.product-category {
+  margin-bottom: 5px;
+}
+
+.product-descriptions {
+  display: flex;
+  justify-content: space-between;
+  width: 255px;
+}
+
+.product-icon {
+  width: 0;
+  position: relative;
+}
+
+.product-greyBar-icon {
+  display:flex;
+}
+
+.product-greyBar {
+  height: 20px;
+  background: rgb(206, 204, 204);
+}
+
+.product-description {
+  margin-top: 5px;
+  font-size: small;
+}
 
 /* ReviewList Component */
 .sort-options {

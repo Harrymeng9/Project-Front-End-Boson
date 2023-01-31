@@ -15,7 +15,6 @@ var ReviewList = (props) => {
   var fetchReviews = () => {
     axios.get('/reviews', { params: { product_id: props.product_id, page: page } })
       .then((data) => {
-        console.log('each review', data.data.results);
         setNewReviews(data.data.results);
         setReviewsList(reviewsList.concat(data.data.results));
       })
