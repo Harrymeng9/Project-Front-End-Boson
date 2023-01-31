@@ -83,7 +83,8 @@ app.get('/reviews', (req, res) => {
     }
   };
   var product_id = req.query.product_id;
-  axios.get(options.url, { headers: options.headers, params: { product_id: product_id } })
+  var page = req.query.page;
+  axios.get(options.url, { headers: options.headers, params: { page: page, count: 2, product_id: product_id } })
     .then((reviewsList) => {
       res.status(200).send(reviewsList.data);
     })

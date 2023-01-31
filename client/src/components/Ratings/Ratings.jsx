@@ -12,7 +12,7 @@ var Ratings = (props) => {
 
   useEffect(() => {
     // To get product breakdown info (product characteristics)
-    axios.get('/reviews/meta', { params: { product_id: 71697 } })
+    axios.get('/reviews/meta', { params: { product_id: props.productId } })
       .then((charsList) => {
         // console.log('charsList', charsList.data);
         setProductChar(charsList.data);
@@ -31,7 +31,7 @@ var Ratings = (props) => {
           {productChars && <RatingBreakdown productChars={productChars} />}
           {productChars && <ProductBreakdown productChars={productChars} />}
         </div>
-        <ReviewList />
+        <ReviewList product_id={props.productId} />
       </div>
     </div>
   )
