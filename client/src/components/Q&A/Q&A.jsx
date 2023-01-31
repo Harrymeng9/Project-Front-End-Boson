@@ -30,7 +30,7 @@ function QuestionAndAnswer (props) {
 return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
-    <SearchQuestions term={term} setTerm={setTerm}/>
+    <SearchQuestions term={term} setTerm={setTerm} questions={questions} setQuestions={setQuestions}/>
     <QuestionList questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
   </div>
 
