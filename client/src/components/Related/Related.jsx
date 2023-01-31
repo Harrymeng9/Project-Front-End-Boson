@@ -5,11 +5,11 @@ import Card from './relatedComponents/Card.jsx';
 import Overlay from './relatedComponents/Overlay.jsx';
 import axios from 'axios';
 
-export var products = function (relatedProds, setStarButtonClick, starButtonClick) {
+export var products = function (relatedProds, setStarButtonClick, starButtonClick, currentProductId, setCurrentProductFeatures, setSelectedRelatedProductFeatures) {
   // still need star rating
   return relatedProds.map((prod, index) => {
     return (
-      <Card key={index} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
+      <Card key={index} setCurrentProductFeatures={setCurrentProductFeatures} setSelectedRelatedProductFeatures={setSelectedRelatedProductFeatures} currentProduct={currentProductId} productId={prod.productId} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
     )
   })
 };
@@ -19,6 +19,8 @@ export var Related = (props) => {
   const [relatedProducts, setRelatedProducts] = useState([]);
   const [myOutfit, setMyOutfit] = useState([]);
   const [starButtonClick, setStarButtonClick] = useState(false);
+  const [currentProductFeatures, setCurrentProductFeatures] = useState([]);
+  const [selectedRelatedProductFeatures, setSelectedRelatedProductFeatures] = useState([]);
 
   useEffect(() => {
     // TO-DO: format the below endpoint to be dynamic (i.e. work for all product ids, not just 71697)
@@ -52,12 +54,14 @@ export var Related = (props) => {
       .then((relatedInfo) => {
         var data = [];
         for (var i = 1; i < relatedInfo.length; i += 2) {
+          var prodId = relatedInfo[i - 1].data.product_id;
           var image = relatedInfo[i - 1].data.results[0].photos[0].thumbnail_url;
           var name = relatedInfo[i].data.name;
           var category = relatedInfo[i].data.category;
           var price = relatedInfo[i].data.default_price;
 
           data.push({
+            productId: prodId,
             image: image,
             name: name,
             category: category,
@@ -75,8 +79,8 @@ export var Related = (props) => {
     <div>
       <h4>RELATED PRODUCTS</h4>
       <div className="related">
-        {products(relatedProducts, setStarButtonClick, starButtonClick)}
-        {starButtonClick ? <Overlay setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
+        {products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures)}
+        {starButtonClick ? <Overlay currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
       </div>
       <h4>YOUR OUTFIT</h4>
       <div className="your-fit">
