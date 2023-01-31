@@ -19,7 +19,7 @@ var InfoSingle = (props) => {
         <div>{props.slogan}</div>
         <div>{props.description}</div>
         <FeaturesList features={props.features} key={props.id} id={props.id}/>
-        <button onClick={() => { alert('Added to you styles') }}>⭐️</button>
+        <button onClick={() => { alert('Added to your outfit!') }}>⭐️</button>
       </div>
     )
   }
