@@ -1,40 +1,43 @@
 import React from 'react';
 
-var SearchQuestions = (props) => {
-
-  var handleChange = (e) => {
-    props.setTerm(e.target.value)
-    //create empty result array
-    var filtered = [];
-    if (props.term.length > 2) {
-      //if search term is at least 3 chars long...
-      //iterate over the questions array
-        //if the question body contains the term
-          //question.question_body.includes(props.term)
-          //push the current question to the array
-        //otherwise iterate over the answers object
-          //if the answer body contains the term
-            //answer.answerId.body
-          //push the current question to the array
+export var handleChange = (e) => {
+  props.setTerm(e.target.value)
+  var filtered = [];
+  if (props.term.length > 2) {
+    for (var i = 0; i < props.questions.length; i++) {
+      var question = props.questions[i];
+      if (question.question_body.includes(props.term)) {
+        filtered.push(question);
+      } else {
+        for (var key in question.answers) {
+          if (question.answers[key].body.includes(props.term)) {
+            filtered.push(question);
+          }
+        }
+      } else {
+        continue;
+      }
     }
-    //set questions state equal to the filtered array
   }
+  props.setQuestions(filtered);
+}
+
+export var SearchQuestions = (props) => {
 
   return (
     <div>
       <form>
         <input onChange={handleChange}
-        type="text"
-        name="search"
-        placeholder="Have a question? Search for answers…"
-        value={props.term}
+          type="text"
+          name="search"
+          placeholder="Have a question? Search for answers…"
+          value={props.term}
         />
       </form>
     </div>
   )
 }
 
-export default SearchQuestions;
 
 
 //# A search bar will appear above the questions list.
