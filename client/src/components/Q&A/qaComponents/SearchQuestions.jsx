@@ -1,6 +1,6 @@
 import React from 'react';
 
-var SearchQuestions = (props) => {
+export var SearchQuestions = (props) => {
 
   var handleChange = (e) => {
     props.setTerm(e.target.value)
@@ -21,9 +21,6 @@ var SearchQuestions = (props) => {
       props.setFiltered(filtered);
     }
   }
-}
-
-export var SearchQuestions = (props) => {
 
   return (
     <div>
