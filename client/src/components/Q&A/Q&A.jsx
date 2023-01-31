@@ -12,6 +12,7 @@ function QuestionAndAnswer (props) {
   const [filteredQuestions, setFiltered] = useState([]);
   const [questionsCount, setQuestionsCount] = useState(2)
   const [term, setTerm] = useState('');
+  const [term, setTerm] = useState('');
 
   useEffect(() => {
     //on component render
