@@ -3,8 +3,6 @@ import StarRatings from 'react-star-ratings';
 
 var Stars = (props) => {
 
-  var singleRating = props.singleRating;
-
   return (
     <div>
       <StarRatings
