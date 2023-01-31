@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import { FaStar } from 'react-icons/fa';
 import Stars from './Stars.jsx';
 import Bar from './Bar.jsx';
 
@@ -36,7 +35,6 @@ var RatingBreakdown = (props) => {
           </div>
         )
       })}
-      <br></br>
     </div>
   )
 }

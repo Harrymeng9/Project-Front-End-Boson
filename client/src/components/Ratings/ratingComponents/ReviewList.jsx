@@ -7,20 +7,29 @@ import Modal from './Modal.jsx';
 var ReviewList = (props) => {
 
   // var options = ['Relevant', 'Helpful', 'Newest'];
-  const [reviewsList, setReviewsList] = useState();
+  const [reviewsList, setReviewsList] = useState([]);
   const [modal, setModal] = useState(false);
+  const [page, setPage] = useState(1);
+  const [newReviews, setNewReviews] = useState([]);
 
-  useEffect(() => {
-    // Select a particular product_id for example
-    axios.get('/reviews', { params: { product_id: 71698 } })
-      .then((reviewsList) => {
-        // console.log('reviewsList', reviewsList.data);
-        setReviewsList(reviewsList.data);
+  var fetchReviews = () => {
+    axios.get('/reviews', { params: { product_id: props.product_id, page: page } })
+      .then((data) => {
+        setNewReviews(data.data.results);
+        setReviewsList(reviewsList.concat(data.data.results));
       })
       .catch((err) => {
         console.log(err);
       });
+  };
+
+  useEffect(() => {
+    fetchReviews();
   }, []);
+
+  useEffect(() => {
+    fetchReviews();
+  }, [page])
 
   if (reviewsList) {
     // Return a list of reviews for a particular product
@@ -33,16 +42,19 @@ var ReviewList = (props) => {
         <option value='Helpful'>Helpful</option>
         <option value='Newest'>Newest</option>
       </select> */}
-        {
-          reviewsList.results.map((result, i) => {
-            return (
-              <div key={i}>
-                <ReviewTile review={result} />
-              </div>
-            )
-          })
-        }
-        <button>MORE REVIEWS</button>
+
+        <div style={{ maxHeight: '800px', overflow: 'auto' }}>
+          {
+            reviewsList.map((result, i) => {
+              return (
+                <div key={i}>
+                  <ReviewTile review={result} />
+                </div>
+              )
+            })
+          }
+        </div>
+        {newReviews.length === 2 && <button onClick={(e) => setPage(page + 1)}>MORE REVIEWS</button>}
         <button onClick={(e) => setModal(!modal)}>ADD A REVIEW + </button>
         {modal && <Modal setModal={setModal} modal={modal} />}
       </div>
