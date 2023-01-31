@@ -22,6 +22,24 @@ export var SearchQuestions = (props) => {
     }
   }
 
+  var handleChange = (e) => {
+    props.setTerm(e.target.value)
+    //create empty result array
+    var filtered = [];
+    if (props.term.length > 2) {
+      //if search term is at least 3 chars long...
+      //iterate over the questions array
+        //if the question body contains the term
+          //question.question_body.includes(props.term)
+          //push the current question to the array
+        //otherwise iterate over the answers object
+          //if the answer body contains the term
+            //answer.answerId.body
+          //push the current question to the array
+    }
+    //set questions state equal to the filtered array
+  }
+
   return (
     <div>
       <form>
