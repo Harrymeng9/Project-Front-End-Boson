@@ -8,13 +8,14 @@ import StyleSelect from './ovComponents/styleSelect.jsx';
 
 var truth = false;
 
-var Overview = () => {
-
+var Overview = (props) => {
 
   //add the useState parameters here
   const [SKUS, setProds] = useState([]);
   const [skuInfo, setInfo] = useState([])
-
+  const [currentStyle, setStyle] = useState([])
+  const [related, setRelated] = useState([])
+  const [initial, setInitial] = useState([])
 
   // //add the axios get here
   var productGet = () => {
@@ -25,7 +26,17 @@ var Overview = () => {
     .catch(err => console.log(err))
   }
 
-  //single item
+  // first item to render //
+   var initialFetch = () => {
+    return axios.get(`/products/${props.initial}`)
+      .then(data => {
+        setInitial([data.data]);
+      })
+      .catch(err => console.log(err));
+}
+
+
+  // single item //
   var infoFetcher = (id) => {
       return axios.get(`/products/${id}`)
         .then(data => {
@@ -33,7 +44,6 @@ var Overview = () => {
         })
         .catch(err => console.log(err));
   }
-
 
   let setter = async () => {
     var saver = [];
@@ -46,25 +56,69 @@ var Overview = () => {
     setInfo(saver);
   }
 
+  // single style //
+  var styleFetcher = (id) => {
+    return axios.get(`/products/${id}/styles`)
+      .then(data => {
+        return data.data;
+      })
+      .catch(err => console.log(err));
+}
+
+let styler = async () => {
+  var saver = [];
+  for (var i = 0; i < SKUS.length; i++) {
+    await styleFetcher(SKUS[i].id)
+    .then (a => {
+      saver.push(a);
+    })
+  }
+  setStyle(saver);
+}
+
+  // related items//
+  var relatedFetcher = (id) => {
+    return axios.get(`/products/${id}/related`)
+      .then(data => {
+        return data.data;
+      })
+      .catch(err => console.log(err));
+}
+
+let relations = async () => {
+  var saver = [];
+  for (var i = 0; i < SKUS.length; i++) {
+    await relatedFetcher(SKUS[i].id)
+    .then (a => {
+      saver.push(a);
+    })
+  }
+  setRelated(saver);
+}
+
+
+// create a function that calls the axios requests on load
   let loader = () => {
     //checks and runs the setter function on page render only once
     if (truth === false) {
       setter();
+      styler();
+      relations();
+      initialFetch();
       truth = true;
     }
     //returns the components when finally called
     return (
       <div>
       <div>Product Overview </div>
-     <div>{skuInfo.length > 0 && <InfoList info={skuInfo}/>}</div>
-      <AddCart cart={SKUS}/>
+     <div>{<InfoList info={initial} styles={currentStyle}/>}</div>
+      {/* <AddCart cart={SKUS}/>
       <Gallery pics={SKUS}/>
-      <StyleSelect styles={SKUS}/>
+      <StyleSelect styles={currentStyle}/> */}
       <div>---------------------------------------</div>
     </div>
     )
   }
-
 
   //useEffect calling the get
   useEffect(() => {
@@ -73,7 +127,7 @@ var Overview = () => {
 
   //this is to crate a faux loading screen while the state is being set.
   //if the state is set, then we can fully render the app
-  if (Object.entries(SKUS).length === 0) {
+  if (props === undefined) {
     return (
       <div>Loading your products</div>
     )

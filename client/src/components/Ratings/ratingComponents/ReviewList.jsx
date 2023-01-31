@@ -26,22 +26,18 @@ var ReviewList = (props) => {
     // Return a list of reviews for a particular product
     return (
       <div id='reviewList'>
-        <div>Sorting</div>
-        <div> 248 reviews, sorted by relevant &nabla;</div>
-        <br></br>
+        <div className='sort-options'>Sorted by relevant &nabla;</div>
         {/* /* <Dropdown options={options} defaultValue = {options[0]} value = {options[0]}></Dropdown> */
     /* <select>
         <option value='Relevant'>Relevant</option>
         <option value='Helpful'>Helpful</option>
         <option value='Newest'>Newest</option>
       </select> */}
-        <div>Review List</div>
         {
           reviewsList.results.map((result, i) => {
             return (
               <div key={i}>
                 <ReviewTile review={result} />
-                <br></br>
               </div>
             )
           })

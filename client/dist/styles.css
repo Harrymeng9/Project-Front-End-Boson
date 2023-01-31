@@ -15,11 +15,13 @@
 .avg-rating-star {
   display: flex;
 }
+
 .avg-rating-score {
   font-size: 50px;
   font-weight: bolder;
 }
-.totalReviews{
+
+.totalReviews {
   margin-bottom: 10px;
 }
 
@@ -30,8 +32,58 @@
 /* Product Breakdown Component */
 
 /* ReviewList Component */
+.sort-options {
+  margin-bottom: 20px;
+  font-weight: bold;
+}
 
 /* ReviewTile Component */
+.reviewTile {
+  margin-bottom: 20px;
+  width: 500px;
+}
+
+.reviewtile-summary {
+  font-weight: bold;
+  margin-bottom: 10px;
+  font-size: large;
+}
+
+.reviewtile-body {
+  margin-bottom: 10px;
+}
+
+.reviewtile-recommend {
+  margin-bottom: 10px;
+}
+
+.star-user-date {
+  display: flex;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.helpful-yes-report {
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.reviewtile-yes {
+  text-decoration: underline;
+  margin-right: 5px;
+}
+
+.reviewtile-report {
+  text-decoration: underline;
+}
+
+.reviewtile-helpful {
+  margin-right: 5px;
+}
+
+.reviewtile-count {
+  margin-right: 5px;
+}
 
 /* Modal Component */
 .modal-container {
@@ -55,15 +107,17 @@
 
 .greenBar {
   height: 20px;
-  background:rgb(70, 117, 70);
+  background: rgb(70, 117, 70);
   margin-left: 10px;
 }
+
 .greyBar {
   height: 20px;
-  background:rgb(206, 204, 204);
+  background: rgb(206, 204, 204);
 }
-.star-reviews{
-  margin-left:10px;
+
+.star-reviews {
+  margin-left: 10px;
 }
 
 /* Stars Component */
