@@ -35,7 +35,6 @@ var RatingBreakdown = (props) => {
           </div>
         )
       })}
-      <br></br>
     </div>
   )
 }
