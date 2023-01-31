@@ -2,9 +2,21 @@ import React from 'react';
 
 var SearchQuestions = (props) => {
 
+  var handleChange = (e) => {
+    props.setTerm(e.target.value)
+    console.log(props.term);
+  }
+
   return (
     <div>
-      Search Questions Component
+      <form>
+        <input onChange={handleChange}
+        type="text"
+        name="search"
+        placeholder="Have a question? Search for answers…"
+        value={props.term}
+        />
+      </form>
     </div>
   )
 }
@@ -22,5 +34,5 @@ export default SearchQuestions;
 //If the user clears the search term, or removes characters so that less than 3 remain,
 //the list should return to the state where it is not filtered to matching text.
 //The search filter should work with any other filters or sorts that have been applied,
-//and narrow the results further.   Changes to the sort and rating
-//filters should not remove the search term filter.
+//and narrow the results further.
+//Changes to the sort and rating filters should not remove the search term filter.

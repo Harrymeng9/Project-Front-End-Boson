@@ -9,6 +9,7 @@ function QuestionAndAnswer (props) {
 
   const [questions, setQuestions] = useState([]);
   const [questionsCount, setQuestionsCount] = useState(2)
+  const [term, setTerm] = useState('');
 
   useEffect(() => {
     //on component render
@@ -29,7 +30,7 @@ function QuestionAndAnswer (props) {
 return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
-    <SearchQuestions />
+    <SearchQuestions term={term} setTerm={setTerm}/>
     <QuestionList questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
   </div>
 
