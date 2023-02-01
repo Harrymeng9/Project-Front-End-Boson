@@ -4,11 +4,11 @@ import axios from 'axios';
 import FeaturesList from './featuresList.jsx';
 
 var InfoSingle = (props) => {
-
+  console.log('infl', props)
   // add return/render here
   return (
     props === undefined ?
-      <div>loading</div> :
+      <div>Loading the Product</div> :
       <div>
         <h2>{props.name}</h2>
         <div>Product Category: {props.category}</div>

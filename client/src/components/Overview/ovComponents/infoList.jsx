@@ -10,7 +10,7 @@ var InfoList = (props) => {
   // add return/render here
   if (props === undefined) {
     return (
-      <div>loading</div>
+      <div>Loading the Product</div>
     )
   } else {
     return (
