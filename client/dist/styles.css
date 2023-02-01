@@ -92,7 +92,7 @@ padding-bottom: 100px;
 }
 
 .product-greyBar-icon {
-  display:flex;
+  display: flex;
 }
 
 .product-greyBar {
@@ -262,15 +262,15 @@ padding-bottom: 100px;
 .overlay-background {
   width: 100vw;
   height: 50vh;
-  position: relative;
+  position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .overlay-container {
-  width: 300px;
-  height: 300;
+  width: 400px;
+  height: 400px;
   background-color: white;
   border: 1px solid gray;
   display: flex;
@@ -287,6 +287,19 @@ padding-bottom: 100px;
 
 .overlay-container-title {
   text-align: center;
+}
+
+.overlay-items {
+  display: flex;
+  justify-content: center;
+}
+
+.overlay-features {
+  text-align: center;
+}
+
+.overlay-padding {
+  padding: 10%;
 }
 
 

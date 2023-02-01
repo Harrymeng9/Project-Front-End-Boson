@@ -5,11 +5,11 @@ import Card from './relatedComponents/Card.jsx';
 import Overlay from './relatedComponents/Overlay.jsx';
 import axios from 'axios';
 
-export var products = function (relatedProds, setStarButtonClick, starButtonClick, currentProductId, setCurrentProductFeatures, setSelectedRelatedProductFeatures) {
+export var products = function (relatedProds, setStarButtonClick, starButtonClick, currentProductId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName) {
   // still need star rating
   return relatedProds.map((prod, index) => {
     return (
-      <Card key={index} setCurrentProductFeatures={setCurrentProductFeatures} setSelectedRelatedProductFeatures={setSelectedRelatedProductFeatures} currentProduct={currentProductId} productId={prod.productId} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
+      <Card key={index} setCurrentProductName={setCurrentProductName} setSelectedRelatedProductName={setSelectedRelatedProductName} setCurrentProductFeatures={setCurrentProductFeatures} setSelectedRelatedProductFeatures={setSelectedRelatedProductFeatures} currentProduct={currentProductId} productId={prod.productId} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
     )
   })
 };
@@ -21,11 +21,13 @@ export var Related = (props) => {
   const [starButtonClick, setStarButtonClick] = useState(false);
   const [currentProductFeatures, setCurrentProductFeatures] = useState([]);
   const [selectedRelatedProductFeatures, setSelectedRelatedProductFeatures] = useState([]);
+  const [selectedRelatedProductName, setSelectedRelatedProductName] = useState(null);
+  const [currentProductName, setCurrentProductName] = useState(null);
 
   useEffect(() => {
-    // TO-DO: format the below endpoint to be dynamic (i.e. work for all product ids, not just 71697)
     axios.get(`/products/${props.productId}/related`)
       .then((results) => {
+        console.log('results', results);
         var info = [];
         for (var i = 0; i < results.data.length; i++) {
           var image = new Promise((resolve, reject) => {
@@ -79,8 +81,8 @@ export var Related = (props) => {
     <div>
       <h4>RELATED PRODUCTS</h4>
       <div className="related">
-        {products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures)}
-        {starButtonClick ? <Overlay currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
+        {products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName)}
+        {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
       </div>
       <h4>YOUR OUTFIT</h4>
       <div className="your-fit">

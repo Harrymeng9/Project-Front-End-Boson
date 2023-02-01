@@ -10,10 +10,13 @@ var Card = (props) => {
 
   var handleStarButtonClick = () => {
     props.setStarButtonClick(!props.starButtonClick);
+    props.setSelectedRelatedProductName(props.name);
+
     var selectedRelatedProduct = props.productId;
 
     axios.get(`/products/${props.currentProduct}`)
       .then((results) => {
+        props.setCurrentProductName(results.data.name);
         var features = results.data.features;
         var currentProductFeatures = [];
         for (var i = 0; i < features.length; i++) {
