@@ -15,15 +15,18 @@ var StyleSelect = (props) => {
   return (
     props.styles.length === 0 ?
       <h3> Loading your styles </h3>
-      : <div>
+      : <div >
         <h3>Available Styles for this Product</h3>
-      {props.styles.map(x => {
+        <div className="styleCont">
+        {props.styles.map(x => {
         return (
           <IndStyle key={x.style_id} name={x.name} price={x.original_price}/>
         )
       }
 
       )}
+        </div>
+
     </div>
   )
 }
