@@ -8,12 +8,10 @@ var FeaturesList = (props) => {
   var id = 0;
 
   // add return/render here
-  if (props === undefined) {
     return (
-      <div>loading</div>
-    )
-  } else {
-    return (
+      props === undefined ?
+      <div>Loading the Product</div> :
+
       <div>
         <h3>Product Features</h3>
       {features.map(block => {
@@ -26,6 +24,5 @@ var FeaturesList = (props) => {
     )
   }
 
-}
 
 export default FeaturesList;
