@@ -1,8 +1,12 @@
 import React from 'react';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Feature from './Feature.jsx';
+
 
 var Overlay = (props) => {
+
+
   const [combinedFeaturesNoDupes, setCombinedFeaturesNoDupes] = useState([]);
 
   useEffect(() => {
@@ -14,18 +18,13 @@ var Overlay = (props) => {
   }, [props.currentProductFeatures, props.selectedRelatedProductFeatures]);
 
   var features = combinedFeaturesNoDupes.map((feature, index) => {
+
     return (
-      <ul key={index}>{feature}</ul>
+      <div className="overlay-features" key={index}>
+        <Feature feature={feature} currentProductFeatures={props.currentProductFeatures} selectedRelatedProductFeatures={props.selectedRelatedProductFeatures} />
+      </div>
     )
-  })
-
-  var returnCurrentCheckmarks = () => {
-
-  };
-
-  var returnSelectedRelatedCheckmarks = () => {
-
-  };
+  });
 
 
   return (
@@ -34,7 +33,6 @@ var Overlay = (props) => {
         <button onClick={() => { props.setStarButtonClick(!props.starButtonClick) }} className="overlay-close-button">X</button>
         <p className="overlay-container-title">Comparing</p>
         <div className="overlay-information">
-
           <div className="overlay-items">
             <div>
               <h4>{props.currentProductName}</h4>
@@ -44,9 +42,8 @@ var Overlay = (props) => {
               <h4>{props.selectedRelatedProductName}</h4>
             </div>
           </div>
-          <div className="overlay-features">
-            {features}
-            {/* {// need divs here, one above, one below features, with corresponding checkmarks for feature presence} */}
+          <div>
+            <div>{features}</div>
           </div>
         </div>
       </div>
