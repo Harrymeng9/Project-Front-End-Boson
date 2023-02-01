@@ -297,13 +297,16 @@ padding-bottom: 100px;
 .overlay-features {
   display: flex;
   justify-content: space-around;
+  align-items: center;
 }
 
 .overlay-padding {
   padding: 10%;
 }
 
-.left-checkmark {}
+.checkmark {
+  display: flex;
+}
 
 
 
