@@ -2,7 +2,6 @@ import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import AddCart from './ovComponents/addCart.jsx';
-import Gallery from './ovComponents/gallery.jsx';
 import InfoList from './ovComponents/infoList.jsx';
 import StyleSelect from './ovComponents/styleSelect.jsx';
 
@@ -12,10 +11,11 @@ var Overview = (props) => {
 
   //add the useState parameters here
   const [SKUS, setProds] = useState([]);
-  const [skuInfo, setInfo] = useState([])
-  const [currentStyle, setStyle] = useState([])
-  const [related, setRelated] = useState([])
-  const [initial, setInitial] = useState([])
+  const [skuInfo, setInfo] = useState([]);
+  const [currentStyle, setStyle] = useState([]);
+  const [related, setRelated] = useState([]);
+  const [initial, setInitial] = useState([]);
+  const [intStyle, setIntStyle] = useState([]);
 
   // //add the axios get here
   var productGet = () => {
@@ -35,7 +35,16 @@ var Overview = (props) => {
       .catch(err => console.log(err));
 }
 
+  var firstStyle = () => {
+    return axios.get(`/products/${props.initial}/styles`)
+      .then(data => {
+        setIntStyle(data.data.results);
+      })
+      .catch(err => console.log(err));
+  }
 
+
+///////////////////////////////////////////
   // single item //
   var infoFetcher = (id) => {
       return axios.get(`/products/${id}`)
@@ -105,16 +114,16 @@ let relations = async () => {
       styler();
       relations();
       initialFetch();
+      firstStyle();
       truth = true;
     }
     //returns the components when finally called
     return (
       <div>
-      <div>Product Overview </div>
+      <h2>Product Overview </h2>
      <div>{<InfoList info={initial} styles={currentStyle}/>}</div>
-      {/* <AddCart cart={SKUS}/>
-      <Gallery pics={SKUS}/>
-      <StyleSelect styles={currentStyle}/> */}
+      {/* <AddCart cart={SKUS}/> */}
+      <StyleSelect styles={intStyle} id={props.initial}/>
       <div>---------------------------------------</div>
     </div>
     )

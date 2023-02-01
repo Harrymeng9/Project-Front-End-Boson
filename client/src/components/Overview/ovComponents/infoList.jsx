@@ -15,7 +15,6 @@ var InfoList = (props) => {
   } else {
     return (
       <div>
-        <h2>List of Products</h2>
         <div>
           {single.map(block => {
             return (
