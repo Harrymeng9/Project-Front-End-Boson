@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import axios from 'axios';
 import Feature from './Feature.jsx';
 
-
 var Overlay = (props) => {
 
 
@@ -18,7 +17,6 @@ var Overlay = (props) => {
   }, [props.currentProductFeatures, props.selectedRelatedProductFeatures]);
 
   var features = combinedFeaturesNoDupes.map((feature, index) => {
-
     return (
       <div className="overlay-features" key={index}>
         <Feature feature={feature} currentProductFeatures={props.currentProductFeatures} selectedRelatedProductFeatures={props.selectedRelatedProductFeatures} />

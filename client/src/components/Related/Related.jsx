@@ -27,7 +27,6 @@ export var Related = (props) => {
   useEffect(() => {
     axios.get(`/products/${props.productId}/related`)
       .then((results) => {
-        console.log('results', results);
         var info = [];
         for (var i = 0; i < results.data.length; i++) {
           var image = new Promise((resolve, reject) => {

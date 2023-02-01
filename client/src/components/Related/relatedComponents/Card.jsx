@@ -2,6 +2,7 @@
 import React from "react";
 import { useState } from "react";
 import axios from 'axios';
+import { ImStarFull } from 'react-icons/im';
 
 var Card = (props) => {
   /* will need: product category, product name, price, star rating,
@@ -62,7 +63,7 @@ var Card = (props) => {
   return (
     <div className="card">
       <div className="related-image-container">
-        <button onClick={handleStarButtonClick} className="related-image-button">Star</button>
+        <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
         <img className="related-image" src={props.image}></img>
       </div>
       <div>
