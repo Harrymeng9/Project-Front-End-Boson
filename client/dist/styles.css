@@ -1,5 +1,9 @@
 /* Overview */
 
+.overviewMain {
+padding-bottom: 100px;
+}
+
 .styleCont {
   height: 100px;
   padding: 5px;
@@ -16,7 +20,21 @@
   justify-content: space-between;
   object-fit: cover;
 }
-
+.gallery {
+  height: 100px;
+  padding: 5px;
+  justify-content: space-between;
+}
+.singlePic .thumbNail{
+  border-radius: 30%;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  float: left;
+  cursor: pointer;
+  justify-content: space-between;
+  object-fit: cover;
+}
 
 
 
