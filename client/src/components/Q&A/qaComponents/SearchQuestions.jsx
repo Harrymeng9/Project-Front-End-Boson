@@ -6,6 +6,7 @@ export var SearchQuestions = (props) => {
     props.setTerm(e.target.value)
     var filtered = [];
     if (props.term.length >= 3) {
+      console.log('should just be the 3 questions array', props.questions);
       for (var i = 0; i < props.questions.length; i++) {
         var question = props.questions[i];
         if (question.question_body.includes(props.term)) {
@@ -16,17 +17,13 @@ export var SearchQuestions = (props) => {
             filtered.push(question);
           }
         }
+        console.log(filtered);
+        props.setFiltered(filtered);
       }
       //set filtered questions state to filtered array
-      props.setQuestions(filtered);
-    } else {
-      console.log('else...', unfiltered);
-      props.setQuestions(unfiltered);
+      props.setFiltered(filtered);
     }
   }
-}
-
-export var SearchQuestions = (props) => {
 
   return (
     <div>

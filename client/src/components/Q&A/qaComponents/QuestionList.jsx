@@ -29,7 +29,8 @@ export var QuestionList = (props) => {
 
   var questionsCount = props.questionsCount;
 
-  if (props.term.length >= 3) {
+  if (props.term.length >= 3 && props.filteredQuestions) {
+    console.log(props.filteredQuestions);
     var questions = renderQuestions(questionsCount, props.filteredQuestions);
   } else {
     var questions = renderQuestions(questionsCount, props.questions);
@@ -45,7 +46,7 @@ export var QuestionList = (props) => {
   <div>
   Question List
   {questions}
-  {questions.length > 2 && questionsCount < questions.length && <button onClick={handleClick}>More Answered Questions</button>}
+  {props.questions.length > 2 && questionsCount < props.questions.length && <button onClick={handleClick}>More Answered Questions</button>}
   </div>
   )
 }
