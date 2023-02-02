@@ -32,7 +32,7 @@ return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
     <SearchQuestions term={term} setTerm={setTerm} filteredQuestions={filteredQuestions} setFiltered={setFiltered}/>
-    <QuestionList questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
+    <QuestionList term={term} questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
   </div>
 
 )

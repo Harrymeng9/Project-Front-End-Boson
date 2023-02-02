@@ -5,7 +5,7 @@ var SearchQuestions = (props) => {
   var handleChange = (e) => {
     props.setTerm(e.target.value)
     var filtered = [];
-    if (props.term.length > 2) {
+    if (props.term.length >= 3) {
       for (var i = 0; i < props.questions.length; i++) {
         var question = props.questions[i];
         if (question.question_body.includes(props.term)) {
@@ -18,13 +18,9 @@ var SearchQuestions = (props) => {
         }
       }
       //set filtered questions state to filtered array
-      props.setQuestions(filtered);
-    } else {
-      console.log('else...', unfiltered);
-      props.setQuestions(unfiltered);
+      props.setFiltered(filtered);
     }
   }
-  props.setQuestions(filtered);
 }
 
 export var SearchQuestions = (props) => {
