@@ -27,10 +27,13 @@ export var QuestionList = (props) => {
     props.setQuestionsCount(newCount)
   }
 
-  //store current int at questionsCount state
   var questionsCount = props.questionsCount;
 
-  var questions = renderQuestions(questionsCount, props.questions);
+  if (props.term.length >= 3) {
+    var questions = renderQuestions(questionsCount, props.filteredQuestions);
+  } else {
+    var questions = renderQuestions(questionsCount, props.questions);
+  }
 
   return (
 
@@ -42,7 +45,7 @@ export var QuestionList = (props) => {
   <div>
   Question List
   {questions}
-  {props.questions.length > 2 && questionsCount < props.questions.length && <button onClick={handleClick}>More Answered Questions</button>}
+  {questions.length > 2 && questionsCount < questions.length && <button onClick={handleClick}>More Answered Questions</button>}
   </div>
   )
 }
