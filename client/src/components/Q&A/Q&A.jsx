@@ -1,14 +1,15 @@
 import React from 'react';
 import { QuestionList } from './qaComponents/QuestionList.jsx';
 import AnswerList from './qaComponents/AnswerList.jsx';
-import SearchQuestions from './qaComponents/SearchQuestions.jsx';
+import { SearchQuestions } from './qaComponents/SearchQuestions.jsx';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
 function QuestionAndAnswer (props) {
 
   const [questions, setQuestions] = useState([]);
-  const [questionsCount, setQuestionsCount] = useState(2)
+  const [filteredQuestions, setFiltered] = useState([]);
+  const [term, setTerm] = useState('');
 
   useEffect(() => {
     //on component render
@@ -29,8 +30,8 @@ function QuestionAndAnswer (props) {
 return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
-    <SearchQuestions />
-    <QuestionList questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
+    <SearchQuestions term={term} setTerm={setTerm} questions={questions} filteredQuestions={filteredQuestions} setFiltered={setFiltered}/>
+    <QuestionList term={term} questions={questions} filteredQuestions={filteredQuestions}/>
   </div>
 
 )

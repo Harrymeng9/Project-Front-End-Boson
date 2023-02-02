@@ -1,5 +1,6 @@
 import React from 'react';
 import Question from './Question.jsx';
+import { useState, useEffect } from "react";
 
 export var renderQuestions = function (count, questionsArr) {
 
@@ -22,27 +23,27 @@ export var renderQuestions = function (count, questionsArr) {
 
 export var QuestionList = (props) => {
 
+  const [questionsCount, setQuestionsCount] = useState(2)
+
   var handleClick = () => {
-    var newCount = props.questionsCount + 2;
-    props.setQuestionsCount(newCount)
+    var newCount = questionsCount + 2;
+    setQuestionsCount(newCount);
   }
 
-  //store current int at questionsCount state
-  var questionsCount = props.questionsCount;
-
-  var questions = renderQuestions(questionsCount, props.questions);
+  if (props.term.length >= 3 && props.filteredQuestions) {
+    var questions = renderQuestions(questionsCount, props.filteredQuestions);
+    var length = props.filteredQuestions.length;
+  } else {
+    var questions = renderQuestions(questionsCount, props.questions);
+    var length = props.questions.length;
+  }
 
   return (
-
-  //create a boolean flag to control conditional rendering of More Answered Questions button
-  //if the questions array has more than 2 questions, and the questionsCount state is less than the questions array
-  //boolean flag is true
-  //otherwise its false
 
   <div>
   Question List
   {questions}
-  {props.questions.length > 2 && questionsCount < props.questions.length && <button onClick={handleClick}>More Answered Questions</button>}
+  {length > 2 && questionsCount < length && <button onClick={handleClick}>More Answered Questions</button>}
   </div>
   )
 }

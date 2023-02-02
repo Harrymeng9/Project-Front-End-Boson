@@ -6,6 +6,8 @@ import '@testing-library/jest-dom';
 import { renderQuestions } from "./qaComponents/QuestionList.jsx";
 import { render, screen, getByText } from '@testing-library/react';
 import QuestionAndAnswer from "./Q&A.jsx";
+import { SearchQuestions } from "./qaComponents/SearchQuestions.jsx";
+import { handleChange } from "./qaComponents/SearchQuestions.jsx";
 
 
 describe("Function Tests", function () {
