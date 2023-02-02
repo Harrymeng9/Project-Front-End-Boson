@@ -36,6 +36,7 @@ export var SearchQuestions = (props) => {
   )
 }
 
+export default SearchQuestions;
 
 
 //# A search bar will appear above the questions list.
