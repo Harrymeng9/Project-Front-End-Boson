@@ -58,15 +58,19 @@ var Card = (props) => {
       .catch((error) => {
         console.log('There is an error in Card.jsx when trying to get selected related product features', error);
       })
-  }
+  };
+
+  var handleCardClick = () => {
+    props.setProductId(props.productId);
+  };
 
   return (
     <div className="card">
       <div className="related-image-container">
         <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
-        <img className="related-image" src={props.image}></img>
+        <img className="related-image" src={props.image} onClick={handleCardClick}></img>
       </div>
-      <div>
+      <div onClick={handleCardClick}>
         <p className="related-details">{props.category}</p>
         <p className="related-details">{props.name}</p>
         <p className="related-details">{props.price}</p>
