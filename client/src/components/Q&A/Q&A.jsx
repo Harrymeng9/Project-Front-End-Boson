@@ -9,8 +9,6 @@ function QuestionAndAnswer (props) {
 
   const [questions, setQuestions] = useState([]);
   const [filteredQuestions, setFiltered] = useState([]);
-  const [filteredQuestions, setFiltered] = useState([]);
-  const [term, setTerm] = useState('');
   const [term, setTerm] = useState('');
 
   useEffect(() => {
