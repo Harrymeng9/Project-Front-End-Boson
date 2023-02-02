@@ -1,28 +1,29 @@
 import React from 'react';
 
-export var handleChange = (e) => {
-  props.setTerm(e.target.value)
-  var filtered = [];
-  if (props.term.length > 2) {
-    for (var i = 0; i < props.questions.length; i++) {
-      var question = props.questions[i];
-      if (question.question_body.includes(props.term)) {
-        filtered.push(question);
-      } else {
+var SearchQuestions = (props) => {
+
+  var handleChange = (e) => {
+    props.setTerm(e.target.value)
+    var filtered = [];
+    if (props.term.length > 2) {
+      for (var i = 0; i < props.questions.length; i++) {
+        var question = props.questions[i];
+        if (question.question_body.includes(props.term)) {
+          filtered.push(question);
+        }
         for (var key in question.answers) {
           if (question.answers[key].body.includes(props.term)) {
             filtered.push(question);
           }
         }
-      } else {
-        continue;
       }
+      //set filtered questions state to filtered array
+      props.setQuestions(filtered);
+    } else {
+      console.log('else...', unfiltered);
+      props.setQuestions(unfiltered);
     }
   }
-  props.setQuestions(filtered);
-}
-
-export var SearchQuestions = (props) => {
 
   return (
     <div>
@@ -38,6 +39,7 @@ export var SearchQuestions = (props) => {
   )
 }
 
+export default SearchQuestions;
 
 
 //# A search bar will appear above the questions list.
