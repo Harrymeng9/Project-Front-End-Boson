@@ -5,6 +5,7 @@ import QuestionAndAnswer from "./Q&A/Q&A.jsx";
 import Ratings from "./Ratings/Ratings.jsx";
 import { Related } from "./Related/Related.jsx";
 import axios from 'axios';
+import ErrorBoundary from '../Utils/ErrorBoundary.jsx';
 
 var App = () => {
   //add state data as needed here
@@ -12,7 +13,7 @@ var App = () => {
 
   return (
     <div>
-      <div className="overviewMain"><Overview initial={productId}/></div>
+      <div className="overviewMain"><Overview initial={productId} /></div>
       <div><Related productId={productId} /></div>
       <div><QuestionAndAnswer productId={productId} /></div>
       <div><Ratings productId={productId} /></div>
