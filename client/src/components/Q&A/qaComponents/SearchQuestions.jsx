@@ -1,11 +1,12 @@
 import React from 'react';
 
-var SearchQuestions = (props) => {
+export var SearchQuestions = (props) => {
 
   var handleChange = (e) => {
     props.setTerm(e.target.value)
     var filtered = [];
     if (props.term.length >= 3) {
+      console.log('should just be the 3 questions array', props.questions);
       for (var i = 0; i < props.questions.length; i++) {
         var question = props.questions[i];
         if (question.question_body.includes(props.term)) {
@@ -16,14 +17,11 @@ var SearchQuestions = (props) => {
             filtered.push(question);
           }
         }
+        console.log(filtered);
+        props.setFiltered(filtered);
       }
-      //set filtered questions state to filtered array
-      props.setFiltered(filtered);
     }
   }
-}
-
-export var SearchQuestions = (props) => {
 
   return (
     <div>
