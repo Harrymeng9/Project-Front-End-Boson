@@ -8,6 +8,7 @@ import axios from "axios";
 function QuestionAndAnswer (props) {
 
   const [questions, setQuestions] = useState([]);
+  const [filteredQuestions, setFiltered] = useState([]);
   const [questionsCount, setQuestionsCount] = useState(2)
   const [term, setTerm] = useState('');
 
@@ -30,7 +31,7 @@ function QuestionAndAnswer (props) {
 return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
-    <SearchQuestions term={term} setTerm={setTerm} questions={questions} setQuestions={setQuestions}/>
+    <SearchQuestions term={term} setTerm={setTerm} filteredQuestions={filteredQuestions} setFiltered={setFiltered}/>
     <QuestionList questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
   </div>
 
