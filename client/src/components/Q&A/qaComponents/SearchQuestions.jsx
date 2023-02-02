@@ -24,6 +24,10 @@ var SearchQuestions = (props) => {
       props.setQuestions(unfiltered);
     }
   }
+  props.setQuestions(filtered);
+}
+
+export var SearchQuestions = (props) => {
 
   return (
     <div>
@@ -39,7 +43,6 @@ var SearchQuestions = (props) => {
   )
 }
 
-export default SearchQuestions;
 
 
 //# A search bar will appear above the questions list.
