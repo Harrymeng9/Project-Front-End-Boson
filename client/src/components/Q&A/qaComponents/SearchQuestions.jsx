@@ -30,10 +30,10 @@ export var SearchQuestions = (props) => {
     <div>
       <form>
         <input onChange={handleChange}
-          type="text"
-          name="search"
-          placeholder="Have a question? Search for answers…"
-          value={props.term}
+            type="text"
+            name="search"
+            placeholder="Have a question? Search for answers…"
+            value={props.term}
         />
       </form>
     </div>
