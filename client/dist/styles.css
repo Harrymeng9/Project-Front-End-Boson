@@ -166,12 +166,41 @@
 /* Modal Component */
 .modal-container {
   position: fixed;
-  width: 80%;
-  background: #3a56ab;
+  width: 60%;
+  background: #7d88ad;
   left: 10%;
   top: 10%;
   padding: 10px;
 }
+
+.writeReview-mainTitle {
+  font-size: larger;
+  margin-bottom: 5px;
+  font-weight: bolder;
+}
+
+.writeReview-subtitle {
+  margin-bottom: 20px;
+}
+
+.writeReview-title {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.writeReview-starimage {
+  margin-right: 10px;
+}
+
+.writeReview-starimage-desc {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.writeReview-title-box {
+  margin-bottom: 10px;
+}
+
 
 /* Bar Component */
 .stars-bar-score {
@@ -199,7 +228,6 @@
 }
 
 /* Stars Component */
-
 
 /* Related */
 .related {
