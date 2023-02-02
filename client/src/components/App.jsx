@@ -12,7 +12,7 @@ var App = () => {
 
   return (
     <div>
-      <div><Overview initial={productId}/></div>
+      <div className="overviewMain"><Overview initial={productId}/></div>
       <div><Related productId={productId} /></div>
       <div><QuestionAndAnswer productId={productId} /></div>
       <div><Ratings productId={productId} /></div>
