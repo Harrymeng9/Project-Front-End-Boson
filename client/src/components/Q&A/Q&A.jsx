@@ -9,6 +9,7 @@ function QuestionAndAnswer (props) {
 
   const [questions, setQuestions] = useState([]);
   const [filteredQuestions, setFiltered] = useState([]);
+  const [filteredQuestions, setFiltered] = useState([]);
   const [questionsCount, setQuestionsCount] = useState(2)
   const [term, setTerm] = useState('');
 
