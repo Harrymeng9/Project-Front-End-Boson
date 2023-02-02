@@ -1,12 +1,12 @@
 import React from 'react';
 
-export var SearchQuestions = (props) => {
+var SearchQuestions = (props) => {
 
   var handleChange = (e) => {
     props.setTerm(e.target.value)
     var filtered = [];
     if (props.term.length >= 3) {
-      console.log('should just be the 3 questions array', props.questions);
+      //confirmed that props.questions logs expected array of questions
       for (var i = 0; i < props.questions.length; i++) {
         var question = props.questions[i];
         if (question.question_body.includes(props.term)) {
@@ -17,7 +17,8 @@ export var SearchQuestions = (props) => {
             filtered.push(question);
           }
         }
-        console.log(filtered);
+        //the log below shows me the array i am expecting in the console
+        console.log('before setting state', filtered);
         props.setFiltered(filtered);
       }
       //set filtered questions state to filtered array
@@ -39,7 +40,7 @@ export var SearchQuestions = (props) => {
   )
 }
 
-
+export default SearchQuestions;
 
 //# A search bar will appear above the questions list.
 //Search terms entered in this text input will filter the list for matching results.

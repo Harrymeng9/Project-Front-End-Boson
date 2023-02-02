@@ -1,7 +1,7 @@
 import React from 'react';
 import { QuestionList } from './qaComponents/QuestionList.jsx';
 import AnswerList from './qaComponents/AnswerList.jsx';
-import { SearchQuestions } from './qaComponents/SearchQuestions.jsx';
+import SearchQuestions from './qaComponents/SearchQuestions.jsx';
 import { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -10,7 +10,6 @@ function QuestionAndAnswer (props) {
   const [questions, setQuestions] = useState([]);
   const [filteredQuestions, setFiltered] = useState([]);
   const [filteredQuestions, setFiltered] = useState([]);
-  const [questionsCount, setQuestionsCount] = useState(2)
   const [term, setTerm] = useState('');
   const [term, setTerm] = useState('');
 
@@ -34,7 +33,7 @@ return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
     <SearchQuestions term={term} setTerm={setTerm} questions={questions} filteredQuestions={filteredQuestions} setFiltered={setFiltered}/>
-    <QuestionList term={term} questions={questions} questionsCount={questionsCount} setQuestionsCount={setQuestionsCount}/>
+    <QuestionList term={term} questions={questions} filteredQuestions={filteredQuestions}/>
   </div>
 
 )
