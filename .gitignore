@@ -2,5 +2,10 @@ node_modules
 .env
 client/dist/bundle.js
 client/dist/bundle.js.map
+<<<<<<< Updated upstream
 client/dist/bundle.js.LICENSE.txt
 coverage
+=======
+client/dist/bundle.js.LICENSE.tx
+coverage/
+>>>>>>> Stashed changes
