@@ -1,6 +1,6 @@
 import React from 'react';
 
-var SearchQuestions = (props) => {
+export var SearchQuestions = (props) => {
 
   var handleChange = (e) => {
     props.setTerm(e.target.value)
@@ -40,7 +40,6 @@ var SearchQuestions = (props) => {
   )
 }
 
-export default SearchQuestions;
 
 //# A search bar will appear above the questions list.
 //Search terms entered in this text input will filter the list for matching results.
