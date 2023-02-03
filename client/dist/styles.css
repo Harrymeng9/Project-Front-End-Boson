@@ -252,6 +252,7 @@
 .related-carousel {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .card {
@@ -325,6 +326,7 @@
   display: flex;
   flex-direction: column;
   overflow-y: scroll;
+  z-index: 1;
 }
 
 .overlay-close-button {
@@ -333,6 +335,7 @@
   background-color: transparent;
   border: none;
   cursor: pointer;
+  font-size: large;
 }
 
 .overlay-container-title {
