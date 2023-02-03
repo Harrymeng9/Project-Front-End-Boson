@@ -1,6 +1,7 @@
 import React from 'react';
 import Question from './Question.jsx';
 import { useState, useEffect } from "react";
+import QuestionModal from './QuestionModal.jsx';
 
 export var renderQuestions = function (count, questionsArr) {
 
@@ -30,6 +31,11 @@ export var QuestionList = (props) => {
     setQuestionsCount(newCount);
   }
 
+  var handleAddQuestionClick = () => {
+    //set Modal state to opposite of current state
+    props.setQuestionModal(!props.questionModal);
+  }
+
   if (props.term.length >= 3 && props.filteredQuestions) {
     var questions = renderQuestions(questionsCount, props.filteredQuestions);
     var length = props.filteredQuestions.length;
@@ -44,7 +50,10 @@ export var QuestionList = (props) => {
     {questions}
     {length > 2 && questionsCount < length && <button onClick={handleClick}>More Answered Questions</button>}
     <div>
-      <button>Ask a Question</button>
+      <button onClick={handleAddQuestionClick}>Ask a Question</button>
+    </div>
+    <div>
+      {props.questionModal && <QuestionModal />}
     </div>
   </div>
 
@@ -64,20 +73,8 @@ export var QuestionList = (props) => {
 
 //Add a Question button
 //on click, modal window opens overlaying product page with question form
-//    title: "Ask Your Question"
-//    subtitle: "About the [Product Name Here]"
-//    Form Fields:
-//    Your Question* (mandatory) - up to 1000 chars text input
-//    What is your nickname* (mandatory) - up to 60 chars - placeholder: "Example: jackson11!"
-//      below nickname field: “For privacy reasons, do not use your full name or email address”
-//    Your email* (mandatory) - up to 60 chars placeholder: “Why did you like the product or not?”.
-//      below email field" “For authentication reasons, you will not be emailed”
-//    Submit question (button)
-//      on click the form’s inputs should be validated.
-//      If there are any invalid entries, the submission should be prevented,
-//      and a warning message will appear. This message should be titled “You must enter the following:”
-//        This error will occur if : Any mandatory fields are blank
-//        The email address provided is not in correct email format
+
+
 
 //?? - "The questions and their corresponding answers within this list
 //will be displayed in an expanding and collapsing accordion.
