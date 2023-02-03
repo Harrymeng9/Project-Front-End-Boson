@@ -230,10 +230,27 @@
 /* Stars Component */
 
 /* Related */
-.related {
+.carousel-button-left,
+.carousel-button-right {
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
+
+.related-carousel-items {
   display: flex;
   flex-wrap: nowrap;
-  overflow: auto;
+  overflow: hidden;
+  width: 120%;
+  justify-content: space-between;
+  margin-right: 5%;
+  margin-left: 5%;
+}
+
+.related-carousel {
+  display: flex;
   justify-content: space-between;
 }
 
