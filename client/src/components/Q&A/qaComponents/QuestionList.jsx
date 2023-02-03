@@ -41,38 +41,26 @@ export var QuestionList = (props) => {
   return (
 
   <div>
-  Question List
-  {questions}
-  {length > 2 && questionsCount < length && <button onClick={handleClick}>More Answered Questions</button>}
+    {questions}
+    {length > 2 && questionsCount < length && <button onClick={handleClick}>More Answered Questions</button>}
+    <div>
+      <button>Ask a Question</button>
+    </div>
   </div>
+
+
   )
 }
 
 /*
 
-"The questions and their corresponding answers within this list will be displayed in an expanding and collapsing accordion.
-By default, on page load up to two questions should be displayed.
-Up to two answers should display for each question.
-
-The list will contain all questions by default,
-but will have the potential to be filtered to a subset based on user searches (section 1.3.3).
-
 /*/
 
-//on page load render Question component for two questions, these should be the two
-//  with the most number of users who have indicated the question was helpful
-//'More Answered Questions' button appears if there are more than 2 questions
-//    on click, up to 2 more answered questions appear
-//    questions should show in order below the previously loaded questions.
-//    more answered questions button should disappear when all questions are displayed.
-//    maximum height of the questions list should be capped such that the entire
+//TODO
 //    Questions & Answers module should fit on a single screen.
 //    The questions list should become scrollable.
 //    The search bar and buttons should remain fixed outside of the scrollable list.
-
-
 //if no questions have been asked, button to submit new question appears near top of module
-//questions appear in descending order of how many users indicated question was helpful
 
 //Add a Question button
 //on click, modal window opens overlaying product page with question form
@@ -90,3 +78,23 @@ but will have the potential to be filtered to a subset based on user searches (s
 //      and a warning message will appear. This message should be titled “You must enter the following:”
 //        This error will occur if : Any mandatory fields are blank
 //        The email address provided is not in correct email format
+
+//?? - "The questions and their corresponding answers within this list
+//will be displayed in an expanding and collapsing accordion.
+
+
+//DONE
+//#done - on page load render Question component for two questions, these should be the two
+//  with the most number of users who have indicated the question was helpful
+//  questions appear in descending order of how many users indicated question was helpful
+//#done - 'More Answered Questions' button appears if there are more than 2 questions
+//    on click, up to 2 more answered questions appear
+//    questions should show in order below the previously loaded questions.
+//    more answered questions button should disappear when all questions are displayed.
+//    maximum height of the questions list should be capped such that the entire
+//By default, on page load up to two questions should be displayed.
+//Up to two answers should display for each question.
+
+//The list will contain all questions by default,
+//but will have the potential to be filtered to a subset based on user searches (section 1.3.3).
+
