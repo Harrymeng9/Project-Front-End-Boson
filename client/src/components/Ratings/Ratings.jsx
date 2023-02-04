@@ -5,7 +5,6 @@ import ProductBreakdown from './ratingComponents/ProductBreakdown.jsx';
 import RatingBreakdown from './ratingComponents/RatingBreakdown.jsx';
 import ReviewList from './ratingComponents/ReviewList.jsx';
 
-// export default function Ratings(props) {
 var Ratings = (props) => {
 
   const [productChars, setProductChar] = useState();
@@ -31,8 +30,9 @@ var Ratings = (props) => {
           {productChars && <RatingBreakdown productChars={productChars} />}
           {productChars && <ProductBreakdown productChars={productChars} />}
         </div>
-        <ReviewList product_id={props.productId} />
+        <ReviewList product_id={props.productId} productChars={productChars} />
       </div>
+
     </div>
   )
 }

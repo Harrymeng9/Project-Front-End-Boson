@@ -127,11 +127,12 @@
   font-size: large;
 }
 
-.reviewtile-body {
+.reviewtile-response {
+  background-color: aqua;
   margin-bottom: 10px;
 }
 
-.reviewtile-recommend {
+.reviewtile-margin-bottom {
   margin-bottom: 10px;
 }
 
@@ -198,6 +199,18 @@
 }
 
 .writeReview-title-box {
+  margin-bottom: 10px;
+}
+
+.writeReview-photos {
+  border-radius: 30%;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  float: left;
+  cursor: pointer;
+  justify-content: space-between;
+  object-fit: cover;
   margin-bottom: 10px;
 }
 

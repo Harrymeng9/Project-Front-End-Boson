@@ -105,6 +105,7 @@ app.get('/reviews/meta', (req, res) => {
   var product_id = req.query.product_id;
   axios.get(options.url, { headers: options.headers, params: { product_id: product_id } })
     .then((productChars) => {
+      // console.log('meta data', productChars.data);
       res.status(200).send(productChars.data);
     })
     .catch((err) => {
@@ -112,6 +113,37 @@ app.get('/reviews/meta', (req, res) => {
     });
 });
 
+// Send POST request once add a new review
+app.post('/reviews', (req, res) => {
+  let options = {
+    url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/",
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    }
+  };
+
+  var postData = {
+    product_id: req.body.product_id,
+    rating: req.body.rating,
+    summary: req.body.summary,
+    body: req.body.body,
+    recommend: req.body.recommend,
+    name: req.body.name,
+    email: req.body.email,
+    photos: req.body.photos,
+    characteristics: req.body.characteristics
+  };
+
+  axios.post(options.url, postData, { headers: options.headers })
+    .then((data) => {
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      res.sendStatus(404);
+    });
+
+})
 /*
 -------------------------
 Question and Answer
