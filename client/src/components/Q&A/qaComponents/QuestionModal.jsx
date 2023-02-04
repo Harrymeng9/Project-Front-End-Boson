@@ -4,7 +4,56 @@ import { useState, useEffect } from 'react';
 
 var QuestionModal = (props) => {
 
+const [qFieldErr, setQFieldErr] = useState(false);
+const [nameFieldErr, setNameFieldErr] = useState(false);
+const [emailFieldErr, setEmailFieldErr] = useState(false);
+
+var validateForm = () => {
+  return new Promise((resolve, reject) => {
+    if (props.qResponse.question.length === 0) {
+      console.log(props.qResponse.question.length);
+      setQFieldErr(true);
+    } else {
+      setQFieldErr(false);
+    }
+    if (props.qResponse.nickname.length === 0) {
+      setNameFieldErr(true);
+    } else {
+      setNameFieldErr(false);
+    }
+    if (props.qResponse.email.length === 0) {
+      setEmailFieldErr(true);
+    } else {
+      setEmailFieldErr(false);
+    }
+    if (qFieldErr || nameFieldErr || emailFieldErr) {
+      reject(`Form Submission Error(s): Please complete all form fields`);
+    } else {
+      console.log(qFieldErr);
+      resolve();
+    }
+})
+}
+
+var handleSubmit = (event) => {
+  event.preventDefault();
+  //validate the form data
+  validateForm()
+  .then((results) => {
+    console.log(qFieldErr, nameFieldErr, emailFieldErr);
+    props.setQuestionModal(false);
+  })
+  .catch((err) => {
+    alert(`Form Submission Error(s): Please complete all form fields`);
+  })
+      //make an axios request to the server
+      //send the form state data with the request
+      //toggle modal off
+
+}
+
 var handleChange = (event) => {
+  event.preventDefault();
   props.setQResponse({...props.qResponse, [event.target.name]: event.target.value});
 }
 
@@ -16,20 +65,21 @@ return (
         <h4>About the product</h4>
 
         <label>
-          Your Question *
+          <b>Your Question *</b>
           <br></br>
           <input
           onChange={handleChange}
           type="text"
           name="question"
           value={props.qResponse.question}
+          maxLength="1000"
         />
-        </label>
         <br></br>
+        </label>
         <br></br>
 
         <label>
-          What is your nickname *
+          <b>What is your nickname *</b>
           <br></br>
           <input
           onChange={handleChange}
@@ -37,15 +87,16 @@ return (
           name="nickname"
           placeholder="Example: jackson11!"
           value={props.qResponse.nickname}
+          maxLength="60"
         />
         <br></br>
         For privacy reasons, do not use your full name or email address.
-        </label>
         <br></br>
+        </label>
         <br></br>
 
         <label>
-          Your email *
+          <b>Your email *</b>
           <br></br>
           <input
           onChange={handleChange}
@@ -53,16 +104,14 @@ return (
           name="email"
           placeholder="Example: jackson11@email.com"
           value={props.qResponse.email}
+          maxLength="60"
         />
         <br></br>
         For authentication reasons. You will not be emailed.
+        <br></br>
         </label>
         <br></br>
-        <br></br>
-
-        <input
-        onSubmit={()=>{console.log(response)}}
-        type="submit" />
+        <button onClick={handleSubmit}> Submit Question</button>
       </form>
     </div>
   </div>

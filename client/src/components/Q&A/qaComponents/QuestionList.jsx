@@ -59,7 +59,7 @@ export var QuestionList = (props) => {
       <button onClick={handleAddQuestionClick}>Ask a Question</button>
     </div>
     <div>
-      {props.questionModal && <QuestionModal qResponse={qResponse} setQResponse={setQResponse}/>}
+      {props.questionModal && <QuestionModal setQuestionModal={props.setQuestionModal} qResponse={qResponse} setQResponse={setQResponse}/>}
     </div>
   </div>
   )
