@@ -37,7 +37,6 @@ var Overview = (props) => {
     return axios.get(`/products/${props.initial}/styles`)
       .then(data => {
         setIntStyle(data.data.results);
-        console.log(data.data.results)
       })
       .catch(err => console.log(err));
   }
@@ -106,7 +105,6 @@ var Overview = (props) => {
 
   // click function to set the style as the first/default style
   let sets = (styleID) => {
-    console.log('id', intStyle)
     var redone = [];
     var copy = intStyle.slice(0)
     for (var i = 0; i < copy.length; i++) {
@@ -119,7 +117,6 @@ var Overview = (props) => {
     copy.forEach(e => {
       redone.push(e);
     })
-    console.log('done', redone)
     setIntStyle(redone);
   }
 
