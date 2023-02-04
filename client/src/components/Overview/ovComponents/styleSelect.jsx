@@ -5,32 +5,22 @@ import IndStyle from './indStyle.jsx';
 import Gallery from './gallery.jsx';
 
 var StyleSelect = (props) => {
-  //confirm if props are being passed down
-  // const [firstStyle, setStyler] = useState([])
-  // setStyler()
 
-  // var sets = (e) => {
-  //   e.preventDefault();
-  //   alert('This style selected!')
-  //   console.log(e.target.innerHTML);
-  //   props.func(props.id);
-  // }
-
-  //add return/render here
   return (
     props.styles.length === 0 ?
       <h3> Loading your styles </h3>
-      : <div >
-        <div className="styleCont">
-          {props.styles.map(x => {
-            return (
-              <IndStyle key={x.style_id} name={x.name} price={x.original_price} style={x.style_id} function={props.func}/>
-            )
-          }
-          )}
+      :
+          <div >
+          <div className="styleCont" >
+            {props.styles.map(x => {
+              return (
+                <IndStyle key={x.style_id} name={x.name} price={x.original_price} style={x.style_id} func={props.clickfunc}/>
+              )
+            }
+            ) }
+          </div>
+          <Gallery pics={props.styles[0].photos} />
         </div>
-        <Gallery pics={props.styles[0].photos} />
-      </div>
   )
 }
 
