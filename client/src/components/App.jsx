@@ -31,7 +31,6 @@
         }
       }
       console.log('DataInfo:', Date.now(), widget(), e.target);
-      alert('click')
     }
     if (!props) {return <div>Data is empty.</div>;}
     else {return <Component {...props} func={clickers}/>;}
@@ -49,11 +48,11 @@
 
   var App = () => {
     //add state data as needed here
-    const [productId, setProductId] = useState(71698)
+    const [productId, setProductId] = useState(71698);
 
     return (
       <div>
-        <OverviewRender data={productId} tester={setProductId}/>
+        <OverviewRender data={productId}/>
         <div><Related productId={productId} setProductId={setProductId} /></div>
         <div><QuestionAndAnswer productId={productId} /></div>
         <div><Ratings productId={productId} /></div>

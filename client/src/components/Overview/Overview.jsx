@@ -37,6 +37,7 @@ var Overview = (props) => {
     return axios.get(`/products/${props.initial}/styles`)
       .then(data => {
         setIntStyle(data.data.results);
+        console.log(data.data.results)
       })
       .catch(err => console.log(err));
   }
@@ -103,6 +104,25 @@ var Overview = (props) => {
     setRelated(saver);
   }
 
+  // click function to set the style as the first/default style
+  let sets = (styleID) => {
+    console.log('id', intStyle)
+    var redone = [];
+    var copy = intStyle.slice(0)
+    for (var i = 0; i < copy.length; i++) {
+      if (copy[i].style_id === styleID) {
+        redone.push(copy[i]);
+        delete copy[i];
+        break;
+      }
+    }
+    copy.forEach(e => {
+      redone.push(e);
+    })
+    console.log('done', redone)
+    setIntStyle(redone);
+  }
+
 
   // create a function that calls the axios requests on load
   let loader = () => {
@@ -120,15 +140,10 @@ var Overview = (props) => {
       <div>
         <h2>Product Overview </h2>
         <div>{<InfoList info={initial} styles={currentStyle} />}</div>
-        <StyleSelect styles={intStyle} id={props.initial} func={setStyle}/>
+        <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}/>
       </div>
     )
   }
-
-  //useEffect calling the get
-  useEffect(() => {
-    productGet();
-  }, [])
 
   //this is to crate a faux loading screen while the state is being set.
   //if the state is set, then we can fully render the app
