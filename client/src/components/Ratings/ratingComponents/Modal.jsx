@@ -214,6 +214,7 @@ const Modal = (props) => {
           </div>
           {/* Submit button */}
           <button onClick={submitReview}>Submit</button>
+          <button onClick={(e)=> props.setModal(!props.modal)}>Close</button>
         </div>
       </div>
     );
