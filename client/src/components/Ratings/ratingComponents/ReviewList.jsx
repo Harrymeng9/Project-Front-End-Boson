@@ -56,7 +56,7 @@ var ReviewList = (props) => {
         </div>
         {newReviews.length === 2 && <button onClick={(e) => setPage(page + 1)}>MORE REVIEWS</button>}
         <button onClick={(e) => setModal(!modal)}>ADD A REVIEW + </button>
-        {modal && <Modal setModal={setModal} modal={modal} product_id = {props.product_id} />}
+        {modal && <Modal setModal={setModal} modal={modal} product_id={props.product_id} productChars={props.productChars} />}
       </div>
     )
   } else {

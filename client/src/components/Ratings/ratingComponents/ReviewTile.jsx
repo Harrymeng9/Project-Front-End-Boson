@@ -8,7 +8,6 @@ var ReviewTile = (props) => {
 
   var review = props.review; // review = {rating: , date: , ...}
   // Return each review for a particular product
-  // console.log(review);
   var time = new Date(review.date);
   var month = new Intl.DateTimeFormat("en-US", { month: 'long' }).format(time);
   var year = time.getFullYear();
@@ -23,11 +22,11 @@ var ReviewTile = (props) => {
         <div className='date'>{usernameAndAdjDate}</div>
       </div>
       <div className='reviewtile-summary'>{review.summary}</div>
-      <div className='reviewtile-body'>{review.body}</div>
-      {review.recommend && <div className='reviewtile-recommend'><ImCheckmark color='green' /> I recommend this product</div>}
+      <div className='reviewtile-margin-bottom'>{review.body}</div>
+      {review.recommend && <div className='reviewtile-margin-bottom'><ImCheckmark color='green' /> I recommend this product</div>}
       {review.response &&
-        <div>
-          <div>Response from seller</div>
+        <div className='reviewtile-response'>
+          <div className='reviewtile-response'><strong>Response from seller</strong></div>
           <div>{review.response}</div>
         </div>}
       <div className='helpful-yes-report'>
