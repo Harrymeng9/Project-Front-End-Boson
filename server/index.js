@@ -144,6 +144,34 @@ app.post('/reviews', (req, res) => {
     });
 
 })
+
+// To get average rating values
+app.get('/starrating', (req, res) => {
+  let options = {
+    url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/meta/",
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    }
+  };
+  var product_id = req.query.product_id;
+  axios.get(options.url, { headers: options.headers, params: { product_id: product_id } })
+    .then((productChars) => {
+      var ratingList = productChars.data.ratings;
+      // {'1': 5, '2', 10, }
+      var totalScore = 0, totalReviews = 0;
+      for (var i in ratingList) {
+        totalScore += i * ratingList[i];
+        totalReviews += Number(ratingList[i]);
+      }
+      var averageRating = (totalScore / totalReviews).toFixed(1); // 3.7 for example
+      res.status(200).send(averageRating);
+    })
+    .catch((err) => {
+      res.status(404).send('Fail to retrieve product characteristics data!');
+    });
+});
+
 /*
 -------------------------
 Question and Answer
