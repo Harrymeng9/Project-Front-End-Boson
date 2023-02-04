@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Card from './relatedComponents/Card.jsx';
 import Overlay from './relatedComponents/Overlay.jsx';
 import axios from 'axios';
+import CardCarousel from './relatedComponents/CardCarousel.jsx';
 
 export var products = function (relatedProds, setStarButtonClick, starButtonClick, currentProductId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, setProductId) {
   // still need star rating
@@ -79,9 +80,11 @@ export var Related = (props) => {
   return (
     <div>
       <h4>RELATED PRODUCTS</h4>
-      <div className="related">
-        {products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
+      <div>
         {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
+        <CardCarousel
+          cards={products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
+        />
       </div>
       <h4>YOUR OUTFIT</h4>
       <div className="your-fit">
