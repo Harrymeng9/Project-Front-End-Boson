@@ -63,13 +63,19 @@ const Modal = (props) => {
 
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
 
-    for (var key in charsObj) {
-      if (charDataObj[key][0] === 0) {
-        alert('You must enter the following: Characteristics');
+    var handleChars = () => {
+      for (var key in charsObj) {
+        if (charDataObj[key][0] === 0) {
+          return false;
+        }
       }
-    }
+      return true;
+    };
+
     if (ratingValue === 0) {
       alert('You must enter the following: Overall rating');
+    } else if (handleChars() === false) {
+      alert('You must enter the following: Characteristics');
     } else if (reviewBody.length < 50) {
       alert('You must enter the following: The review body is less than 50 characters')
     } else if (nickname === '') {
