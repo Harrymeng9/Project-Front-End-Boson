@@ -264,7 +264,7 @@
 }
 
 
-.related-carousel-items {
+.carousel-items {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
@@ -274,7 +274,8 @@
   margin-left: 5%;
 }
 
-.related-carousel {
+
+.carousel {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -308,13 +309,6 @@
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-.your-fit {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow: auto;
-  justify-content: space-between;
 }
 
 .add-to-your-fit-card {
