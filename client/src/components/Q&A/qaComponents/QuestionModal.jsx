@@ -4,22 +4,16 @@ import { useState, useEffect } from 'react';
 
 var QuestionModal = (props) => {
 
-const [response, setResponse] = useState({
-  "question": '',
-  "nickname": '',
-  "email": ''
-});
-
 var handleChange = (event) => {
-  setResponse({...response, [event.target.name]: event.target.value});
+  props.setQResponse({...props.qResponse, [event.target.name]: event.target.value});
 }
 
 return (
   <div id="questionModal">
     <div className="modal-container">
       <form>
-        <h4>Ask Your Question</h4>
-        <h5>About the product</h5>
+        <h3>Ask Your Question</h3>
+        <h4>About the product</h4>
 
         <label>
           Your Question *
@@ -28,7 +22,7 @@ return (
           onChange={handleChange}
           type="text"
           name="question"
-          value={response.question}
+          value={props.qResponse.question}
         />
         </label>
         <br></br>
@@ -42,7 +36,7 @@ return (
           type="text"
           name="nickname"
           placeholder="Example: jackson11!"
-          value={response.nickname}
+          value={props.qResponse.nickname}
         />
         <br></br>
         For privacy reasons, do not use your full name or email address.
@@ -58,7 +52,7 @@ return (
           type="text"
           name="email"
           placeholder="Example: jackson11@email.com"
-          value={response.email}
+          value={props.qResponse.email}
         />
         <br></br>
         For authentication reasons. You will not be emailed.
