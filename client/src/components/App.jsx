@@ -8,17 +8,40 @@
   import ErrorBoundary from '../Utils/ErrorBoundary.jsx';
 
   const withConditionalFeedback = (Component) => (props) => {
-    console.log('withcomp', Component)
-    console.log('withprops', props)
+    let clickers = (e) => {
+      e.preventDefault();
+      //ex: overview components passed in is the baseOverview
+      // this converts the entire function in to a string
+      //the string is then checked to see if my component(baseOverview) has the widget
+      //the function then checks which component was clicked
+      // note that Overview has the flick function listed as a prop; each widget will need it
+      let funcString = Component.toString();
+      var widget = () => {
+        if (funcString.includes('Overview')) {
+          return 'Overview'
+        } else if (funcString.includes('Related')) {
+          return 'Related'
+        } else if (funcString.includes('QuestionAndAnswer')) {
+          return 'QuestionAndAnswer'
+        } else if (funcString.includes('Ratings')) {
+          return 'Ratings'
+        } else {
+          console.log('Error')
+          return;
+        }
+      }
+      console.log('DataInfo:', Date.now(), widget(), e.target);
+      alert('click')
+    }
     if (!props) {return <div>Data is empty.</div>;}
-    else {return <Component {...props} />;}
+    else {return <Component {...props} func={clickers}/>;}
   };
 
-  const baseOverview = ({data}) => {
-    console.log(arguments)
-    console.log('wearehere', {data});
+  // These functions render Overview
+  const baseOverview = ({data, tester, func}) => {
+    let comp = 'Overview';
     return (
-      <div className="overviewMain"><Overview initial={data}/></div>
+      <div className="overviewMain" onClick={func}><Overview initial={data} tester={tester}/></div>
     );
   };
 
@@ -30,7 +53,7 @@
 
     return (
       <div>
-        <OverviewRender data={productId}/>
+        <OverviewRender data={productId} tester={setProductId}/>
         <div><Related productId={productId} setProductId={setProductId} /></div>
         <div><QuestionAndAnswer productId={productId} /></div>
         <div><Ratings productId={productId} /></div>

@@ -7,7 +7,6 @@ import StyleSelect from './ovComponents/styleSelect.jsx';
 var truth = false;
 
 var Overview = (props) => {
-
   //add the useState parameters here
   const [SKUS, setProds] = useState([]);
   const [skuInfo, setInfo] = useState([]);
@@ -121,7 +120,7 @@ var Overview = (props) => {
       <div>
         <h2>Product Overview </h2>
         <div>{<InfoList info={initial} styles={currentStyle} />}</div>
-        <StyleSelect styles={intStyle} id={props.initial} />
+        <StyleSelect styles={intStyle} id={props.initial} func={setStyle}/>
       </div>
     )
   }
