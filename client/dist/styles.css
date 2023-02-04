@@ -22,6 +22,18 @@
   object-fit: cover;
 }
 
+.firstStyle {
+  border-radius: 30px;
+  padding: 5px;
+  width: 155px;
+  height: 90px;
+  float: left;
+  border: 2px solid black;
+  cursor: pointer;
+  justify-content: space-between;
+  object-fit: cover;
+}
+
 .gallery {
   height: 100px;
   padding: 5px;
