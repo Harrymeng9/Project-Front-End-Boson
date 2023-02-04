@@ -4,7 +4,6 @@ import axios from 'axios';
 import FeaturesList from './featuresList.jsx';
 
 var InfoSingle = (props) => {
-  console.log('infl', props)
   // add return/render here
   return (
     props === undefined ?
