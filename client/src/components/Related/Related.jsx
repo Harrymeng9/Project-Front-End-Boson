@@ -4,7 +4,8 @@ import { useState, useEffect } from "react";
 import Card from './relatedComponents/Card.jsx';
 import Overlay from './relatedComponents/Overlay.jsx';
 import axios from 'axios';
-import CardCarousel from './relatedComponents/CardCarousel.jsx';
+import RelatedCarousel from './relatedComponents/RelatedCarousel.jsx';
+import YourOutfitCarousel from './relatedComponents/YourOutfitCarousel.jsx';
 
 export var products = function (relatedProds, setStarButtonClick, starButtonClick, currentProductId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, setProductId) {
   // still need star rating
@@ -82,21 +83,14 @@ export var Related = (props) => {
       <h4>RELATED PRODUCTS</h4>
       <div>
         {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
-        <CardCarousel
+        <RelatedCarousel
           cards={products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
         />
       </div>
       <h4>YOUR OUTFIT</h4>
-      <div className="your-fit">
-        <div className="add-to-your-fit-card">
-          <img className="default-add" src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png"></img>
-          <center>
-            <p>Add to Outfit</p>
-          </center>
-        </div>
-        <div>
-          {/* {myFitCards} */}
-        </div>
+      <div>
+        {/* The cards below will need to be different, just a placeholder for now */}
+        <YourOutfitCarousel cards={products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)} />
       </div>
     </div>
   )

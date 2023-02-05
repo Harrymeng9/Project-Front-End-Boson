@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { ImCircleRight, ImCircleLeft } from 'react-icons/im';
 
 
-var CardCarousel = (props) => {
+var RelatedCarousel = (props) => {
 
   const [snapshot, setSnapshot] = useState(null);
   const [indices, setIndices] = useState([]);
@@ -32,14 +32,14 @@ var CardCarousel = (props) => {
   };
 
   return (
-    <div className="related-carousel">
+    <div className="carousel">
       {(length > 5 && indices[0] >= 1) ? <ImCircleLeft size="32px" className="carousel-button-left" onClick={shiftLeft} /> : null}
-      <div className="related-carousel-items">
+      <div className="carousel-items">
         {snapshot}
       </div>
-      {(length > 5 && indices[1] <= props.cards.length) ? <ImCircleRight size="32px" className="carousel-button-right" onClick={shiftRight} /> : null}
+      {(length > 5 && (indices[1] + 1 < length)) ? <ImCircleRight size="32px" className="carousel-button-right" onClick={shiftRight} /> : null}
     </div>
   )
 };
 
-export default CardCarousel;
+export default RelatedCarousel;
