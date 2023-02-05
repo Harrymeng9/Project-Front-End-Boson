@@ -82,9 +82,11 @@ app.get('/reviews', (req, res) => {
       'Authorization': `${process.env.TOKEN}`
     }
   };
-  var product_id = req.query.product_id;
   var page = req.query.page;
-  axios.get(options.url, { headers: options.headers, params: { page: page, count: 2, product_id: product_id } })
+  var product_id = req.query.product_id;
+  var sort = req.query.sort;
+
+  axios.get(options.url, { headers: options.headers, params: { page: page, count: 2, sort: sort, product_id: product_id } })
     .then((reviewsList) => {
       res.status(200).send(reviewsList.data);
     })
