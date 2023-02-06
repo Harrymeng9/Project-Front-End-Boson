@@ -11,7 +11,7 @@ var ProductBreakdown = (props) => {
   return (
     <div id='product'>
       {categories.map((category, i) => {
-        if (chars[category] !== undefined) {
+        if (chars !== undefined && chars[category] !== undefined) {
           var score = Number(chars[category].value).toFixed(2);
           if (category === 'Size' || category === 'Width' || category === 'Length') {
             description = ['Too small', 'Perfect', 'Too big'];

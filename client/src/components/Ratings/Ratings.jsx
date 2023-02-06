@@ -7,15 +7,23 @@ import ReviewList from './ratingComponents/ReviewList.jsx';
 
 var Ratings = (props) => {
 
-  const [productChars, setProductChar] = useState();
+  const [productChars, setProductChar] = useState({});
+  const [totalReviews, setTotalReviews] = useState(-1);
+  const [averageRating, setAverageRating] = useState(0);
+  const [adjustAverageRating, setAdjustAverageRating] = useState(0);
+  const [recommendRate, setRecommendRate] = useState(0);
 
   useEffect(() => {
     // To get product breakdown info (product characteristics)
     axios.get('/reviews/meta', { params: { product_id: props.productId } })
-      .then((charsList) => {
-        // console.log('charsList', charsList.data);
-        setProductChar(charsList.data);
-      })
+      .then((data) => {
+        setProductChar(data.data.fullData);
+        setTotalReviews(data.data.totalReviews);
+        setAverageRating(data.data.averageRating);
+        setAdjustAverageRating(data.data.adjustAverageRating);
+        setRecommendRate(data.data.recommendRate);
+      }
+      )
       .catch((err) => {
         console.log(err);
       });
@@ -27,10 +35,11 @@ var Ratings = (props) => {
       <div className="ratingsLeftRight">
         <div>
           {/* Don't render RatingBreakdown until 'productChars' is ready!*/}
-          {productChars && <RatingBreakdown productChars={productChars} />}
+          {productChars && <RatingBreakdown productChars={productChars} totalReviews={totalReviews} averageRating={averageRating}
+            adjustAverageRating={adjustAverageRating} recommendRate={recommendRate} />}
           {productChars && <ProductBreakdown productChars={productChars} />}
         </div>
-        <ReviewList product_id={props.productId} productChars={productChars} />
+        {productChars && totalReviews !== -1 && <ReviewList product_id={props.productId} productChars={productChars} totalReviews={totalReviews} />}
       </div>
 
     </div>

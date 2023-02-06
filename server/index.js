@@ -82,11 +82,12 @@ app.get('/reviews', (req, res) => {
       'Authorization': `${process.env.TOKEN}`
     }
   };
-  var page = req.query.page;
+
+  var count = req.query.count;
   var product_id = req.query.product_id;
   var sort = req.query.sort;
 
-  axios.get(options.url, { headers: options.headers, params: { page: page, count: 2, sort: sort, product_id: product_id } })
+  axios.get(options.url, { headers: options.headers, params: { count: count, sort: sort, product_id: product_id } })
     .then((reviewsList) => {
       res.status(200).send(reviewsList.data);
     })
@@ -107,8 +108,26 @@ app.get('/reviews/meta', (req, res) => {
   var product_id = req.query.product_id;
   axios.get(options.url, { headers: options.headers, params: { product_id: product_id } })
     .then((productChars) => {
-      // console.log('meta data', productChars.data);
-      res.status(200).send(productChars.data);
+      var ratingList = productChars.data.ratings;
+      var recommendList = productChars.data.recommended;
+      var totalScore = 0, totalReviews = 0;
+
+      for (var i in ratingList) {
+        totalScore += i * ratingList[i];
+        totalReviews += Number(ratingList[i]);
+      }
+
+      var averageRating = (totalScore / totalReviews).toFixed(1); // 3.7 for example
+      var recommendRate = (Number(recommendList[true]) / (Number(recommendList[true]) + Number(recommendList[false]))).toFixed(2) * 100 + '%';
+      var adjustAverageRating = averageRating - averageRating % 0.25;
+      var result = {
+        'fullData': productChars.data,
+        'totalReviews': totalReviews,
+        'averageRating': averageRating,
+        'adjustAverageRating': adjustAverageRating,
+        'recommendRate': recommendRate
+      };
+      res.status(200).send(result);
     })
     .catch((err) => {
       res.status(404).send('Fail to retrieve product characteristics data!');
@@ -146,6 +165,28 @@ app.post('/reviews', (req, res) => {
     });
 
 })
+
+// Put request to update API data
+app.put('/reviews/:id/helpful', (req, res) => {
+  var review_id = req.body.review_id;
+  console.log('review_id', review_id);
+
+  let options = {
+    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${review_id}/helpful`,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    }
+  };
+
+  axios.put(options.url, { review_id: review_id }, { headers: options.headers })
+    .then((data) => {
+      res.sendStatus(204);
+    })
+    .catch((err) => {
+      res.status(404).send('Fail to update helpfullness!');
+    });
+});
 
 // To get average rating values
 app.get('/starrating', (req, res) => {

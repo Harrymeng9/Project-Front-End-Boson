@@ -162,6 +162,7 @@
 .reviewtile-yes {
   text-decoration: underline;
   margin-right: 5px;
+  cursor: pointer;
 }
 
 .reviewtile-report {
@@ -174,6 +175,13 @@
 
 .reviewtile-count {
   margin-right: 5px;
+}
+
+.reviewtile-readmore {
+  color: rgb(22, 60, 210);
+  text-decoration: underline;
+  cursor: pointer;
+  margin-bottom: 10px;
 }
 
 /* Modal Component */

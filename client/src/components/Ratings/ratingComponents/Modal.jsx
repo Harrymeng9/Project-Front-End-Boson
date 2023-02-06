@@ -55,7 +55,8 @@ const Modal = (props) => {
   var photosChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       var img = e.target.files[0];
-      setPhotos(photos.concat(URL.createObjectURL(img)));
+      var testUrl = URL.createObjectURL(img);
+      setPhotos(photos.concat(testUrl));
     }
   };
 
@@ -188,8 +189,8 @@ const Modal = (props) => {
               {photos.map((photo, key) => {
                 return (
                   <div key={key}>
-                    <a href={photos[key]} target="_blank">
-                      <img className='writeReview-photos' src={photos[key]} />
+                    <a href={photo} target="_blank">
+                      <img className='writeReview-photos' src={photo} />
                     </a>
                   </div>
                 )
