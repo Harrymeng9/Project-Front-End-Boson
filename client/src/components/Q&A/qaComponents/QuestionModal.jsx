@@ -4,52 +4,19 @@ import { useState, useEffect } from 'react';
 
 var QuestionModal = (props) => {
 
-const [qFieldErr, setQFieldErr] = useState(false);
-const [nameFieldErr, setNameFieldErr] = useState(false);
-const [emailFieldErr, setEmailFieldErr] = useState(false);
-
-var validateForm = () => {
-  return new Promise((resolve, reject) => {
-    if (props.qResponse.question.length === 0) {
-      console.log(props.qResponse.question.length);
-      setQFieldErr(true);
-    } else {
-      setQFieldErr(false);
-    }
-    if (props.qResponse.nickname.length === 0) {
-      setNameFieldErr(true);
-    } else {
-      setNameFieldErr(false);
-    }
-    if (props.qResponse.email.length === 0) {
-      setEmailFieldErr(true);
-    } else {
-      setEmailFieldErr(false);
-    }
-    if (qFieldErr || nameFieldErr || emailFieldErr) {
-      reject(`Form Submission Error(s): Please complete all form fields`);
-    } else {
-      console.log(qFieldErr);
-      resolve();
-    }
-})
-}
-
 var handleSubmit = (event) => {
   event.preventDefault();
   //validate the form data
-  validateForm()
-  .then((results) => {
-    console.log(qFieldErr, nameFieldErr, emailFieldErr);
-    props.setQuestionModal(false);
-  })
-  .catch((err) => {
-    alert(`Form Submission Error(s): Please complete all form fields`);
-  })
-      //make an axios request to the server
-      //send the form state data with the request
-      //toggle modal off
-
+  if (props.qResponse.question.length < 2) {
+    alert('Please enter a question');
+  } else if (props.qResponse.nickname.length === 0) {
+    alert('Please enter your nickname');
+  } else if (props.qResponse.email.length === 0) {
+    alert('Please enter your email')
+  } else {
+    //make post request
+    //toggle modal to false
+  }
 }
 
 var handleChange = (event) => {
