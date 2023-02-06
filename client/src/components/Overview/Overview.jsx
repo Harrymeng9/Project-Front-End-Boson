@@ -14,6 +14,7 @@ var Overview = (props) => {
   const [related, setRelated] = useState([]);
   const [initial, setInitial] = useState([]);
   const [intStyle, setIntStyle] = useState([]);
+  const [review, setReviews] = useState(0)
 
   // //add the axios get here
   var productGet = () => {
@@ -37,6 +38,14 @@ var Overview = (props) => {
     return axios.get(`/products/${props.initial}/styles`)
       .then(data => {
         setIntStyle(data.data.results);
+      })
+      .catch(err => console.log(err));
+  }
+
+  var reviews = () => {
+    return axios.get(`/starrating`, {params: {product_id: props.initial}})
+      .then(data => {
+        setReviews(data.data);
       })
       .catch(err => console.log(err));
   }
@@ -130,13 +139,14 @@ var Overview = (props) => {
       relations();
       initialFetch();
       firstStyle();
+      reviews();
       truth = true;
     }
     //returns the components when finally called
     return (
       <div>
         <h2>Product Overview </h2>
-        <div>{<InfoList info={initial} styles={currentStyle} />}</div>
+        <div>{<InfoList info={initial} styles={currentStyle} ratings={review}/>}</div>
         <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}/>
       </div>
     )
