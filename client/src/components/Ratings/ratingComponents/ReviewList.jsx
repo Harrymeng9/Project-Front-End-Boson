@@ -6,14 +6,14 @@ import Modal from './Modal.jsx';
 
 var ReviewList = (props) => {
 
-  // var options = ['Relevant', 'Helpful', 'Newest'];
   const [reviewsList, setReviewsList] = useState([]);
   const [modal, setModal] = useState(false);
   const [page, setPage] = useState(1);
   const [newReviews, setNewReviews] = useState([]);
+  const [sort, setSort] = useState('relevant');
 
   var fetchReviews = () => {
-    axios.get('/reviews', { params: { product_id: props.product_id, page: page } })
+    axios.get('/reviews', { params: { page: page, sort: sort, product_id: props.product_id } })
       .then((data) => {
         setNewReviews(data.data.results);
         setReviewsList(reviewsList.concat(data.data.results));
@@ -31,18 +31,31 @@ var ReviewList = (props) => {
     fetchReviews();
   }, [page])
 
+  // Once sort option changes, retrieve the data from API
+  useEffect(()=> {
+    axios.get('/reviews', { params: { page: page, sort: sort, product_id: props.product_id } })
+    .then((data) => {
+      setReviewsList(data.data.results);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+  }, [sort]);
+
   if (reviewsList) {
     // Return a list of reviews for a particular product
     return (
       <div id='reviewList'>
-        <div className='sort-options'>Sorted by relevant &nabla;</div>
-        {/* /* <Dropdown options={options} defaultValue = {options[0]} value = {options[0]}></Dropdown> */
-    /* <select>
-        <option value='Relevant'>Relevant</option>
-        <option value='Helpful'>Helpful</option>
-        <option value='Newest'>Newest</option>
-      </select> */}
-
+        <div style={{ display: 'flex' }}>
+          <div className='sort-options'>Sort on: </div>
+          <div>
+            <select onChange={(e) => setSort(e.target.value)}>
+              <option value='relevant'>Relevant</option>
+              <option value='helpful'>Helpful</option>
+              <option value='newest'>Newest</option>
+            </select>
+          </div>
+        </div>
         <div style={{ maxHeight: '800px', overflow: 'auto' }}>
           {
             reviewsList.map((result, i) => {
@@ -57,7 +70,7 @@ var ReviewList = (props) => {
         {newReviews.length === 2 && <button onClick={(e) => setPage(page + 1)}>MORE REVIEWS</button>}
         <button onClick={(e) => setModal(!modal)}>ADD A REVIEW + </button>
         {modal && <Modal setModal={setModal} modal={modal} product_id={props.product_id} productChars={props.productChars} />}
-      </div>
+      </div >
     )
   } else {
     return (
