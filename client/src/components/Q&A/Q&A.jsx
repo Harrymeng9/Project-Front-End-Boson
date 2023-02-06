@@ -31,10 +31,9 @@ function QuestionAndAnswer (props) {
 return (
   <div>
     <h4>QUESTIONS AND ANSWERS</h4>
-    <SearchQuestions term={term} setTerm={setTerm} questions={questions} filteredQuestions={filteredQuestions} setFiltered={setFiltered}/>
+    <SearchQuestions term={term} setTerm={setTerm} questions={questions} filteredQuestions={filteredQuestions} setFiltered={setFiltered} />
     <QuestionList term={term} questions={questions} filteredQuestions={filteredQuestions} questionModal={questionModal} setQuestionModal={setQuestionModal}/>
   </div>
-
 )
 }
 

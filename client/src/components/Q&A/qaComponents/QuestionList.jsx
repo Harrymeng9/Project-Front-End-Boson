@@ -25,6 +25,11 @@ export var renderQuestions = function (count, questionsArr) {
 export var QuestionList = (props) => {
 
   const [questionsCount, setQuestionsCount] = useState(2)
+  const [qResponse, setQResponse] = useState({
+    "question": '',
+    "nickname": '',
+    "email": ''
+  });
 
   var handleClick = () => {
     var newCount = questionsCount + 2;
@@ -47,17 +52,16 @@ export var QuestionList = (props) => {
   return (
 
   <div>
+    {console.log(qResponse)}
     {questions}
     {length > 2 && questionsCount < length && <button onClick={handleClick}>More Answered Questions</button>}
     <div>
       <button onClick={handleAddQuestionClick}>Ask a Question</button>
     </div>
     <div>
-      {props.questionModal && <QuestionModal />}
+      {props.questionModal && <QuestionModal setQuestionModal={props.setQuestionModal} qResponse={qResponse} setQResponse={setQResponse}/>}
     </div>
   </div>
-
-
   )
 }
 
@@ -74,11 +78,8 @@ export var QuestionList = (props) => {
 //Add a Question button
 //on click, modal window opens overlaying product page with question form
 
-
-
 //?? - "The questions and their corresponding answers within this list
 //will be displayed in an expanding and collapsing accordion.
-
 
 //DONE
 //#done - on page load render Question component for two questions, these should be the two
