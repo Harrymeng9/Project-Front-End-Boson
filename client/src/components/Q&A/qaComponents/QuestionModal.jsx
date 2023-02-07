@@ -2,16 +2,16 @@ import React from "react";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-var postQuestion = (questionData, nicknameData, emailData) => {
+var postQuestion = (question, nickname, userEmail, id) => {
   axios({
     method: 'post',
-    url: '/postQuestion',
+    url: '/questions',
     data: {
-      question: questionData,
-      nickname: nicknameData,
-      email: emailData
-    }
-  });
+      body: question,
+      name: nickname,
+      email: userEmail,
+      product_id: id
+  }})
 }
 
 var QuestionModal = (props) => {
@@ -27,7 +27,7 @@ var handleSubmit = (event) => {
     alert('Please enter your email')
   } else {
     //make post request
-    postQuestion(props.qResponse.question, props.qResponse.nickname, props.qResponse.email);
+    postQuestion(props.qResponse.question, props.qResponse.nickname, props.qResponse.email, 71705);
     //toggle modal to false
     props.setQuestionModal(false);
   }
