@@ -83,11 +83,14 @@
   font-weight: bolder;
 }
 
-.totalReviews {
+.ratingBreakdown-margin-bottom {
   margin-bottom: 10px;
 }
 
-.review-percentage {
+.ratingBreakdown-removeFilters {
+  color: rgb(22, 60, 210);
+  text-decoration: underline;
+  cursor: pointer;
   margin-bottom: 10px;
 }
 
@@ -145,7 +148,7 @@
 }
 
 .reviewtile-response {
-  background-color: aqua;
+  background-color: rgb(218 197 148);
   margin-bottom: 10px;
 }
 
@@ -157,6 +160,7 @@
   display: flex;
   text-align: right;
   margin-bottom: 10px;
+  justify-content: space-between;
 }
 
 .helpful-yes-report {
@@ -248,6 +252,10 @@
 
 .stars-decoration {
   text-decoration: underline;
+}
+
+.stars-decoration:hover {
+  background-color: rgb(218 197 148);
 }
 
 .greenBar {
