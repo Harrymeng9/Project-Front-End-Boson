@@ -1,11 +1,21 @@
 import React from 'react';
 import AnswerList from './AnswerList.jsx';
+import AnswerModal from './AnswerModal.jsx';
+import { useState, useEffect } from "react";
 
 var Question = (props) => {
 
+  const [answerModal, setAnswerModal] = useState(false);
+
+  var handleClick = () => {
+    //open modal
+    setAnswerModal(true);
+  }
+
   return (
     <div>
-      Q: {props.questionBody} Add Answer
+      Q: {props.questionBody} <div onClick={handleClick}>Add Answer</div>
+      {answerModal &&  <AnswerModal />}
       < AnswerList answers={props.answers}/>
     </div>
   )
