@@ -1,14 +1,14 @@
-// The Card component will be used for both the "related products" cards and the "my outfit" cards
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from 'axios';
 import { ImStarFull } from 'react-icons/im';
 import Stars from '../../Ratings/ratingComponents/Stars.jsx';
 
-var Card = (props) => {
+var RelatedProductCard = (props) => {
 
   const [starRating, setStarRating] = useState(0);
   const [hasReviews, setHasReviews] = useState(false);
+  const [discountPrice, setDiscountPrice] = useState(null);
 
   useEffect(() => {
     axios.get('/reviews', { params: { product_id: props.productId } })
@@ -18,7 +18,7 @@ var Card = (props) => {
         }
       })
       .catch((error) => {
-        console.log('There is an error in Card.jsx while trying to check if the product has any reviews', error);
+        console.log('There is an error in RelatedProductCard.jsx while trying to check if the product has any reviews', error);
       })
       .then(() => {
         return axios.get('/starrating', { params: { product_id: props.productId } })
@@ -27,7 +27,21 @@ var Card = (props) => {
         setStarRating(results.data);
       })
       .catch((error) => {
-        console.log('There is an error in Card.jsx while trying to set the star rating', error);
+        console.log('There is an error in RelatedProductCard.jsx while trying to set the star rating', error);
+      })
+      .then(() => {
+        return axios.get(`/products/${props.productId}/styles`);
+      })
+      .then((results) => {
+        for (var i = 0; i < results.data.results.length; i++) {
+          if (results.data.results[i]['default?'] === true) {
+            setDiscountPrice(results.data.results[i]['sale_price']);
+            break;
+          }
+        }
+      })
+      .catch((error) => {
+        console.log('There is an error in RelatedProductCard.jsx while trying to set the discount price', error);
       })
   }, []);
 
@@ -56,7 +70,7 @@ var Card = (props) => {
         props.setCurrentProductFeatures(currentProductFeatures);
       })
       .catch((error) => {
-        console.log('There is an error in Card.jsx when trying to get current product features', error);
+        console.log('There is an error in RelatedProductCard.jsx when trying to get current product features', error);
       })
       .then(() => {
         return axios.get(`/products/${selectedRelatedProduct}`)
@@ -78,11 +92,11 @@ var Card = (props) => {
         props.setSelectedRelatedProductFeatures(selectedRelatedProductFeatures);
       })
       .catch((error) => {
-        console.log('There is an error in Card.jsx when trying to get selected related product features', error);
+        console.log('There is an error in RelatedProductCard.jsx when trying to get selected related product features', error);
       })
   };
 
-  var handleCardClick = () => {
+  var handleRelatedProductCardClick = () => {
     props.setProductId(props.productId);
   };
 
@@ -90,16 +104,19 @@ var Card = (props) => {
     <div className="card">
       <div className="related-image-container">
         <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
-        <img className="related-image" src={props.image} onClick={handleCardClick}></img>
+        <img className="related-image" src={props.image} onClick={handleRelatedProductCardClick}></img>
       </div>
-      <div onClick={handleCardClick}>
+      <div onClick={handleRelatedProductCardClick}>
         <p className="related-details">{props.category}</p>
         <p className="related-details">{props.name}</p>
-        <p className="related-details">{props.price}</p>
+        {discountPrice !== null ? <div className="discount">
+          <p className="discounted-price">{discountPrice}</p>
+          <p className="original-price">{props.price}</p>
+        </div> : <p className="related-details">{props.price}</p>}
         {hasReviews ? <Stars singleRating={starRating} /> : null}
       </div>
     </div>
   )
 };
 
-export default Card;
+export default RelatedProductCard;

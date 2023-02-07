@@ -31,12 +31,16 @@ var YourOutfitCarousel = (props) => {
     }
   };
 
+  var handleAddToOutfitCardClick = () => {
+
+  };
+
   return (
     <div className="carousel">
       {(length > 4 && indices[0] >= 1) ? <ImCircleLeft size="32px" className="carousel-button-left" onClick={shiftLeft} /> : null}
       <div className="carousel-items">
         <div className="add-to-your-fit-card">
-          <img className="default-add" src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png"></img>
+          <img className="default-add" onClick={handleAddToOutfitCardClick} src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png"></img>
           <center>
             <p>Add to Outfit</p>
           </center>
