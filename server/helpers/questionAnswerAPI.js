@@ -15,13 +15,32 @@ var fetchQuestions = (params) => {
     params: {
       product_id: params.product_id,
       page: params.page,
-      count: params.count
+      count: 100
     }
   };
   //make a get request to the Atelier API using axios
   return axios.get(options.url, { headers: options.headers, params: options.params});
 };
 
+var postQuestion = (params) => {
+  let options = {
+    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions`,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    },
+    body: {
+      body: params.body,
+      name: params.name,
+      email: params.email,
+      product_id: params.product_id
+    }
+  };
+  //make a get request to the Atelier API using axios
+  return axios.post(options.url, options.body, { headers: options.headers});
+};
+
 module.exports.fetchQuestions = fetchQuestions;
+module.exports.postQuestion = postQuestion;
 
 
