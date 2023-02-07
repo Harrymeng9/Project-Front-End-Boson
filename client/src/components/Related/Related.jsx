@@ -1,7 +1,8 @@
 // The Related component will display both the "related products" carousel and the "my outfit" carousel
 import React from 'react';
 import { useState, useEffect } from "react";
-import Card from './relatedComponents/Card.jsx';
+import RelatedProductCard from './relatedComponents/RelatedProductCard.jsx';
+// import YourOutfitCard from '/.relatedComponents/YourOutfitCard.jsx';
 import Overlay from './relatedComponents/Overlay.jsx';
 import axios from 'axios';
 import RelatedCarousel from './relatedComponents/RelatedCarousel.jsx';
@@ -11,7 +12,7 @@ export var products = function (relatedProds, setStarButtonClick, starButtonClic
   // still need star rating
   return relatedProds.map((prod, index) => {
     return (
-      <Card key={index} setProductId={setProductId} setCurrentProductName={setCurrentProductName} setSelectedRelatedProductName={setSelectedRelatedProductName} setCurrentProductFeatures={setCurrentProductFeatures} setSelectedRelatedProductFeatures={setSelectedRelatedProductFeatures} currentProduct={currentProductId} productId={prod.productId} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
+      <RelatedProductCard key={index} setProductId={setProductId} setCurrentProductName={setCurrentProductName} setSelectedRelatedProductName={setSelectedRelatedProductName} setCurrentProductFeatures={setCurrentProductFeatures} setSelectedRelatedProductFeatures={setSelectedRelatedProductFeatures} currentProduct={currentProductId} productId={prod.productId} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
     )
   })
 };

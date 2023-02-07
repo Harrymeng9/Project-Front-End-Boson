@@ -16,6 +16,33 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
+// interactions
+app.post('/interactions', (req, res) => {
+  var element = req.body.element;
+  var widget = req.body.widget;
+  var time = req.body.time;
+
+  let options = {
+    url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions",
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    },
+    body: {
+      element: element,
+      widget: widget,
+      time: time
+    }
+  };
+
+  axios.post(options.url, options.body, { headers: options.headers })
+    .then((results) => {
+      res.sendStatus(201);
+    }).catch((error) => {
+      res.sendStatus(400);
+    })
+});
+
 // overview server requests
 app.get('/products', (req, res) => {
   getAllProducts((fail, pass) => {

@@ -268,6 +268,19 @@
 /* Stars Component */
 
 /* Related */
+
+.discount {
+  display: flex;
+}
+
+.discounted-price {
+  color: red;
+}
+
+.original-price {
+  text-decoration-line: line-through;
+}
+
 .carousel-button-left,
 .carousel-button-right {
   background-color: transparent;
@@ -275,7 +288,6 @@
   color: black;
   cursor: pointer;
 }
-
 
 .carousel-items {
   display: flex;
@@ -286,7 +298,6 @@
   margin-right: 5%;
   margin-left: 5%;
 }
-
 
 .carousel {
   display: flex;
