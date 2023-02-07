@@ -25,7 +25,7 @@ var ReviewList = (props) => {
           console.log(err);
         });
     };
-  }, []);
+  }, [props.product_id]);
 
   useEffect(() => {
     var copyReviewList = reviewsList.slice();

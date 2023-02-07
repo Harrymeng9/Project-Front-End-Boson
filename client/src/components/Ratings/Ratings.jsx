@@ -28,7 +28,7 @@ var Ratings = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [])
+  }, [props.productId]);
 
   return (
     <div>
