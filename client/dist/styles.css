@@ -51,8 +51,13 @@
   object-fit: cover;
 }
 
-
-
+.pic-button-left,
+.pic-button-right {
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
 
 /*
 -----------Ratings-----------
