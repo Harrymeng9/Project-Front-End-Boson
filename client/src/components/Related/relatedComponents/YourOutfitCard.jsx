@@ -51,6 +51,7 @@ var YourOutfitCard = (props) => {
   };
 
   var handleYourOutfitCardClick = () => {
+    console.log('inside your outfit card click');
     props.setProductId(props.productId);
   };
 

@@ -96,25 +96,16 @@ var RelatedProductCard = (props) => {
       })
   };
 
-  var handleRelatedProductCardClick = () => {
-    props.setProductId(props.productId);
-
-    // axios.get(`/productDetails/${props.productId}`)
-    //   .then((results) => {
-    //     console.log('results', results);
-    //   })
-    //   .catch((error) => {
-    //     console.log('There is an error in RelatedProductCard.jsx while trying to re-direct to new product page', error);
-    //   })
-  };
 
   return (
     <div className="card">
       <div className="related-image-container">
         <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
-        <img className="related-image" src={props.image} onClick={handleRelatedProductCardClick}></img>
+        <a onClick={() => { props.setProductId(props.productId); }} href={`/productDetails/${props.productId}`}>
+          <img className="related-image" src={props.image}></img>
+        </a>
       </div>
-      <div onClick={handleRelatedProductCardClick}>
+      <div>
         <p className="related-details">{props.category}</p>
         <p className="related-details">{props.name}</p>
         {discountPrice !== null ? <div className="discount">

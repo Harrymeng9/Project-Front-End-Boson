@@ -9,7 +9,7 @@ import ErrorBoundary from '../Utils/ErrorBoundary.jsx';
 
 const withConditionalFeedback = (Component) => (props) => {
   let clickers = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     //ex: overview components passed in is the baseOverview
     // this converts the entire function in to a string
     //the string is then checked to see if my component(baseOverview) has the widget
@@ -32,14 +32,14 @@ const withConditionalFeedback = (Component) => (props) => {
     }
 
     // if (e.target.id.length > 0) {
-      axios.post('/interactions', {
-        element: e.target.className,
-        // element: e.target.id,
-        widget: widget(),
-        time: Date.now().toString()
-      }).catch((error) => {
-        console.log('There was an error while trying to post the interaction to the API', error);
-      })
+    axios.post('/interactions', {
+      element: e.target.className,
+      // element: e.target.id,
+      widget: widget(),
+      time: Date.now().toString()
+    }).catch((error) => {
+      console.log('There was an error while trying to post the interaction to the API', error);
+    })
     // }
   }
 
@@ -74,10 +74,14 @@ const RatingRender = withConditionalFeedback(baseRatings);
 
 var App = () => {
 
-
-  //add state data as needed here
   const [productId, setProductId] = useState(71698);
   const [yourOutfitProducts, setYourOutfitProducts] = useState({ ...localStorage });
+
+  useEffect(() => {
+    var split = window.location.pathname.split('/');
+    var last = split[split.length - 1];
+    setProductId(last);
+  }, []);
 
   return (
     <div className='boson'>

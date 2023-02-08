@@ -13,12 +13,23 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-// basic route to get us started
-// app.get('/productDetails/:productId', (req, res) => {
-//   console.log('req.params.productId', req.params.productId);
-//   var newProductId = req.params.productId;
-//   res.redirect(`/${newProductId}`);
-// });
+app.get('/', (req, res) => {
+  res.redirect('/productDetails/71698');
+});
+
+
+app.get('/productDetails/:productId', (req, res) => {
+  var options = {
+    root: 'client/dist/'
+  }
+  res.sendFile('entry.html', options, function (error) {
+    if (error) {
+      console.log('An error occurred while trying to send index.html', error);
+    } else {
+      console.log('Sent!');
+    }
+  })
+});
 
 // interactions
 app.post('/interactions', (req, res) => {

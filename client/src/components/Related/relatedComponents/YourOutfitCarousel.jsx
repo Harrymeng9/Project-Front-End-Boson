@@ -10,12 +10,13 @@ var YourOutfitCarousel = (props) => {
   const [length, setLength] = useState(0);
   const [addToOutfitCardIsPresent, setAddToOutfitCardIsPresent] = useState(true);
   const [snapshotLength, setSnapshotLength] = useState(4);
+  console.log('props.cards.length', length);
 
   useEffect(() => {
     setLength(props.cards.length);
     setSnapshot(props.cards.slice(0, 4));
     setIndices([0, 4]);
-  }, [props.cards]);
+  }, [props.cards.length]);  // should be re-rendering whenever the size of the card deck changes... but doesn't
 
   var shiftLeft = () => {
     var copy = props.cards.slice();
@@ -61,7 +62,6 @@ var YourOutfitCarousel = (props) => {
       {(length > 4 && (indices[1] + 1 <= length)) ? <ImCircleRight size="32px" className="your-outfit-carousel-button-right" onClick={shiftRight} /> : null}
     </div >
   )
-
 };
 
 export default YourOutfitCarousel;

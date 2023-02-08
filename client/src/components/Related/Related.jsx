@@ -15,10 +15,10 @@ export var products = function (relatedProds, setStarButtonClick, starButtonClic
   })
 };
 
-export var yourOutfitProducts = function (outfitProducts, setYourOutfitProducts) {
+export var yourOutfitProducts = function (outfitProducts, setYourOutfitProducts, setProductId) {
   return outfitProducts.map((prod, index) => {
     return (
-      <YourOutfitCard key={index} setYourOutfitProducts={setYourOutfitProducts} productId={prod.productId} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
+      <YourOutfitCard key={index} setProductId={setProductId} setYourOutfitProducts={setYourOutfitProducts} productId={prod.productId} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
     )
   })
 };
@@ -148,7 +148,7 @@ export var Related = (props) => {
       </div>
       <h4>YOUR OUTFIT</h4>
       <div>
-        <YourOutfitCarousel cards={yourOutfitProducts(outfitProducts, props.setYourOutfitProducts)} setYourOutfitProducts={props.setYourOutfitProducts} productId={props.productId} />
+        <YourOutfitCarousel cards={yourOutfitProducts(outfitProducts, props.setYourOutfitProducts, props.setProductId)} setYourOutfitProducts={props.setYourOutfitProducts} productId={props.productId} />
       </div>
     </div>
   )
