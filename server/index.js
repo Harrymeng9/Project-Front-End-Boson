@@ -19,10 +19,16 @@ app.get('/', (req, res) => {
 
 // interactions
 app.post('/interactions', (req, res) => {
+
+
   var element = req.body.element;
   var widget = req.body.widget;
   var time = req.body.time;
 
+  if (Object.keys(element).length === 0) {
+    element = '';
+  }
+  console.log(element);
   let options = {
     url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions",
     headers: {

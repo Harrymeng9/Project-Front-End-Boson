@@ -306,19 +306,43 @@
   cursor: pointer;
 }
 
+.your-outfit-carousel-button-left,
+.your-outfit-carousel-button-right {
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+}
+
 .carousel-items {
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
   width: 120%;
-  justify-content: space-between;
-  margin-right: 5%;
-  margin-left: 5%;
+  gap: 59px;
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.your-outfit-carousel-items {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 120%;
+  gap: 59px;
+  margin-right: 4%;
+  margin-left: 4%;
 }
 
 .carousel {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+}
+
+.your-outfit-carousel {
+  display: flex;
+  justify-content: flex-between;
   align-items: center;
 }
 
