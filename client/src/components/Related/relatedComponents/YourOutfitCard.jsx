@@ -46,56 +46,8 @@ var YourOutfitCard = (props) => {
   }, []);
 
   var handleCancelButtonClick = () => {
-    // remove the card from "your outfit" list
-
-    // props.setStarButtonClick(!props.starButtonClick);
-    // props.setSelectedRelatedProductName(props.name);
-
-    // var selectedRelatedProduct = props.productId;
-
-    // axios.get(`/products/${props.currentProduct}`)
-    //   .then((results) => {
-    //     props.setCurrentProductName(results.data.name);
-    //     var features = results.data.features;
-    //     var currentProductFeatures = [];
-    //     for (var i = 0; i < features.length; i++) {
-    //       var feature = features[i].feature;
-    //       var value = features[i].value;
-    //       if (value === null) {
-    //         currentProductFeatures.push(feature);
-    //       } else if (feature === null) {
-    //         currentProductFeatures.push(value);
-    //       } else if (feature !== null && value !== null) {
-    //         currentProductFeatures.push(value + ' ' + feature);
-    //       }
-    //     }
-    //     props.setCurrentProductFeatures(currentProductFeatures);
-    //   })
-    //   .catch((error) => {
-    //     console.log('There is an error in YourOutfitCard.jsx when trying to get current product features', error);
-    //   })
-    //   .then(() => {
-    //     return axios.get(`/products/${selectedRelatedProduct}`)
-    //   })
-    //   .then((results) => {
-    //     var features = results.data.features;
-    //     var selectedRelatedProductFeatures = [];
-    //     for (var i = 0; i < features.length; i++) {
-    //       var feature = features[i].feature;
-    //       var value = features[i].value;
-    //       if (value === null) {
-    //         selectedRelatedProductFeatures.push(feature);
-    //       } else if (feature === null) {
-    //         selectedRelatedProductFeatures.push(value);
-    //       } else if (feature !== null && value !== null) {
-    //         selectedRelatedProductFeatures.push(value + ' ' + feature);
-    //       }
-    //     }
-    //     props.setSelectedRelatedProductFeatures(selectedRelatedProductFeatures);
-    //   })
-    //   .catch((error) => {
-    //     console.log('There is an error in YourOutfitCard.jsx when trying to get selected related product features', error);
-    //   })
+    localStorage.removeItem(`${props.productId}`);
+    props.setYourOutfitProducts({ ...localStorage });
   };
 
   var handleYourOutfitCardClick = () => {

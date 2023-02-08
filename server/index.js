@@ -13,16 +13,23 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
 // basic route to get us started
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+// app.get('/productDetails/:productId', (req, res) => {
+//   console.log('req.params.productId', req.params.productId);
+//   var newProductId = req.params.productId;
+//   res.redirect(`/${newProductId}`);
+// });
 
 // interactions
 app.post('/interactions', (req, res) => {
+
   var element = req.body.element;
   var widget = req.body.widget;
   var time = req.body.time;
 
+  if (Object.keys(element).length === 0) {
+    element = '';
+  }
+  console.log(element);
   let options = {
     url: "http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/interactions",
     headers: {

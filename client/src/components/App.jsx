@@ -51,9 +51,9 @@ const baseOverview = ({ data, tester, func }) => {
   );
 };
 
-const baseRelated = ({ func, productId, setProductId }) => {
+const baseRelated = ({ func, productId, setProductId, yourOutfitProducts, setYourOutfitProducts }) => {
   return (
-    <div onClick={func}><Related productId={productId} setProductId={setProductId} /></div>
+    <div onClick={func}><Related setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
   )
 };
 
@@ -61,13 +61,16 @@ const OverviewRender = withConditionalFeedback(baseOverview);
 const RelatedRender = withConditionalFeedback(baseRelated);
 
 var App = () => {
+
+
   //add state data as needed here
   const [productId, setProductId] = useState(71698);
+  const [yourOutfitProducts, setYourOutfitProducts] = useState({ ...localStorage });
 
   return (
     <div>
       <OverviewRender data={productId} />
-      <div><RelatedRender productId={productId} setProductId={setProductId} /></div>
+      <div><RelatedRender setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QuestionAndAnswer productId={productId} /></div>
       <div><Ratings productId={productId} /></div>
     </div>

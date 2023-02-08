@@ -98,6 +98,14 @@ var RelatedProductCard = (props) => {
 
   var handleRelatedProductCardClick = () => {
     props.setProductId(props.productId);
+
+    // axios.get(`/productDetails/${props.productId}`)
+    //   .then((results) => {
+    //     console.log('results', results);
+    //   })
+    //   .catch((error) => {
+    //     console.log('There is an error in RelatedProductCard.jsx while trying to re-direct to new product page', error);
+    //   })
   };
 
   return (
