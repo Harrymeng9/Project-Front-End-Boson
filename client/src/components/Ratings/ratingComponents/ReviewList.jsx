@@ -81,7 +81,7 @@ var ReviewList = (props) => {
   if (filteredReviewListToRender) {
     // Return a list of reviews for a particular product
     return (
-      <div id='reviewList'>
+      <div className='reviewList'>
         {/* Sorting */}
         <div style={{ display: 'flex' }}>
           <div className='reviewList-sort-options'>Sort on: </div>

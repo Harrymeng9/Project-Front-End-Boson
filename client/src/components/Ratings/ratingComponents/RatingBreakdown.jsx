@@ -17,7 +17,7 @@ var RatingBreakdown = (props) => {
 
   // console.log('apple',filteredByList.length);
   return (
-    <div id='rating'>
+    <div className='rating'>
       <div className='avg-rating-star'>
         {props.averageRating && <div className='avg-rating-score'>{props.averageRating}</div>}
         <Stars singleRating={props.adjustAverageRating} />

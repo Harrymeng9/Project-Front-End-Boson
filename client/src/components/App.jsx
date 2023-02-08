@@ -18,27 +18,31 @@ const withConditionalFeedback = (Component) => (props) => {
     let funcString = Component.toString();
     var widget = () => {
       if (funcString.includes('Overview')) {
-        return 'Overview'
+        return 'Overview';
       } else if (funcString.includes('Related')) {
-        return 'Related'
+        return 'Related';
       } else if (funcString.includes('QuestionAndAnswer')) {
-        return 'QuestionAndAnswer'
-      } else if (funcString.includes('Ratings')) {
-        return 'Ratings'
+        return 'QuestionAndAnswer';
+      } else if (funcString.includes('RatingsWidget')) {
+        return 'Ratings';
       } else {
         console.log('Error')
         return;
       }
     }
 
-    axios.post('/interactions', {
-      element: e.target.className,
-      widget: widget(),
-      time: Date.now().toString()
-    }).catch((error) => {
-      console.log('There was an error while trying to post the interaction to the API', error);
-    })
+    // if (e.target.id.length > 0) {
+      axios.post('/interactions', {
+        element: e.target.className,
+        // element: e.target.id,
+        widget: widget(),
+        time: Date.now().toString()
+      }).catch((error) => {
+        console.log('There was an error while trying to post the interaction to the API', error);
+      })
+    // }
   }
+
   if (!props) { return <div>Data is empty.</div>; }
   else { return <Component {...props} func={clickers} />; }
 };
@@ -57,8 +61,16 @@ const baseRelated = ({ func, productId, setProductId, yourOutfitProducts, setYou
   )
 };
 
+const baseRatings = ({ func, productId }) => {
+  let comp = 'RatingsWidget';
+  return (
+    <div onClick={func}><Ratings productId={productId} /></div>
+  )
+};
+
 const OverviewRender = withConditionalFeedback(baseOverview);
 const RelatedRender = withConditionalFeedback(baseRelated);
+const RatingRender = withConditionalFeedback(baseRatings);
 
 var App = () => {
 
@@ -68,11 +80,11 @@ var App = () => {
   const [yourOutfitProducts, setYourOutfitProducts] = useState({ ...localStorage });
 
   return (
-    <div>
+    <div className='boson'>
       <OverviewRender data={productId} />
       <div><RelatedRender setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QuestionAndAnswer productId={productId} /></div>
-      <div><Ratings productId={productId} /></div>
+      <RatingRender productId={productId} />
     </div>
   )
 }
