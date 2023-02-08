@@ -34,7 +34,7 @@ var Ratings = (props) => {
     <div>
       <h4>RATINGS & REVIEWS</h4>
       <div className="ratingsLeftRight">
-        <div>
+        <div className='ratings-left'>
           {/* Don't render RatingBreakdown until 'productChars' is ready!*/}
           {productChars && <RatingBreakdown productChars={productChars} totalReviews={totalReviews} averageRating={averageRating}
             adjustAverageRating={adjustAverageRating} recommendRate={recommendRate} setFilterStars={setFilterStars} filterStars={filterStars}/>}
@@ -42,7 +42,6 @@ var Ratings = (props) => {
         </div>
         {productChars && totalReviews !== -1 && <ReviewList product_id={props.productId} productChars={productChars} totalReviews={totalReviews} filterStars={filterStars}/>}
       </div>
-
     </div>
   )
 }

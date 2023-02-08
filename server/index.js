@@ -40,7 +40,7 @@ app.post('/interactions', (req, res) => {
     .then((results) => {
       res.sendStatus(201);
     }).catch((error) => {
-      res.sendStatus(400);
+      res.sendStatus(422);
     })
 });
 

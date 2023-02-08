@@ -81,9 +81,9 @@ var ReviewTile = (props) => {
         </div>}
       {/* Helpful */}
       <div className='helpful-yes-report'>
-        <div className='reviewtile-helpful'>Helpful?</div>
+        <div className='reviewtile-margin-right '>Helpful?</div>
         <div className='reviewtile-yes' onClick={clickYesButton}>Yes</div>
-        <div className='reviewtile-count'>{frontEndYesCount} |</div>
+        <div className='reviewtile-margin-right '>{frontEndYesCount} |</div>
         <div className='reviewtile-report'>Report</div>
       </div>
       <hr style={{ color: 'black' }} />

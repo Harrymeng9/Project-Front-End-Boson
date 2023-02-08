@@ -1,3 +1,14 @@
+/* Boson */
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.boson {
+  width: 1200px;
+}
+
 /* Overview */
 
 .overviewMain {
@@ -75,11 +86,14 @@
 /* Ratings Component */
 .ratingsLeftRight {
   display: flex;
-  column-gap: 200px;
 }
 
-#rating {
+.rating {
   margin-bottom: 30px;
+}
+
+.ratings-left {
+  width: 40%;
 }
 
 /* Rating Breakdown Component */
@@ -138,6 +152,10 @@
 }
 
 /* ReviewList Component */
+.reviewList {
+  width: 60%;
+}
+
 .reviewList-sort-options {
   margin-bottom: 10px;
   font-weight: bold;
@@ -150,7 +168,6 @@
 /* ReviewTile Component */
 .reviewTile {
   margin-bottom: 20px;
-  width: 500px;
 }
 
 .reviewtile-summary {
@@ -190,7 +207,7 @@
   text-decoration: underline;
 }
 
-.reviewtile-helpful {
+.reviewtile-margin-right {
   margin-right: 5px;
 }
 
