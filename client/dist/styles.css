@@ -138,11 +138,14 @@
 }
 
 /* ReviewList Component */
-.sort-options {
-  margin-bottom: 20px;
+.reviewList-sort-options {
+  margin-bottom: 10px;
   font-weight: bold;
 }
 
+.reviewList-margin-bottom {
+  margin-bottom: 20px;
+}
 
 /* ReviewTile Component */
 .reviewTile {
