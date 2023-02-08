@@ -51,6 +51,15 @@
   object-fit: cover;
 }
 
+.mainPic {
+  border-radius: 30%;
+  padding: 5px;
+  width: 300px;
+  height: 300px;
+  float: left;
+  object-fit: cover;
+}
+
 .pic-button-left,
 .pic-button-right {
   background-color: transparent;

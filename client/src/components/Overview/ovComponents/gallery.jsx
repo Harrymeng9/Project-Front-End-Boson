@@ -16,7 +16,7 @@ var Gallery = (props) => {
       <strong>Image Gallery</strong>
       {props.pics.map(block => {
         return (
-          <SinglePic full={block.url} thumb={block.thumbnail_url} key={id += 1} />
+          <SinglePic full={block.url} thumb={block.thumbnail_url} key={id += 1} setBigPic={props.setBigPic}/>
         )
       })}
     </div>
