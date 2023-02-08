@@ -14,9 +14,13 @@ var Question = (props) => {
 
   return (
     <div>
-      Q: {props.questionBody} <div onClick={handleClick}>Add Answer</div>
-      {answerModal &&  <AnswerModal />}
-      < AnswerList answers={props.answers}/>
+      <div className="question">
+      Q: {props.questionBody} Helpful? Yes (#) <div onClick={handleClick}>Add Answer</div>
+      {answerModal &&  <AnswerModal id={props.id} setAnswerModal={setAnswerModal}/>}
+        <div className="answerList">
+        < AnswerList answers={props.answers}/>
+        </div>
+      </div>
     </div>
   )
 }

@@ -2,16 +2,18 @@ import React from "react";
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 
-var postAnswer = (/*/ update for answer /*/) => {
+var postAnswer = (id, answer, nickname, userEmail) => {
   axios({
     method: 'post',
     url: '/answers',
     data: {
       //TODO: update for answer
-      body: question,
-      name: nickname,
-      email: userEmail,
-      product_id: id
+      question_id: id,
+      body: {
+        body: answer,
+        name: nickname,
+        email: userEmail
+      }
   }})
 }
 
@@ -34,7 +36,7 @@ var handleSubmit = (event) => {
     alert('Please enter your email')
   } else {
     //make post request
-    postAnswer(/*/ update for answer /*/);
+    postAnswer(props.id, aResponse.answer, aResponse.nickname, aResponse.email);
     //toggle modal to false
     props.setAnswerModal(false);
   }

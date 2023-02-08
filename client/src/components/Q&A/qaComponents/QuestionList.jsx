@@ -14,7 +14,7 @@ export var renderQuestions = function (count, questionsArr) {
   for (var i = 0; i < sortedQuestions.length; i++) {
     var question = questionsArr[i];
     if (i < count) {
-      components.push(<Question key={question.question_id} questionBody={question.question_body} answers={question.answers}/>);
+      components.push(<Question key={i} id={question.question_id} questionBody={question.question_body} answers={question.answers}/>);
     } else {
       break;
     }

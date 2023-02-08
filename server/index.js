@@ -6,6 +6,7 @@ const { getAllProducts, getOne, singleStyle } = require('./helpers/overViewAPI.j
 const { relatedProds } = require('./helpers/RelatedAPI.js');
 const { fetchQuestions } = require('./helpers/questionAnswerAPI.js');
 const { postQuestion } = require('./helpers/questionAnswerAPI.js');
+const { postAnswer } = require('./helpers/questionAnswerAPI');
 
 // basic middleware
 app.use(express.json());
@@ -274,6 +275,25 @@ app.post('/questions', (req, res) => {
     })
     .catch((err) => {
       console.log('error caught in postQuestion on server:', err);
+      res.sendStatus(404);
+    });
+});
+
+app.post('/answers', (req, res) => {
+  //grab data from request
+  var body = req.body.body;
+  console.log(body);
+  var params = {
+    question_id: req.body.question_id
+  };
+  //make post request to the API
+  postAnswer(body, params)
+    .then((results) => {
+      console.log(results);
+      res.sendStatus(201);
+    })
+    .catch((err) => {
+      console.log('error caught in postAnswer on server:', err);
       res.sendStatus(404);
     });
 });
