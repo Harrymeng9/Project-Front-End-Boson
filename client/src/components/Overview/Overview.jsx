@@ -16,6 +16,7 @@ var Overview = (props) => {
   const [intStyle, setIntStyle] = useState([]);
   const [review, setReviews] = useState(0)
   const [bigPic, setBigPic] = useState('')
+  const [windowPic, setWindowPic] = useState('')
 
   // //add the axios get here
   var productGet = () => {
@@ -39,9 +40,12 @@ var Overview = (props) => {
     return axios.get(`/products/${props.initial}/styles`)
       .then(data => {
         var firstPic = data.data.results[0].photos[0].thumbnail_url;
+        var firstWindow = data.data.results[0].photos[0].url;
         if (!firstPic) {setBigPic('No pictures to show')}
         setBigPic(firstPic)
         setIntStyle(data.data.results);
+        setWindowPic(firstWindow);
+
       })
       .catch(err => console.log(err));
   }
@@ -149,9 +153,9 @@ var Overview = (props) => {
     //returns the components when finally called
     return (
       <div>
-        <div><img className="mainPic" src={bigPic}></img></div>
+        <div><img className="mainPic" src={bigPic} onClick={(e) => window.open(windowPic)}></img></div>
         <div>{<InfoList info={initial} styles={currentStyle} ratings={review}/>}</div>
-        <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets} setBigPic={setBigPic}/>
+        <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets} setBigPic={setBigPic} setWindowPic={setWindowPic}/>
       </div>
     )
   }

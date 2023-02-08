@@ -5,9 +5,11 @@ import axios from 'axios';
 var SinglePic = (props) => {
   // add return/render here
   var noPics = (props.full === null) && (props.thumb === null);
+
   let picClick = (e) => {
     e.preventDefault();
-    props.setBigPic(e.target.currentSrc)
+    props.setBigPic(e.target.currentSrc);
+    props.setWindowPic(e.target.id);
   }
 
 
@@ -18,7 +20,7 @@ var SinglePic = (props) => {
     </div> :
 
     <div className="singlePic" onClick={picClick}>
-      <a href={props.full}  target="_blank"><img className="thumbNail "src={props.thumb}/></a>
+      <a href={props.full}  target="_blank"><img className="thumbNail "src={props.thumb} id={props.full}/></a>
     </div>
   )
 
