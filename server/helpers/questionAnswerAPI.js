@@ -40,7 +40,31 @@ var postQuestion = (params) => {
   return axios.post(options.url, options.body, { headers: options.headers});
 };
 
+var postAnswer = (reqBody, params) => {
+  //send question id as a param
+  //sned other info as body
+  let options = {
+    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions`,
+    headers: {
+      'User-Agent': 'request',
+      'Authorization': `${process.env.TOKEN}`
+    },
+    body: {
+      body: reqBody.body,
+      name: reqBody.name,
+      email: reqBody.email
+    },
+    params: {
+      question_id: params.question_id
+    }
+  };
+  //make a get request to the Atelier API using axios
+  console.log(options.body);
+  return axios.post(options.url, options.body, { headers: options.headers, params: options.params});
+};
+
 module.exports.fetchQuestions = fetchQuestions;
 module.exports.postQuestion = postQuestion;
+module.exports.postAnswer = postAnswer;
 
 
