@@ -29,7 +29,7 @@ export var SearchQuestions = (props) => {
   return (
     <div>
       <form>
-        <input onChange={handleChange}
+        <input id="filter-questions" onChange={handleChange}
             type="text"
             name="search"
             placeholder="Have a question? Search for answers…"
