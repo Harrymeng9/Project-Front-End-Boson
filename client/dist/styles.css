@@ -481,11 +481,11 @@
   width: 50%;
 }
 
-/* .qa-parent {
-  padding-left: 10%;
+.qa-parent {
+  /* padding-left: 10%; */
   padding-top: 5%;
   padding-bottom: 5%;
-} */
+}
 
 h4 {
   text-align: center;
