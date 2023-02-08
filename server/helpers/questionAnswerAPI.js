@@ -44,7 +44,7 @@ var postAnswer = (reqBody, params) => {
   //send question id as a param
   //sned other info as body
   let options = {
-    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions`,
+    url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/qa/questions/${params.question_id}/answers`,
     headers: {
       'User-Agent': 'request',
       'Authorization': `${process.env.TOKEN}`
@@ -53,9 +53,6 @@ var postAnswer = (reqBody, params) => {
       body: reqBody.body,
       name: reqBody.name,
       email: reqBody.email
-    },
-    params: {
-      question_id: params.question_id
     }
   };
   //make a get request to the Atelier API using axios

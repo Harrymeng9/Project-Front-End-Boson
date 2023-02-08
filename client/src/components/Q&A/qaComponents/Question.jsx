@@ -12,6 +12,8 @@ var Question = (props) => {
     setAnswerModal(true);
   }
 
+  console.log(props.id);
+
   return (
     <div>
       <div className="question">
