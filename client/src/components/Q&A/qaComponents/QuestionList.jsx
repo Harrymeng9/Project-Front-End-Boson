@@ -14,7 +14,7 @@ export var renderQuestions = function (count, questionsArr) {
   for (var i = 0; i < sortedQuestions.length; i++) {
     var question = questionsArr[i];
     if (i < count) {
-      components.push(<Question key={question.question_id} questionBody={question.question_body} answers={question.answers}/>);
+      components.push(<Question key={i} id={question.question_id} questionBody={question.question_body} answers={question.answers}/>);
     } else {
       break;
     }
@@ -50,9 +50,8 @@ export var QuestionList = (props) => {
   }
 
   return (
-
+<div className="question-list">
   <div>
-    {console.log(qResponse)}
     {questions}
     {length > 2 && questionsCount < length && <button onClick={handleClick}>More Answered Questions</button>}
     <div>
@@ -62,6 +61,7 @@ export var QuestionList = (props) => {
       {props.questionModal && <QuestionModal setQuestionModal={props.setQuestionModal} qResponse={qResponse} setQResponse={setQResponse}/>}
     </div>
   </div>
+</div>
   )
 }
 

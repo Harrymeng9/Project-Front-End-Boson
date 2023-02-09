@@ -463,7 +463,30 @@
 }
 
 
-
-
-
 /* Q&A */
+
+.question-list {
+  max-height: 50%;
+  overflow: scroll;
+}
+
+.question {
+  width: 40%;
+  padding-top: 15px;
+  border-bottom: solid;
+  border-color: rgb(52, 61, 67);
+}
+
+#filter-questions {
+  width: 50%;
+}
+
+/* .qa-parent {
+  padding-left: 10%;
+  padding-top: 5%;
+  padding-bottom: 5%;
+} */
+
+h4 {
+  text-align: center;
+}
