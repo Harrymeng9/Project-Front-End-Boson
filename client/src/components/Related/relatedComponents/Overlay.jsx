@@ -30,22 +30,20 @@ var Overlay = (props) => {
       <div className="overlay-container">
         <button onClick={() => { props.setStarButtonClick(!props.starButtonClick) }} className="overlay-close-button">X</button>
         <p className="overlay-container-title">Comparing</p>
-        <div className="overlay-information">
-          <div className="overlay-items">
-            <div>
-              <h4>{props.currentProductName}</h4>
-            </div>
-            <div className="overlay-padding"></div>
-            <div>
-              <h4>{props.selectedRelatedProductName}</h4>
-            </div>
-          </div>
+
+        <div className="overlay-items">
           <div>
-            <div>{features}</div>
+            <h4>{props.currentProductName}</h4>
+          </div>
+          <div className="overlay-padding"></div>
+          <div>
+            <h4>{props.selectedRelatedProductName}</h4>
           </div>
         </div>
+        <div className="overlay-feats">{features}</div>
+
       </div>
-    </div >
+    </div>
   )
 
 };
