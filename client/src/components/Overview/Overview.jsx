@@ -3,6 +3,7 @@ import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
 import InfoList from './ovComponents/infoList.jsx';
 import StyleSelect from './ovComponents/styleSelect.jsx';
+import GalleryCarousel from './ovComponents/galleryCarousel.jsx';
 
 var truth = false;
 
@@ -16,7 +17,7 @@ var Overview = (props) => {
   const [intStyle, setIntStyle] = useState([]);
   const [review, setReviews] = useState(0)
   const [bigPic, setBigPic] = useState('')
-  const [windowPic, setWindowPic] = useState('')
+  const [windowPic, setWindowPic] = useState('');
 
   // //add the axios get here
   var productGet = () => {
@@ -135,8 +136,8 @@ var Overview = (props) => {
       redone.push(e);
     })
     setIntStyle(redone);
+    setWindowPic(`${redone[0].photos[0].url}`)
   }
-
 
   // create a function that calls the axios requests on load
   let loader = () => {
@@ -153,7 +154,8 @@ var Overview = (props) => {
     //returns the components when finally called
     return (
       <div>
-        <div><img className="mainPic" src={bigPic} onClick={(e) => window.open(windowPic)}></img></div>
+        {/* <div><img className="mainPic" src={bigPic} onClick={(e) => window.open(windowPic)}></img></div> */}
+        <div><GalleryCarousel firstWindowPic={windowPic} setWindowPic={setWindowPic}/></div>
         <div>{<InfoList info={initial} styles={currentStyle} ratings={review}/>}</div>
         <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets} setBigPic={setBigPic} setWindowPic={setWindowPic}/>
       </div>
