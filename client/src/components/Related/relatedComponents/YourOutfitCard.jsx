@@ -50,18 +50,15 @@ var YourOutfitCard = (props) => {
     props.setYourOutfitProducts({ ...localStorage });
   };
 
-  var handleYourOutfitCardClick = () => {
-    console.log('inside your outfit card click');
-    props.setProductId(props.productId);
-  };
-
   return (
     <div className="card">
       <div className="related-image-container">
         <ImCancelCircle color="black" onClick={handleCancelButtonClick} className="related-image-button" />
-        <img className="related-image" src={props.image} onClick={handleYourOutfitCardClick}></img>
+        <a onClick={() => { props.setProductId(props.productId); }} href={`/productDetails/${props.productId}`}>
+          <img className="related-image" src={props.image}></img>
+        </a>
       </div>
-      <div onClick={handleYourOutfitCardClick}>
+      <div>
         <p className="related-details">{props.category}</p>
         <p className="related-details">{props.name}</p>
         {discountPrice !== null ? <div className="discount">
