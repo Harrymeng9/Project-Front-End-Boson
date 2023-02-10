@@ -12,21 +12,9 @@ var InfoSingle = (props) => {
   //   props.setYourOutfitProducts({ ...localStorage });
 
   let outfit = (e) => {
-    alert('Added to your outfit!');
-    var store = {};
-    var propKeys = Object.keys(props);
-    var propValues = Object.values(props);
-    for (var i = 0; i < propKeys.length; i++) {
-      store[propKeys[i]] = propValues[i];
-    }
-    localStorage.setItem(props.id, JSON.stringify(props.id));
-    localStorage.setItem(props.category, JSON.stringify(props.category));
-    localStorage.setItem(props.default_price, JSON.stringify(props.default_price));
-    localStorage.setItem(props.ratings, JSON.stringify(props.ratings));
+    localStorage.setItem(props.id, props.id.toString());
     props.setYourOutfitProducts({ ...localStorage });
-    console.log('propshere', props.yourOutfitProducts)
   }
-
 
   let starRenders = (rates) => {
     return (
