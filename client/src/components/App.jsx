@@ -48,10 +48,10 @@ const withConditionalFeedback = (Component) => (props) => {
 };
 
 // These functions render Overview
-const baseOverview = ({ data, tester, func }) => {
+const baseOverview = ({ data, func, yourOutfitProducts, setYourOutfitProducts }) => {
   let comp = 'Overview';
   return (
-    <div className="overviewMain" onClick={func}><Overview initial={data} tester={tester} /></div>
+    <div className="overviewMain" onClick={func}><Overview initial={data} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts}/></div>
   );
 };
 
@@ -85,7 +85,7 @@ var App = () => {
 
   return (
     <div className='boson'>
-      <OverviewRender data={productId} />
+      <OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts}/>
       <div><RelatedRender setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QuestionAndAnswer productId={productId} /></div>
       <RatingRender productId={productId} />

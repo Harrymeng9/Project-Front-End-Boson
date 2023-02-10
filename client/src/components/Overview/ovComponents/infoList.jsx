@@ -6,6 +6,7 @@ import InfoSingle from './infoSingle.jsx'
 var InfoList = (props) => {
   var single = props.info;
   // add return/render here
+
   if (props.info.length === 0) {
     return (
       <div>Loading the Product</div>
@@ -17,7 +18,9 @@ var InfoList = (props) => {
           {single.map(block => {
             return (
               <InfoSingle name={block.name} category={block.category} description={block.description}
-                key={block.id} id={block.id} default_price={block.default_price} slogan={block.slogan} features={block.features} ratings={props.ratings} />
+                key={block.id} id={block.id} default_price={block.default_price} slogan={block.slogan}
+                features={block.features} ratings={props.ratings} yourOutfitProducts={props.yourOutfitProducts}
+                setYourOutfitProducts={props.setYourOutfitProducts}/>
             )
           }
           )}

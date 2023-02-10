@@ -9,8 +9,8 @@ var Overview = (props) => {
   //add the useState parameters here
   const [initial, setInitial] = useState([]);
   const [intStyle, setIntStyle] = useState([]);
-  const [review, setReviews] = useState(0)
-  const [bigPic, setBigPic] = useState('')
+  const [review, setReviews] = useState(0);
+  const [bigPic, setBigPic] = useState('');
   const [windowPic, setWindowPic] = useState('');
   const [urlArray, setURLArray] = useState([]);
 
@@ -69,7 +69,6 @@ var Overview = (props) => {
     copy.forEach(e => {
       redone.push(e);
     })
-    console.log('ovred', redone[0].photos)
     var updatedPics = redone[0].photos;
     updatedPics.forEach(img => {
       updateUrlArray.push(img.url);
@@ -86,6 +85,7 @@ var Overview = (props) => {
     reviews();
   }, [props.initial])
 
+
   //this is to crate a faux loading screen while the state is being set.
   //if the state is set, then we can fully render the app
   if (props === undefined) {
@@ -97,7 +97,8 @@ var Overview = (props) => {
       <div>
         {/* <div><img className="mainPic" src={bigPic} onClick={(e) => window.open(windowPic)}></img></div> */}
         <div><GalleryCarousel firstWindowPic={windowPic} setWindowPic={setWindowPic} urlArray={urlArray}/></div>
-        <div>{<InfoList info={initial} atings={review}/>}</div>
+        <div><InfoList info={initial} ratings={review} yourOutfitProducts={props.yourOutfitProducts}
+        setYourOutfitProducts={props.setYourOutfitProducts}/></div>
         <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}
         setBigPic={setBigPic} setWindowPic={setWindowPic} setURLArray={setURLArray}/>
       </div>

@@ -71,8 +71,10 @@
   object-fit: cover;
 }
 
-.pic-button-left,
-.pic-button-right {
+
+
+.OVcarousel-button-left,
+.OVcarousel-button-right {
   background-color: transparent;
   border: none;
   color: black;
