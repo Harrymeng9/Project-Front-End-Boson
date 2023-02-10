@@ -8,6 +8,26 @@ import { ImStarFull } from 'react-icons/im';
 var InfoSingle = (props) => {
   // add return/render here
 
+  // localStorage.setItem(props.productId, props.productId);
+  //   props.setYourOutfitProducts({ ...localStorage });
+
+  let outfit = (e) => {
+    alert('Added to your outfit!');
+    var store = {};
+    var propKeys = Object.keys(props);
+    var propValues = Object.values(props);
+    for (var i = 0; i < propKeys.length; i++) {
+      store[propKeys[i]] = propValues[i];
+    }
+    localStorage.setItem(props.id, JSON.stringify(props.id));
+    localStorage.setItem(props.category, JSON.stringify(props.category));
+    localStorage.setItem(props.default_price, JSON.stringify(props.default_price));
+    localStorage.setItem(props.ratings, JSON.stringify(props.ratings));
+    props.setYourOutfitProducts({ ...localStorage });
+    console.log('propshere', props.yourOutfitProducts)
+  }
+
+
   let starRenders = (rates) => {
     return (
       <div>
@@ -24,16 +44,16 @@ var InfoSingle = (props) => {
     props === undefined ?
       <div>Loading the Product</div> :
       <div>
-        <h2>{props.name}</h2>
+        <h2>{props.name} <button onClick={outfit}><ImStarFull /></button></h2>
         <div>Product Category: {props.category}</div>
         <div ><span className="productRating"> {starRenders(props.ratings)} </span></div>
         <div>{props.slogan}</div>
         <div>{props.description}</div>
+        <div>${props.default_price}</div>
         <FeaturesList features={props.features} key={props.id} id={props.id} />
-        <button onClick={() => { alert('Added to your outfit!') }}><ImStarFull /></button>
+
       </div>
   )
 }
 
 export default InfoSingle;
-

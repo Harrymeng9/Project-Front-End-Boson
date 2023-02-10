@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { ImStarFull, ImCircleRight, ImCircleLeft } from 'react-icons/im';
 
 var GalleryCarousel = (props) => {
   //props.firstWindowPic is the current state
@@ -26,16 +27,18 @@ var GalleryCarousel = (props) => {
       func(props.urlArray[currentIndex + 1])
     }
   }
-
+  //<ImCircleLeft size="32px" className="carousel-button-left" onClick={shiftLeft} />
 
   // add return/render here
     return (
       props.urlArray.length === 0 ?
       <div>Loading the Product</div> :
 
-      <div><button onClick={leftShift}>LEFT</button>
-      <button onClick={rightShift}>RIGHT</button>
-      <img className="mainPic" src={props.firstWindowPic} onClick={(e) => window.open(props.firstWindowPic)}></img>
+      <div>
+        <div><img className="mainPic" src={props.firstWindowPic} onClick={(e) => window.open(props.firstWindowPic)}></img></div>
+        <div><button><ImCircleLeft size="32px" className="OVcarousel-button-left" onClick={leftShift} /></button>
+        <button><ImCircleRight size="32px" className="OVcarousel-button-right" onClick={rightShift} /></button>
+        </div>
       </div>
     )
   }
