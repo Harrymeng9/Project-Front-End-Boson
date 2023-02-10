@@ -7,7 +7,7 @@ import FirstStyle from './firstStyle.jsx';
 
 var StyleSelect = (props) => {
   var first = props.styles[0];
-  var rest = props.styles.slice(1)
+  var rest = props.styles.slice(1);
 
   return (
     props.styles.length === 0 ?
