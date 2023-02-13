@@ -23,7 +23,7 @@ var StyleSelect = (props) => {
             }
             ) }
           </div>
-          <Gallery pics={props.styles[0].photos} setBigPic={props.setBigPic} setWindowPic={props.setWindowPic}/>
+          <Gallery pics={props.styles[0].photos} setBigPic={props.setBigPic} setWindowPic={props.setWindowPic} />
         </div>
   )
 }
