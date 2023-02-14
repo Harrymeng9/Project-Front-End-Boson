@@ -12,6 +12,7 @@ var InfoSingle = (props) => {
   //   props.setYourOutfitProducts({ ...localStorage });
 
   let outfit = (e) => {
+    alert('Added to your styles!');
     localStorage.setItem(props.id, props.id.toString());
     props.setYourOutfitProducts({ ...localStorage });
   }

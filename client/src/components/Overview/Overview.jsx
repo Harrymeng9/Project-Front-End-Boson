@@ -90,7 +90,7 @@ var Overview = (props) => {
   //if the state is set, then we can fully render the app
   if (props === undefined) {
     return (
-      <div>Loading your products</div>
+      <div>Loading product Overview</div>
     )
   } else {
     return (
