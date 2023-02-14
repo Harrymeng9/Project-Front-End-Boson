@@ -51,30 +51,23 @@ var RelatedProductCard = (props) => {
 
     var selectedRelatedProduct = props.productId;
 
-    axios.get(`/products/${props.currentProduct}`)
-      .then((results) => {
-        props.setCurrentProductName(results.data.name);
-        var features = results.data.features;
-        var currentProductFeatures = [];
-        for (var i = 0; i < features.length; i++) {
-          var feature = features[i].feature;
-          var value = features[i].value;
-          if (value === null) {
-            currentProductFeatures.push(feature);
-          } else if (feature === null) {
-            currentProductFeatures.push(value);
-          } else if (feature !== null && value !== null) {
-            currentProductFeatures.push(value + ' ' + feature);
-          }
-        }
-        props.setCurrentProductFeatures(currentProductFeatures);
-      })
-      .catch((error) => {
-        console.log('There is an error in RelatedProductCard.jsx when trying to get current product features', error);
-      })
-      .then(() => {
-        return axios.get(`/products/${selectedRelatedProduct}`)
-      })
+    props.setCurrentProductName(props.currentProductInfo.data.name);
+    var features = props.currentProductInfo.data.features;
+    var currentProductFeatures = [];
+    for (var i = 0; i < features.length; i++) {
+      var feature = features[i].feature;
+      var value = features[i].value;
+      if (value === null) {
+        currentProductFeatures.push(feature);
+      } else if (feature === null) {
+        currentProductFeatures.push(value);
+      } else if (feature !== null && value !== null) {
+        currentProductFeatures.push(value + ' ' + feature);
+      }
+    }
+    props.setCurrentProductFeatures(currentProductFeatures);
+
+    axios.get(`/products/${selectedRelatedProduct}`)
       .then((results) => {
         var features = results.data.features;
         var selectedRelatedProductFeatures = [];
@@ -95,6 +88,7 @@ var RelatedProductCard = (props) => {
         console.log('There is an error in RelatedProductCard.jsx when trying to get selected related product features', error);
       })
   };
+
 
 
   return (
