@@ -140,19 +140,19 @@ export var Related = (props) => {
 
   return (
     <div>
-      <ErrorBoundary>
-        <h4>RELATED PRODUCTS</h4>
-        <div>
-          {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
-          <RelatedCarousel
-            cards={products(props.currentProductInfo, relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
-          />
-        </div>
-        <h4>YOUR OUTFIT</h4>
-        <div>
-          <YourOutfitCarousel cards={yourOutfitProducts(outfitProducts, props.setYourOutfitProducts, props.setProductId)} setYourOutfitProducts={props.setYourOutfitProducts} productId={props.productId} />
-        </div>
-      </ErrorBoundary>
+
+      <h4>RELATED PRODUCTS</h4>
+      <div>
+        {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
+        <RelatedCarousel
+          cards={products(props.currentProductInfo, relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
+        />
+      </div>
+      <h4>YOUR OUTFIT</h4>
+      <div>
+        <YourOutfitCarousel cards={yourOutfitProducts(outfitProducts, props.setYourOutfitProducts, props.setProductId)} setYourOutfitProducts={props.setYourOutfitProducts} productId={props.productId} />
+      </div>
+
     </div>
   )
 };

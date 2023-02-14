@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { ImStarFull } from 'react-icons/im';
 import Stars from '../../Ratings/ratingComponents/Stars.jsx';
+import ErrorBoundary from '../../../Utils/ErrorBoundary.jsx';
 
 var RelatedProductCard = (props) => {
 
@@ -92,23 +93,25 @@ var RelatedProductCard = (props) => {
 
 
   return (
-    <div className="card">
-      <div className="related-image-container">
-        <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
-        <a onClick={() => { props.setProductId(props.productId); }} href={`/productDetails/${props.productId}`}>
-          <img className="related-image" src={props.image}></img>
-        </a>
+    <ErrorBoundary>
+      <div className="card">
+        <div className="related-image-container">
+          <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
+          <a onClick={() => { props.setProductId(props.productId); }} href={`/productDetails/${props.productId}`}>
+            <img className="related-image" src={props.image}></img>
+          </a>
+        </div>
+        <div>
+          <p className="related-details">{props.category}</p>
+          <p className="related-details">{props.name}</p>
+          {discountPrice !== null ? <div className="discount">
+            <p className="discounted-price">{discountPrice}</p>
+            <p className="original-price">{props.price}</p>
+          </div> : <p className="related-details">{props.price}</p>}
+          {hasReviews ? <Stars singleRating={starRating} /> : null}
+        </div>
       </div>
-      <div>
-        <p className="related-details">{props.category}</p>
-        <p className="related-details">{props.name}</p>
-        {discountPrice !== null ? <div className="discount">
-          <p className="discounted-price">{discountPrice}</p>
-          <p className="original-price">{props.price}</p>
-        </div> : <p className="related-details">{props.price}</p>}
-        {hasReviews ? <Stars singleRating={starRating} /> : null}
-      </div>
-    </div>
+    </ErrorBoundary>
   )
 };
 
