@@ -68,9 +68,16 @@ const baseRatings = ({ func, productId }) => {
   )
 };
 
+const baseQuestionAndAnswer = ({ func, productId }) => {
+  return (
+    <div onClick={func}><QuestionAndAnswer productId={productId} /></div>
+  )
+};
+
 const OverviewRender = withConditionalFeedback(baseOverview);
 const RelatedRender = withConditionalFeedback(baseRelated);
 const RatingRender = withConditionalFeedback(baseRatings);
+const QARender = withConditionalFeedback(baseQuestionAndAnswer);
 
 var App = () => {
 
@@ -87,7 +94,7 @@ var App = () => {
     <div className='boson'>
       <OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts}/>
       <div><RelatedRender setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
-      <div><QuestionAndAnswer productId={productId} /></div>
+      <div><QARender productId={productId} /></div>
       <RatingRender productId={productId} />
     </div>
   )
