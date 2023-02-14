@@ -54,18 +54,15 @@ var Gallery = (props) => {
         <div className="gallery">
           <strong>Image Gallery</strong>
           <div className="galleryScroll">
-            <button><ImCircleLeft size="32px" className="OVcarousel-button-left" onClick={leftClick} /></button>
+            <button><ImCircleLeft size="20px" className="OVcarousel-button-left" onClick={leftClick} /></button>
           {fivePics.map(block => {
             return (
               <SinglePic full={block.url} thumb={block.thumbnail_url} key={id += 1}
               setBigPic={props.setBigPic} setWindowPic={props.setWindowPic}/>
             )
           })}
-          <button><ImCircleRight size="32px" className="OVcarousel-button-right" onClick={rightClick} /></button>
+          <button><ImCircleRight size="20px" className="OVcarousel-button-right" onClick={rightClick} /></button>
           </div>
-
-
-
         </div>
       )
     }
