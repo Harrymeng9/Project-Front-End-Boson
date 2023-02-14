@@ -7,6 +7,7 @@ import { render, screen, getByText } from '@testing-library/react';
 import  Overview from './Overview.jsx';
 import  InfoList from './ovComponents/infoList.jsx';
 import  InfoSingle from './ovComponents/infoSingle.jsx';
+import  FirstStyle from './ovComponents/firstStyle.jsx';
 import '@testing-library/jest-dom';
 
 
@@ -29,7 +30,7 @@ describe("Test Overview and Component Renders", function () {
     // think of screen as the execution environment
     //testting the code, provide the same env as we are providing
     //screen = index.html; screen is a native html provided by testing lib
-    expect(screen.getByText(/Loading/)).toBeInTheDocument();
+    expect(screen.getByText(/styles/)).toBeInTheDocument();
   });
 
   test('renders pre-state InfoSingle', () => {
@@ -55,11 +56,20 @@ describe("Test Overview and Component Renders", function () {
       description: "Whether you're a morning person or not.  Whether y…ym bound or not.  Everyone looks good in joggers.",
       default_price: '40.00',
       slogan: 'Make yourself a morning person',
-      features: [{feature: 'it works', value: 'priceless'}]
-    }]
-    var key = 12;
-    render(<InfoList info={obj} key={key}/>);
+      features: [{feature: 'it works', value: 'priceless'}],
+      id: 1234
+    },
+  ]
+    render(<InfoList info={obj}/>);
     expect(screen.getByText(/Bottoms/)).toBeInTheDocument();
+  });
+  test('renders the style name', () => {
+    //InfoSingle can only take in an array, since it runs a map function on the props
+    var obj = {
+      name: 'Morning Joggers',
+    }
+    render(<FirstStyle name={obj.name}/>);
+    expect(screen.getByText(/Joggers/)).toBeInTheDocument();
   });
 
 });
