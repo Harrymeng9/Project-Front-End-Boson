@@ -51,13 +51,13 @@ const withConditionalFeedback = (Component) => (props) => {
 const baseOverview = ({ data, func, yourOutfitProducts, setYourOutfitProducts }) => {
   let comp = 'Overview';
   return (
-    <div className="overviewMain" onClick={func}><Overview initial={data} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts}/></div>
+    <div className="overviewMain" onClick={func}><Overview initial={data} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts} /></div>
   );
 };
 
-const baseRelated = ({ func, productId, setProductId, yourOutfitProducts, setYourOutfitProducts }) => {
+const baseRelated = ({ func, productId, setProductId, yourOutfitProducts, setYourOutfitProducts, currentProductInfo }) => {
   return (
-    <div onClick={func}><Related setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
+    <div onClick={func}><Related currentProductInfo={currentProductInfo} setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
   )
 };
 
@@ -83,17 +83,27 @@ var App = () => {
 
   const [productId, setProductId] = useState(71701);
   const [yourOutfitProducts, setYourOutfitProducts] = useState({ ...localStorage });
+  const [currentProductInfo, setCurrentProductInfo] = useState({});
 
   useEffect(() => {
     var split = window.location.pathname.split('/');
-    var last = split[split.length - 1];
+    var last = Number(split[split.length - 1]);
     setProductId(last);
+
+    axios.get(`/products/${last}`)
+      .then((results) => {
+        setCurrentProductInfo(results);
+      })
+      .catch((error) => {
+        console.log('There is an error in App.jsx while trying to grab and set the current product info', error);
+      })
+
   }, []);
 
   return (
     <div className='boson'>
 
-      <ErrorBoundary><OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts}/></ErrorBoundary>
+      <ErrorBoundary><OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts} /></ErrorBoundary>
       <div><RelatedRender setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QARender productId={productId} /></div>
       <RatingRender productId={productId} />

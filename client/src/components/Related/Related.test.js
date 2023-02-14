@@ -5,7 +5,7 @@ import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import { products, Related } from './Related.jsx';
-import Card from './relatedComponents/Card.jsx';
+import RelatedProductCard from './relatedComponents/RelatedProductCard.jsx';
 
 describe("Related Widget Tests", function () {
   // unit test
@@ -35,7 +35,7 @@ describe("Related Widget Tests", function () {
 
   // integration test
   test("Card component should render the correct related product name", () => {
-    const { getByText } = render(<Card name="Bright Future Sunglasses" />);
+    const { getByText } = render(<RelatedProductCard name="Bright Future Sunglasses" />);
     const productName = getByText('Bright Future Sunglasses');
     expect(productName).toBeInTheDocument('Bright Future Sunglasses');
   });

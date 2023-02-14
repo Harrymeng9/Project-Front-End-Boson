@@ -6,11 +6,12 @@ import Overlay from './relatedComponents/Overlay.jsx';
 import axios from 'axios';
 import RelatedCarousel from './relatedComponents/RelatedCarousel.jsx';
 import YourOutfitCarousel from './relatedComponents/YourOutfitCarousel.jsx';
+import ErrorBoundary from '../../Utils/ErrorBoundary.jsx';
 
-export var products = function (relatedProds, setStarButtonClick, starButtonClick, currentProductId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, setProductId) {
+export var products = function (currentProductInfo, relatedProds, setStarButtonClick, starButtonClick, currentProductId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, setProductId) {
   return relatedProds.map((prod, index) => {
     return (
-      <RelatedProductCard key={index} setProductId={setProductId} setCurrentProductName={setCurrentProductName} setSelectedRelatedProductName={setSelectedRelatedProductName} setCurrentProductFeatures={setCurrentProductFeatures} setSelectedRelatedProductFeatures={setSelectedRelatedProductFeatures} currentProduct={currentProductId} productId={prod.productId} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
+      <RelatedProductCard key={index} currentProductInfo={currentProductInfo} setProductId={setProductId} setCurrentProductName={setCurrentProductName} setSelectedRelatedProductName={setSelectedRelatedProductName} setCurrentProductFeatures={setCurrentProductFeatures} setSelectedRelatedProductFeatures={setSelectedRelatedProductFeatures} currentProduct={currentProductId} productId={prod.productId} starButtonClick={starButtonClick} setStarButtonClick={setStarButtonClick} image={prod.image} name={prod.name} category={prod.category} price={prod.price} />
     )
   })
 };
@@ -139,17 +140,19 @@ export var Related = (props) => {
 
   return (
     <div>
+
       <h4>RELATED PRODUCTS</h4>
       <div>
         {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
         <RelatedCarousel
-          cards={products(relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
+          cards={products(props.currentProductInfo, relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
         />
       </div>
       <h4>YOUR OUTFIT</h4>
       <div>
         <YourOutfitCarousel cards={yourOutfitProducts(outfitProducts, props.setYourOutfitProducts, props.setProductId)} setYourOutfitProducts={props.setYourOutfitProducts} productId={props.productId} />
       </div>
+
     </div>
   )
 };

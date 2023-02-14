@@ -10,7 +10,6 @@ var YourOutfitCarousel = (props) => {
   const [length, setLength] = useState(0);
   const [addToOutfitCardIsPresent, setAddToOutfitCardIsPresent] = useState(true);
   const [snapshotLength, setSnapshotLength] = useState(4);
-  console.log('props.cards.length', length);
 
   useEffect(() => {
     setLength(props.cards.length);

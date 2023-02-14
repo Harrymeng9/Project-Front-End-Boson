@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from 'axios';
 import { ImStarFull } from 'react-icons/im';
 import Stars from '../../Ratings/ratingComponents/Stars.jsx';
+import ErrorBoundary from '../../../Utils/ErrorBoundary.jsx';
 
 var RelatedProductCard = (props) => {
 
@@ -51,30 +52,23 @@ var RelatedProductCard = (props) => {
 
     var selectedRelatedProduct = props.productId;
 
-    axios.get(`/products/${props.currentProduct}`)
-      .then((results) => {
-        props.setCurrentProductName(results.data.name);
-        var features = results.data.features;
-        var currentProductFeatures = [];
-        for (var i = 0; i < features.length; i++) {
-          var feature = features[i].feature;
-          var value = features[i].value;
-          if (value === null) {
-            currentProductFeatures.push(feature);
-          } else if (feature === null) {
-            currentProductFeatures.push(value);
-          } else if (feature !== null && value !== null) {
-            currentProductFeatures.push(value + ' ' + feature);
-          }
-        }
-        props.setCurrentProductFeatures(currentProductFeatures);
-      })
-      .catch((error) => {
-        console.log('There is an error in RelatedProductCard.jsx when trying to get current product features', error);
-      })
-      .then(() => {
-        return axios.get(`/products/${selectedRelatedProduct}`)
-      })
+    props.setCurrentProductName(props.currentProductInfo.data.name);
+    var features = props.currentProductInfo.data.features;
+    var currentProductFeatures = [];
+    for (var i = 0; i < features.length; i++) {
+      var feature = features[i].feature;
+      var value = features[i].value;
+      if (value === null) {
+        currentProductFeatures.push(feature);
+      } else if (feature === null) {
+        currentProductFeatures.push(value);
+      } else if (feature !== null && value !== null) {
+        currentProductFeatures.push(value + ' ' + feature);
+      }
+    }
+    props.setCurrentProductFeatures(currentProductFeatures);
+
+    axios.get(`/products/${selectedRelatedProduct}`)
       .then((results) => {
         var features = results.data.features;
         var selectedRelatedProductFeatures = [];
@@ -97,24 +91,27 @@ var RelatedProductCard = (props) => {
   };
 
 
+
   return (
-    <div className="card">
-      <div className="related-image-container">
-        <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
-        <a onClick={() => { props.setProductId(props.productId); }} href={`/productDetails/${props.productId}`}>
-          <img className="related-image" src={props.image}></img>
-        </a>
+    <ErrorBoundary>
+      <div className="card">
+        <div className="related-image-container">
+          <ImStarFull color="yellow" onClick={handleStarButtonClick} className="related-image-button" />
+          <a onClick={() => { props.setProductId(props.productId); }} href={`/productDetails/${props.productId}`}>
+            <img className="related-image" src={props.image}></img>
+          </a>
+        </div>
+        <div>
+          <p className="related-details">{props.category}</p>
+          <p className="related-details">{props.name}</p>
+          {discountPrice !== null ? <div className="discount">
+            <p className="discounted-price">{discountPrice}</p>
+            <p className="original-price">{props.price}</p>
+          </div> : <p className="related-details">{props.price}</p>}
+          {hasReviews ? <Stars singleRating={starRating} /> : null}
+        </div>
       </div>
-      <div>
-        <p className="related-details">{props.category}</p>
-        <p className="related-details">{props.name}</p>
-        {discountPrice !== null ? <div className="discount">
-          <p className="discounted-price">{discountPrice}</p>
-          <p className="original-price">{props.price}</p>
-        </div> : <p className="related-details">{props.price}</p>}
-        {hasReviews ? <Stars singleRating={starRating} /> : null}
-      </div>
-    </div>
+    </ErrorBoundary>
   )
 };
 
