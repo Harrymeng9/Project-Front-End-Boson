@@ -100,7 +100,7 @@ var Overview = (props) => {
         <div><InfoList info={initial} ratings={review} yourOutfitProducts={props.yourOutfitProducts}
         setYourOutfitProducts={props.setYourOutfitProducts}/></div>
         <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}
-        setBigPic={setBigPic} setWindowPic={setWindowPic} setURLArray={setURLArray}/>
+        setBigPic={setBigPic} setWindowPic={setWindowPic} setURLArray={setURLArray} />
       </div>
     )
   }
