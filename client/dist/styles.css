@@ -17,9 +17,12 @@
 
 .styleCont {
   height: 100px;
-  padding: 5px;
-  justify-content: space-between;
+  padding: 10px;
+  align: center;
+  margin: 10px;
+  padding-bottom: 100px;
 }
+
 
 .indStyle {
   border-radius: 30px;
@@ -29,9 +32,7 @@
   float: left;
   border: 2px solid gray;
   cursor: pointer;
-  justify-content: space-between;
   object-fit: cover;
-  justify-content: left;
 }
 
 .firstStyle {
@@ -42,22 +43,19 @@
   float: left;
   border: 2px solid black;
   cursor: pointer;
-  justify-content: space-between;
   object-fit: cover;
-  justify-content: left;
 }
 
 .gallery {
   height: 100px;
-  padding: 5px;
   justify-content: space-between;
-
 }
 
 .galleryScroll {
   height: 100px;
   vertical-align: middle;
   display: flex;
+  vertical-align: middle;
 }
 
 .singlePic .thumbNail {
@@ -73,9 +71,9 @@
 
 .mainPic {
   border-radius: 30%;
-  padding: 5px;
-  width: 300px;
-  height: 300px;
+  padding: 10px;
+  width: 350px;
+  height: 350px;
   float: left;
   object-fit: cover;
 }
@@ -87,6 +85,22 @@
   color: black;
   cursor: pointer;
 }
+
+.allPics-button-left,
+.allPics-button-right {
+  background-color: transparent;
+  border: none;
+  color: black;
+  cursor: pointer;
+
+}
+
+.featuresList .indFeatures{
+  /* text-align: center; */
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 /*
 -----------Ratings-----------

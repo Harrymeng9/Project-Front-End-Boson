@@ -12,7 +12,7 @@ var FeaturesList = (props) => {
       props === undefined ?
       <div>Loading the Product</div> :
 
-      <div>
+      <div className="featuresList">
         <h3>Product Features</h3>
       {features.map(block => {
         return (
