@@ -35,7 +35,7 @@ var GalleryCarousel = (props) => {
       <div>Loading the Product</div> :
 
       <div>
-        <div><img className="mainPic" src={props.firstWindowPic} onClick={(e) => window.open(props.firstWindowPic)}></img></div>
+        <div><img className="mainPic" alt="bigPic" src={props.firstWindowPic} onClick={(e) => window.open(props.firstWindowPic)}></img></div>
         <button><ImCircleLeft size="32px" className="OVcarousel-button-left" onClick={leftShift} /></button>
         <button><ImCircleRight size="32px" className="OVcarousel-button-right" onClick={rightShift} /></button>
       </div>

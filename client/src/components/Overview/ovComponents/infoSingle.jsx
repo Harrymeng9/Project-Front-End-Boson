@@ -38,7 +38,6 @@ var InfoSingle = (props) => {
         <div ><span className="productRating"> {starRenders(props.ratings)} </span></div>
         <div>{props.slogan}</div>
         <div>{props.description}</div>
-        <div>${props.default_price}</div>
         <FeaturesList features={props.features} key={props.id} id={props.id} />
 
       </div>

@@ -15,10 +15,12 @@ var StyleSelect = (props) => {
       :
           <div >
           <div className="styleCont" >
-            <FirstStyle key={first.style_id} name={first.name} price={first.original_price} style={first.style_id} func={props.clickfunc}/>
+            <FirstStyle key={first.style_id} name={first.name} price={first.original_price}
+            style={first.style_id} func={props.clickfunc} sale={first.sale_price}/>
             {rest.map(x => {
               return (
-                <IndStyle key={x.style_id} name={x.name} price={x.original_price} style={x.style_id} func={props.clickfunc}/>
+                <IndStyle key={x.style_id} name={x.name} price={x.original_price}
+                style={x.style_id} func={props.clickfunc} sale={x.sale_price}/>
               )
             }
             ) }

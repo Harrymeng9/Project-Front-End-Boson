@@ -28,7 +28,7 @@
   border-radius: 30px;
   padding: 5px;
   width: 140px;
-  height: 90px;
+  height: 100px;
   float: left;
   border: 2px solid gray;
   cursor: pointer;
@@ -38,8 +38,8 @@
 .firstStyle {
   border-radius: 30px;
   padding: 5px;
-  width: 140px;
-  height: 90px;
+  width: 160px;
+  height: 100px;
   float: left;
   border: 2px solid black;
   cursor: pointer;

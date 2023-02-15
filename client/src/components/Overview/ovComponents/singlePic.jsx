@@ -12,7 +12,6 @@ var SinglePic = (props) => {
     props.setWindowPic(e.target.id);
   }
 
-
   return (
     noPics ?
     <div>
@@ -20,7 +19,7 @@ var SinglePic = (props) => {
     </div> :
 
     <div className="singlePic" onClick={picClick}>
-      <a href={props.full}  target="_blank"><img className="thumbNail "src={props.thumb} id={props.full}/></a>
+      <a href={props.full} target="_blank"><img className="thumbNail" alt="smallPic" src={props.thumb} id={props.full}/></a>
     </div>
   )
 
