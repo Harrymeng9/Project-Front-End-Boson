@@ -4,6 +4,7 @@ import AnswerList from './qaComponents/AnswerList.jsx';
 import { SearchQuestions } from './qaComponents/SearchQuestions.jsx';
 import { useState, useEffect } from "react";
 import axios from "axios";
+import ErrorBoundary from '../../Utils/ErrorBoundary.jsx';
 
 function QuestionAndAnswer(props) {
 
@@ -32,8 +33,13 @@ function QuestionAndAnswer(props) {
     <div>
       <div className="qa-parent">
         <h4>QUESTIONS AND ANSWERS</h4>
+        <ErrorBoundary message={"Cannot Search Questions Right Now, Try Again Later"}>
         <SearchQuestions term={term} setTerm={setTerm} questions={questions} filteredQuestions={filteredQuestions} setFiltered={setFiltered} />
+        </ErrorBoundary>
+
+        <ErrorBoundary message={"Can't Display Questions and Answers, Try Again Later"}>
         <QuestionList term={term} questions={questions} filteredQuestions={filteredQuestions} questionModal={questionModal} setQuestionModal={setQuestionModal} />
+        </ErrorBoundary>
       </div>
     </div>
   )
