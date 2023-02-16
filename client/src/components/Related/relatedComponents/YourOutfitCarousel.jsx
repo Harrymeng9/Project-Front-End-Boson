@@ -53,9 +53,9 @@ var YourOutfitCarousel = (props) => {
       {(length > 4 && indices[0] >= 1) ? <ImCircleLeft size="32px" className="your-outfit-carousel-button-left" onClick={shiftLeft} /> : null}
       {snapshotLength === 5 ? <div className="your-outfit-carousel-items">{snapshot}</div> : <div className="your-outfit-carousel-items"><div className="add-to-your-fit-card">
         <img className="default-add" onClick={handleAddToOutfitCardClick} src="https://icons.veryicon.com/png/o/miscellaneous/standard-general-linear-icon/plus-60.png"></img>
-        <center>
-          <p>Add to Outfit</p>
-        </center>
+        <div className="add-to-outfit">
+          <p>Add Item to Outfit</p>
+        </div>
       </div>{snapshot}</div>
       }
       {(length > 4 && (indices[1] + 1 <= length)) ? <ImCircleRight size="32px" className="your-outfit-carousel-button-right" onClick={shiftRight} /> : null}

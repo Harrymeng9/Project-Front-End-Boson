@@ -58,9 +58,9 @@ var YourOutfitCard = (props) => {
           <img className="related-image" src={props.image}></img>
         </a>
       </div>
-      <div>
+      <div className="card-information">
         <p className="related-details">{props.category}</p>
-        <p className="related-details">{props.name}</p>
+        <p className="card-product-name">{props.name}</p>
         {discountPrice !== null ? <div className="discount">
           <p className="discounted-price">{discountPrice}</p>
           <p className="original-price">{props.price}</p>
