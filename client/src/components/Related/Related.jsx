@@ -143,14 +143,18 @@ export var Related = (props) => {
 
       <h4>RELATED PRODUCTS</h4>
       <div>
-        {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
-        <RelatedCarousel
-          cards={products(props.currentProductInfo, relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
-        />
+        <ErrorBoundary message={'Cannot load related products, try again later'}>
+          {starButtonClick ? <Overlay currentProductName={currentProductName} selectedRelatedProductName={selectedRelatedProductName} currentProductFeatures={currentProductFeatures} selectedRelatedProductFeatures={selectedRelatedProductFeatures} setStarButtonClick={setStarButtonClick} starButtonClick={starButtonClick} /> : null}
+          <RelatedCarousel
+            cards={products(props.currentProductInfo, relatedProducts, setStarButtonClick, starButtonClick, props.productId, setCurrentProductFeatures, setSelectedRelatedProductFeatures, setSelectedRelatedProductName, setCurrentProductName, props.setProductId)}
+          />
+        </ErrorBoundary>
       </div>
       <h4>YOUR OUTFIT</h4>
       <div>
-        <YourOutfitCarousel cards={yourOutfitProducts(outfitProducts, props.setYourOutfitProducts, props.setProductId)} setYourOutfitProducts={props.setYourOutfitProducts} productId={props.productId} />
+        <ErrorBoundary message={'Cannot load your outfit, try again later'}>
+          <YourOutfitCarousel cards={yourOutfitProducts(outfitProducts, props.setYourOutfitProducts, props.setProductId)} setYourOutfitProducts={props.setYourOutfitProducts} productId={props.productId} />
+        </ErrorBoundary>
       </div>
 
     </div>
