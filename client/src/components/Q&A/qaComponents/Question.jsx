@@ -17,15 +17,14 @@ var Question = (props) => {
   return (
     <div>
       <div className="question">
-      <div className="question-header">
-        <div className="Q">Q:</div>
-        <div className="question-body"> {props.questionBody}</div>
-        <div className="helpful-yes-answer">
+        <div className="question-header">
+          <div className="Q">Q:</div>
+          <div className="question-body"> {props.questionBody}</div>
+          <div className="helpful-yes-answer">
           <div className="helpful-yes-answer"> Helpful?</div>
           <div className="helpful-yes-answer"> Yes</div>
           <div onClick={handleClick} className="helpful-yes-answer"> Add Answer</div>
         </div>
-
       </div>
 
 

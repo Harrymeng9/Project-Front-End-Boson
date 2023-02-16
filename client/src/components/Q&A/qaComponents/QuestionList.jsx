@@ -53,9 +53,9 @@ export var QuestionList = (props) => {
 <div className="question-list">
   <div>
     {questions}
-    {length > 2 && questionsCount < length && <button onClick={handleClick}>More Answered Questions</button>}
-    <div>
-      <button onClick={handleAddQuestionClick}>Ask a Question</button>
+    <div className="qa-buttons">
+      {length > 2 && questionsCount < length && <button className="QA-Ratings-buttons" onClick={handleClick}>MORE ANSWERED QUESTIONS</button>}
+      <button className="QA-Ratings-buttons" onClick={handleAddQuestionClick}>ASK A QUESTION +</button>
     </div>
     <div>
       {props.questionModal && <QuestionModal setQuestionModal={props.setQuestionModal} qResponse={qResponse} setQResponse={setQResponse}/>}
