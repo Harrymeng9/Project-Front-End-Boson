@@ -48,25 +48,23 @@ h4 {
 .indStyle {
   border-radius: 30px;
   padding: 5px;
-  width: 120px;
-  height: 80px;
+  width: 140px;
+  height: 150px;
   float: left;
   border: 2px solid gray;
   cursor: pointer;
   object-fit: cover;
-  font-size: x-small;
 }
 
 .firstStyle {
   border-radius: 30px;
   padding: 5px;
-  width: 120px;
-  height: 80px;
+  width: 140px;
+  height: 150px;
   float: left;
   border: 2px solid black;
   cursor: pointer;
   object-fit: cover;
-  font-size: x-small;
 }
 
 .gallery {
