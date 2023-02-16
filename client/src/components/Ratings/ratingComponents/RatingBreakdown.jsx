@@ -15,7 +15,6 @@ var RatingBreakdown = (props) => {
   if (props.filterStars[2]) { filteredByList += '2 Stars/'; }
   if (props.filterStars[1]) { filteredByList += '1 Stars/'; }
 
-  // console.log('apple',filteredByList.length);
   return (
     <div className='rating'>
       <div className='avg-rating-star'>
@@ -32,7 +31,13 @@ var RatingBreakdown = (props) => {
       {/* Num Stars - green/grey Bar & # reviews */}
       {[5, 4, 3, 2, 1].map((element, index) => {
         if (ratingList !== undefined) {
-          var percentage = (ratingList[element] / props.totalReviews);
+          if (ratingList[element] !== undefined) {
+            var eachStarReviews = ratingList[element];
+          } else {
+            var eachStarReviews = 0;
+          }
+          var percentage = (eachStarReviews / props.totalReviews);
+
           return (
             <div key={index}>
               <Bar num={element} ratingList={ratingList} percentage={percentage} setFilterStars={props.setFilterStars} filterStars={props.filterStars} />
@@ -41,7 +46,7 @@ var RatingBreakdown = (props) => {
         }
       })
       }
-      <div className='ratingBreakdown-margin-bottom'> {props.recommendRate} of reviews recommend this product</div>
+      {props.recommendRate > 0 && <div className='ratingBreakdown-margin-bottom'> {props.recommendRate}% of reviews recommend this product</div>}
     </div>
   )
 }

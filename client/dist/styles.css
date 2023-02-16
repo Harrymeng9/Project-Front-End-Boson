@@ -144,6 +144,9 @@ h4 {
   color: red;
 }
 
+.overview-details {
+  max-width: 800px;
+}
 
 /*
 -----------Ratings-----------
@@ -197,7 +200,7 @@ h4 {
 .product-descriptions {
   display: flex;
   justify-content: space-between;
-  width: 255px;
+  width: 267.8px;
 }
 
 .product-icon {
@@ -523,6 +526,7 @@ h4 {
   display: flex;
   flex-direction: column;
   z-index: 1;
+  border-radius: 3%;
 }
 
 .overlay-feats {
@@ -536,22 +540,31 @@ h4 {
   border: none;
   cursor: pointer;
   font-size: large;
+  padding-top: 2%;
+  padding-right: 2%;
 }
 
 .overlay-container-title {
   text-align: left;
   margin: 0%;
+  text-align: center;
+  font-style: italic;
+  font-weight: bold;
 }
 
 .overlay-items {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  padding-left: 7%;
+  padding-right: 7%;
 }
 
 .overlay-features {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding-left: 7%;
+  padding-right: 7%;
 }
 
 .overlay-padding {
@@ -567,20 +580,102 @@ h4 {
 }
 
 .question {
-  width: 1700px;
+  /* display: flex;
+  flex-direction: column; */
+  /* margin-right: 4%;
+  margin-left: 4%; */
   padding-top: 15px;
   border-bottom: solid;
   border-color: rgb(52, 61, 67);
 }
 
-#filter-questions {
-  width: 400px;
+.question-header {
+  display: flex;
+}
+
+.helpful-yes-answer {
+  display: flex;
+  margin-right: 5px;
+}
+
+.answer-header {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.answer-details {
+  display: flex;
+}
+
+.answer-body {
+  font-size: large;
+}
+
+#filter-results {
+  width: 500px;
+  height: 50px;
+  font-size: medium;
+}
+
+.A {
+  font-weight: bold;
+  font-size: large;
+  margin-right: 5px;
+}
+
+.Q {
+  font-weight: bold;
+  font-size: large;
+  margin-right: 5px;
+}
+
+.question-body {
+  display: flex;
+  font-weight: bold;
+  font-size: large;
+  margin-right: 200px;
 }
 
 .qa-parent {
-  /* margin-right: 30px;
-  margin-left: 30px; */
   display: flex;
-  align-items: center;
+  /* align-items: center; */
   flex-direction: column;
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.answer-name-date {
+  display: flex;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.helpful-yes-report-answer {
+  display: flex;
+  margin-right: 5px;
+}
+
+#question-search-bar {
+  display: flex;
+  justify-content: center;
+}
+
+.QA-Ratings-buttons {
+  background-color: #ddd0f1;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: medium;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.qa-buttons {
+  display: flex;
+  justify-content: center;
 }

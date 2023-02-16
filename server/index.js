@@ -164,8 +164,11 @@ app.get('/reviews/meta', (req, res) => {
         totalReviews += Number(ratingList[i]);
       }
 
-      var averageRating = (totalScore / totalReviews).toFixed(1); // 3.7 for example
-      var recommendRate = (Number(recommendList[true]) / (Number(recommendList[true]) + Number(recommendList[false]))).toFixed(2) * 100 + '%';
+      var averageRating = Number((totalScore / totalReviews).toFixed(1)); // 3.7 for example
+      var recommendRate = (Number(recommendList[true]) / (Number(recommendList[true]) + Number(recommendList[false]))).toFixed(2) * 100;
+      if (typeof recommendRate !== 'number') {
+        recommendRate = 0;
+      }
       var adjustAverageRating = averageRating - averageRating % 0.25;
       var result = {
         'fullData': productChars.data,
