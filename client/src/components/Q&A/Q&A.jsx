@@ -31,14 +31,14 @@ function QuestionAndAnswer(props) {
 
   return (
     <div>
+      <h4>QUESTIONS AND ANSWERS</h4>
       <div className="qa-parent">
-        <h4>QUESTIONS AND ANSWERS</h4>
         <ErrorBoundary message={"Cannot Search Questions Right Now, Try Again Later"}>
-        <SearchQuestions term={term} setTerm={setTerm} questions={questions} filteredQuestions={filteredQuestions} setFiltered={setFiltered} />
+          <SearchQuestions term={term} setTerm={setTerm} questions={questions} filteredQuestions={filteredQuestions} setFiltered={setFiltered} />
         </ErrorBoundary>
 
         <ErrorBoundary message={"Can't Display Questions and Answers, Try Again Later"}>
-        <QuestionList term={term} questions={questions} filteredQuestions={filteredQuestions} questionModal={questionModal} setQuestionModal={setQuestionModal} />
+          <QuestionList term={term} questions={questions} filteredQuestions={filteredQuestions} questionModal={questionModal} setQuestionModal={setQuestionModal} />
         </ErrorBoundary>
       </div>
     </div>
