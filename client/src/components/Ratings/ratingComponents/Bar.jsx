@@ -3,7 +3,7 @@ import {useEffect} from 'react';
 
 var Bar = (props) => {
 
-  var greenWidthValue = (props.percentage * 200).toFixed(1);
+  var greenWidthValue = Number((props.percentage * 200).toFixed(1));
   var greyWidthValue = 200 - greenWidthValue;
 
   var resetFilterStars = () => {
