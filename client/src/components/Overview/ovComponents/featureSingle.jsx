@@ -6,7 +6,7 @@ var FeatureSingle = (props) => {
 
   // add return/render here
   return (
-    <div>{props.feat}: {props.value}</div>
+    <div className="indFeatures">{props.feat}: {props.value}</div>
   )
 
 }
