@@ -14,7 +14,9 @@ var StyleSelect = (props) => {
       <h3> Loading your styles </h3>
       :
           <div >
+            <Gallery pics={props.styles[0].photos} setBigPic={props.setBigPic} setWindowPic={props.setWindowPic} />
           <div className="styleCont" >
+            <h5>Available Styles</h5>
             <FirstStyle key={first.style_id} name={first.name} price={first.original_price}
             style={first.style_id} func={props.clickfunc} sale={first.sale_price}/>
             {rest.map(x => {
@@ -25,7 +27,6 @@ var StyleSelect = (props) => {
             }
             ) }
           </div>
-          <Gallery pics={props.styles[0].photos} setBigPic={props.setBigPic} setWindowPic={props.setWindowPic} />
         </div>
   )
 }
