@@ -1,6 +1,7 @@
 import React from 'react';
 import { useState, useEffect, useRef } from 'react';
 import axios from 'axios';
+import { ImCheckmark } from 'react-icons/im';
 
 var FirstStyle = (props) => {
 
@@ -15,10 +16,9 @@ var FirstStyle = (props) => {
       return (
         <div onClick={finalizer}>
           <div className="firstStyle">
-            <span>&#10003;
-              <ul> <strong>{props.name}</strong></ul>
-              <ul><strong><del className="styleOnSale">${props.price}</del> <ins>${props.sale}</ins></strong></ul>
-            </span>
+            <ul> <strong> <ImCheckmark/>{props.name}</strong></ul>
+            <ul><del className="styleOnSale">${props.price}</del></ul>
+            <ul><ins>${props.sale}</ins></ul>
           </div>
         </div>
       )
@@ -26,10 +26,8 @@ var FirstStyle = (props) => {
       return (
         <div onClick={finalizer}>
           <div className="firstStyle">
-            <span>&#10003;
-              <ul> <strong>{props.name}</strong></ul>
-              <ul> <strong>{props.price}</strong></ul>
-            </span>
+              <ul> <strong><ImCheckmark/> {props.name}</strong></ul>
+              <ul> <strong>${props.price}</strong></ul>
           </div>
         </div>
       )

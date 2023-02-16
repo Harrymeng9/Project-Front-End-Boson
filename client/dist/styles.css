@@ -35,6 +35,9 @@ h4 {
   margin-left: 4%;
 }
 
+.overview-details {
+  max-width: 1000px;
+}
 
 .styleCont {
   height: 100px;
@@ -48,28 +51,30 @@ h4 {
 .indStyle {
   border-radius: 30px;
   padding: 5px;
-  width: 160px;
-  height: 150px;
+  width: 120px;
+  height: 80px;
   float: left;
   border: 2px solid gray;
   cursor: pointer;
   object-fit: cover;
+  font-size: x-small;
 }
 
 .firstStyle {
   border-radius: 30px;
   padding: 5px;
-  width: 160px;
-  height: 150px;
+  width: 120px;
+  height: 80px;
   float: left;
   border: 2px solid black;
   cursor: pointer;
   object-fit: cover;
+  font-size: x-small;
 }
 
 .gallery {
   height: 100px;
-  padding: 4%;
+  padding: 3%;
   justify-content: space-between;
 }
 
@@ -77,7 +82,7 @@ h4 {
   display: flex;
   align-items: center;
   float: left;
-  padding-right: 10px;
+  padding-right: 3%;
 }
 
 .galleryScroll {
