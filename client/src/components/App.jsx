@@ -102,7 +102,7 @@ var App = () => {
 
   return (
     <div className='boson'>
-      <div class="header">
+      <div className="header">
         <h1>Project Atelier</h1>
       </div>
 

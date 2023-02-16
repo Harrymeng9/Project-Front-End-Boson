@@ -417,7 +417,7 @@ h4 {
 
 .card {
   border: 1px solid gray;
-  height: 300px;
+  height: 325px;
   width: 200px;
   cursor: pointer;
   border-radius: 5%;
@@ -452,13 +452,14 @@ h4 {
 
 .add-to-your-fit-card {
   border: 1px solid gray;
-  height: 300px;
+  height: 325px;
   width: 200px;
   border-radius: 5%;
 
 }
 
 .default-add {
+  padding-top: 5%;
   height: 225px;
   width: 200px;
   object-fit: cover;
@@ -467,6 +468,23 @@ h4 {
 
 .related-details {
   margin: 0;
+}
+
+.card-information {
+  vertical-align: middle;
+}
+
+.card-product-name {
+  font-weight: bold;
+  font-style: italic;
+  margin: 0%;
+}
+
+.add-to-outfit {
+  font-weight: bold;
+  margin: 0%;
+  height: 90px;
+  text-align: center;
 }
 
 .overlay-background {
