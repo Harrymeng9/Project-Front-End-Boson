@@ -4,7 +4,7 @@
     "server-dev": "nodemon ./server/index.js",
     "test": "jest ./test/All.test.js",
     "related-test": "jest --coverage ./client/src/components/Related/Related.test.js",
-    "rating-test": "jest ./client/src/components/Ratings/Ratings.test.js",
+    "rating-test": "jest ./client/src/components/Ratings/Ratings.test.js --coverage --watch",
     "QA-test": "jest ./client/src/components/Q&A/QA.test.js",
     "overview-test": "jest ./client/src/components/Overview/Overview.test.js",
     "coverage": "jest --coverage"

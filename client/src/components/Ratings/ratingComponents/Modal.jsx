@@ -5,7 +5,6 @@ import StarRatings from 'react-star-ratings';
 
 const Modal = (props) => {
 
-  const [productName, setProductName] = useState('');
   const [ratingValue, setRatingValue] = useState(0);
   const [recommend, setRecommend] = useState(true);
   const [size, setSize] = useState(0);
@@ -40,17 +39,6 @@ const Modal = (props) => {
     'Length': [length, setLength],
     'Fit': [fit, setFit]
   };
-
-  // Get product name base on product id
-  useEffect(() => {
-    axios.get(`/products/${props.product_id}`)
-      .then((data) => {
-        setProductName(data.data.name);
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-  }, []);
 
   var photosChange = (e) => {
     if (e.target.files && e.target.files[0]) {
@@ -124,7 +112,7 @@ const Modal = (props) => {
       <div id='modal'>
         <div className="modal-container" style={{ maxHeight: '800px', overflow: 'auto' }}>
           <div className='writeReview-mainTitle'>Write Your Review</div>
-          <div className='writeReview-subtitle'>About the {productName}</div>
+          <div className='writeReview-subtitle'>About the {props.currentProductInfo.data.name}</div>
           {/* Overall Rating */}
           <div className='writeReview-title'>Overall rating *</div>
           <div className='writeReview-title-box' style={{ display: 'flex' }}>

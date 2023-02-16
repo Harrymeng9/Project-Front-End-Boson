@@ -23,9 +23,9 @@ var ProductBreakdown = (props) => {
             <div key={i}>
               <div className='product-set'>
                 <div className='product-category'>{category}</div>
-                <div className='product-greyBar-icon' style={{width:255}}>
-                  <div className='product-icon' style={{ left: (score / 5) * 255 }}><AiFillCaretDown size={20} /></div>
-                  <div className='product-greyBar' style={{ width: 255 }}></div>
+                <div className='product-greyBar-icon' style={{width:267.8}}>
+                  <div className='product-icon' style={{ left: (score / 5) * 267.8 }}><AiFillCaretDown size={20} /></div>
+                  <div className='product-greyBar' style={{ width: 267.8 }}></div>
                 </div>
                 <div className='product-descriptions'>
                   <div className='product-description'>{description[0]}</div>

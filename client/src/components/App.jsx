@@ -61,10 +61,10 @@ const baseRelated = ({ func, productId, setProductId, yourOutfitProducts, setYou
   )
 };
 
-const baseRatings = ({ func, productId }) => {
+const baseRatings = ({ func, productId, currentProductInfo }) => {
   let comp = 'RatingsWidget';
   return (
-    <div onClick={func}><Ratings productId={productId} /></div>
+    <div onClick={func}><Ratings productId={productId} currentProductInfo={currentProductInfo}/></div>
   )
 };
 
@@ -109,7 +109,7 @@ var App = () => {
       <ErrorBoundary><OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts} /></ErrorBoundary>
       <div><RelatedRender currentProductInfo={currentProductInfo} setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QARender productId={productId} /></div>
-      <RatingRender productId={productId} />
+      {Object.keys(currentProductInfo).length > 0 && <RatingRender productId={productId} currentProductInfo={currentProductInfo} />}
     </div>
   )
 }
