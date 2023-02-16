@@ -5,7 +5,7 @@
     "test": "jest ./test/All.test.js",
     "related-test": "jest --coverage ./client/src/components/Related/Related.test.js",
     "rating-test": "jest ./client/src/components/Ratings/Ratings.test.js",
-    "QA-test": "jest --coverage ./client/src/components/Q&A/QA.test.js",
+    "QA-test": "jest ./client/src/components/Q&A/QA.test.js",
     "overview-test": "jest ./client/src/components/Overview/Overview.test.js",
     "coverage": "jest --coverage"
   },
@@ -27,7 +27,6 @@
     "jest": "^29.3.1",
     "jest-environment-jsdom": "^29.4.0",
     "nodemon": "^2.0.20",
-    "pm2": "^5.2.2",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.7.1",
