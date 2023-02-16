@@ -107,7 +107,7 @@ var App = () => {
       </div>
 
       <ErrorBoundary><OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts} /></ErrorBoundary>
-      <div><RelatedRender setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
+      <div><RelatedRender currentProductInfo={currentProductInfo} setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QARender productId={productId} /></div>
       <RatingRender productId={productId} />
     </div>
