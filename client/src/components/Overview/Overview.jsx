@@ -95,12 +95,14 @@ var Overview = (props) => {
   } else {
     return (
       <div>
-        {/* <div><img className="mainPic" src={bigPic} onClick={(e) => window.open(windowPic)}></img></div> */}
         <div><GalleryCarousel firstWindowPic={windowPic} setWindowPic={setWindowPic} urlArray={urlArray}/></div>
         <div><InfoList info={initial} ratings={review} yourOutfitProducts={props.yourOutfitProducts}
         setYourOutfitProducts={props.setYourOutfitProducts}/></div>
+        <div className="bottomHalf">
         <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}
         setBigPic={setBigPic} setWindowPic={setWindowPic} setURLArray={setURLArray} />
+        </div>
+
       </div>
     )
   }

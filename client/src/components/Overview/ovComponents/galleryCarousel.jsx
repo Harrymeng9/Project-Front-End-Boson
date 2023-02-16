@@ -27,17 +27,16 @@ var GalleryCarousel = (props) => {
       func(props.urlArray[currentIndex + 1])
     }
   }
-  //<ImCircleLeft size="32px" className="carousel-button-left" onClick={shiftLeft} />
 
   // add return/render here
     return (
       props.urlArray.length === 0 ?
       <div>Loading the Product</div> :
 
-      <div>
-        <div><img className="mainPic" alt="bigPic" src={props.firstWindowPic} onClick={(e) => window.open(props.firstWindowPic)}></img></div>
-        <button><ImCircleLeft size="32px" className="OVcarousel-button-left" onClick={leftShift} /></button>
-        <button><ImCircleRight size="32px" className="OVcarousel-button-right" onClick={rightShift} /></button>
+      <div className="galleryOverhead">
+        <ImCircleLeft size="32px" className="OVcarousel-button-left" onClick={leftShift} />
+        <div><img className="mainPic" src={props.firstWindowPic} onClick={(e) => window.open(props.firstWindowPic)}></img></div>
+        <ImCircleRight size="32px" className="OVcarousel-button-right" onClick={rightShift} />
       </div>
     )
   }

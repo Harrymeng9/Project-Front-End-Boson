@@ -33,7 +33,7 @@ var InfoSingle = (props) => {
     props === undefined ?
       <div>Loading the Product</div> :
       <div>
-        <h2>{props.name} <button onClick={outfit}><ImStarFull /></button></h2>
+        <h1>{props.name} <button onClick={outfit}><ImStarFull /></button></h1>
         <div>Product Category: {props.category}</div>
         <div ><span className="productRating"> {starRenders(props.ratings)} </span></div>
         <div>{props.slogan}</div>

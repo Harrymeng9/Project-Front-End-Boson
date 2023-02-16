@@ -35,20 +35,21 @@ h4 {
   margin-left: 4%;
 }
 
+
 .styleCont {
   height: 100px;
   padding: 10px;
   align: center;
   margin: 10px;
-  padding-bottom: 100px;
+  flex-wrap: wrap;
 }
 
 
 .indStyle {
   border-radius: 30px;
   padding: 5px;
-  width: 140px;
-  height: 100px;
+  width: 160px;
+  height: 150px;
   float: left;
   border: 2px solid gray;
   cursor: pointer;
@@ -59,7 +60,7 @@ h4 {
   border-radius: 30px;
   padding: 5px;
   width: 160px;
-  height: 100px;
+  height: 150px;
   float: left;
   border: 2px solid black;
   cursor: pointer;
@@ -68,14 +69,22 @@ h4 {
 
 .gallery {
   height: 100px;
+  padding: 4%;
   justify-content: space-between;
 }
 
-.galleryScroll {
-  height: 100px;
-  vertical-align: middle;
+.galleryOverhead {
   display: flex;
-  vertical-align: middle;
+  align-items: center;
+  float: left;
+  padding-right: 10px;
+}
+
+.galleryScroll {
+  padding-top: 20px;
+  height: 100px;
+  display: flex;
+  align-items: center;
 }
 
 .singlePic .thumbNail {
@@ -91,11 +100,16 @@ h4 {
 
 .mainPic {
   border-radius: 30%;
-  padding: 10px;
+  padding: 15px;
   width: 350px;
   height: 350px;
   float: left;
   object-fit: cover;
+}
+
+.bottomHalf {
+  padding-top: 100px;
+  justify-content: flex-start;
 }
 
 .OVcarousel-button-left,
