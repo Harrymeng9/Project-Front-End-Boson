@@ -1,18 +1,38 @@
 /* Boson */
 
-/* #root {
-  display: flex;
-  justify-content: center;
-} */
+#root {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
 
 /* .boson {
   width: 1200px;
 } */
 
+.header {
+  margin-right: 50px;
+  margin-left: 50px;
+  text-align: center;
+  background: #ddd0f1;
+  color: white;
+  font-size: 30px;
+}
+
+h4 {
+  margin-right: 50px;
+  margin-left: 50px;
+  text-align: center;
+  background: #ddd0f1;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
 /* Overview */
 
 .overviewMain {
   padding-bottom: 100px;
+  margin-right: 4%;
+  margin-left: 4%;
 }
 
 .styleCont {
@@ -95,7 +115,7 @@
 
 }
 
-.featuresList .indFeatures{
+.featuresList .indFeatures {
   /* text-align: center; */
   margin-left: auto;
   margin-right: auto;
@@ -113,6 +133,8 @@
 /* Ratings Component */
 .ratingsLeftRight {
   display: flex;
+  margin-right: 4%;
+  margin-left: 4%;
 }
 
 .rating {
@@ -398,12 +420,17 @@
   height: 300px;
   width: 200px;
   cursor: pointer;
+  border-radius: 5%;
+  text-align: center;
+
 }
 
 .related-image {
   height: 225px;
   width: 200px;
   object-fit: cover;
+  border-top-left-radius: 5%;
+  border-top-right-radius: 5%;
 }
 
 .related-image-container {
@@ -427,6 +454,8 @@
   border: 1px solid gray;
   height: 300px;
   width: 200px;
+  border-radius: 5%;
+
 }
 
 .default-add {
@@ -496,27 +525,25 @@
 /* Q&A */
 
 .question-list {
-  max-height: 50%;
-  overflow: scroll;
+  max-height: 500px;
+  overflow-y: scroll;
 }
 
 .question {
-  width: 40%;
+  width: 1700px;
   padding-top: 15px;
   border-bottom: solid;
   border-color: rgb(52, 61, 67);
 }
 
 #filter-questions {
-  width: 50%;
+  width: 400px;
 }
 
-/* .qa-parent {
-  padding-left: 10%;
-  padding-top: 5%;
-  padding-bottom: 5%;
-} */
-
-h4 {
-  text-align: center;
+.qa-parent {
+  /* margin-right: 30px;
+  margin-left: 30px; */
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }

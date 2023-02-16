@@ -102,6 +102,9 @@ var App = () => {
 
   return (
     <div className='boson'>
+      <div class="header">
+        <h1>Project Atelier</h1>
+      </div>
 
       <ErrorBoundary><OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts} /></ErrorBoundary>
       <div><RelatedRender setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
