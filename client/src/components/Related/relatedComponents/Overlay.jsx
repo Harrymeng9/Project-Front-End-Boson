@@ -32,11 +32,11 @@ var Overlay = (props) => {
 
         <div className="overlay-items">
           <div>
-            <h4>{props.currentProductName}</h4>
+            <h5>{props.currentProductName}</h5>
           </div>
           <div className="overlay-padding"></div>
           <div>
-            <h4>{props.selectedRelatedProductName}</h4>
+            <h5>{props.selectedRelatedProductName}</h5>
           </div>
         </div>
         <div className="overlay-feats">{features}</div>
