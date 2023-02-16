@@ -17,7 +17,17 @@ var Question = (props) => {
   return (
     <div>
       <div className="question">
-      Q: {props.questionBody} Helpful? Yes (#) <div onClick={handleClick}>Add Answer</div>
+        <div className="question-header">
+          <div className="Q">Q:</div>
+          <div className="question-body"> {props.questionBody}</div>
+          <div className="helpful-yes-answer">
+          <div className="helpful-yes-answer"> Helpful?</div>
+          <div className="helpful-yes-answer"> Yes</div>
+          <div onClick={handleClick} className="helpful-yes-answer"> Add Answer</div>
+        </div>
+      </div>
+
+
       {answerModal &&  <AnswerModal id={props.id} setAnswerModal={setAnswerModal}/>}
         <div className="answerList">
         < AnswerList answers={props.answers}/>

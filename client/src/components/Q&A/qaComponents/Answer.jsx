@@ -1,13 +1,32 @@
 import React from 'react';
 
+
+
 var Answer = (props) => {
+
+  var time = new Date(props.date);
+  var month = new Intl.DateTimeFormat("en-US", { month: 'long' }).format(time);
+  var year = time.getFullYear();
+  var date = time.getUTCDate(); //
+  var adjDate = month + ' ' + date + ', ' + year;
+  var usernameAndDate = props.author + ', ' + adjDate;
 
   return (
     <div>
-      {props.answerBody}
-      <br></br>
-      {props.author} {props.date} Helpful? Yes (#) Report
-      <br></br>
+
+      <div className="answer-header">
+        <div className="A">A:</div>
+        <div className="answer-body">"{props.answerBody}"</div>
+      </div>
+
+        <div className="answer-name-date">{usernameAndDate}</div>
+
+        <div className="helpful-yes-report-answer">
+          <div className="helpful-yes-report-answer">Helpful?</div>
+          <div className="helpful-yes-report-answer">Yes (#)</div>
+          <div className="helpful-yes-report-answer">Report</div>
+        </div>
+
       <br></br>
     </div>
   )
