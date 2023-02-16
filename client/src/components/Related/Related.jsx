@@ -69,7 +69,10 @@ export var Related = (props) => {
         var data = [];
         for (var i = 1; i < relatedInfo.length; i += 2) {
           var prodId = relatedInfo[i - 1].data.product_id;
-          var image = relatedInfo[i - 1].data.results[0].photos[0].thumbnail_url;
+          var image = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg';
+          if (relatedInfo[i - 1].data.results[0].photos[0].thumbnail_url) {
+            image = relatedInfo[i - 1].data.results[0].photos[0].thumbnail_url;
+          }
           var name = relatedInfo[i].data.name;
           var category = relatedInfo[i].data.category;
           var price = relatedInfo[i].data.default_price;
@@ -82,6 +85,7 @@ export var Related = (props) => {
             price: price
           });
         }
+
         setRelatedProducts(data);
       })
       .catch((error) => {
