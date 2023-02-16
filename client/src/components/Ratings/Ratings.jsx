@@ -28,7 +28,7 @@ var Ratings = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [props.productId]);
 
   return (
     <div>
@@ -36,11 +36,12 @@ var Ratings = (props) => {
       <div className="ratingsLeftRight">
         <div className='ratings-left'>
           {/* Don't render RatingBreakdown until 'productChars' is ready!*/}
-          {Object.keys(productChars).length > 0 && <RatingBreakdown productChars={productChars} totalReviews={totalReviews} averageRating={averageRating}
+          {Object.keys(productChars).length > 0 && totalReviews !== -1 && <RatingBreakdown productChars={productChars} totalReviews={totalReviews} averageRating={averageRating}
             adjustAverageRating={adjustAverageRating} recommendRate={recommendRate} setFilterStars={setFilterStars} filterStars={filterStars}/>}
           {Object.keys(productChars).length > 0  && <ProductBreakdown productChars={productChars} />}
         </div>
-        {Object.keys(productChars).length > 0  && totalReviews !== -1 && <ReviewList product_id={props.productId} productChars={productChars} totalReviews={totalReviews} filterStars={filterStars}/>}
+        {Object.keys(productChars).length > 0 && Object.keys(props.currentProductInfo).length > 0 && totalReviews !== -1 && <ReviewList product_id={props.productId} productChars={productChars} totalReviews={totalReviews}
+          filterStars={filterStars} currentProductInfo={props.currentProductInfo} />}
       </div>
     </div>
   )

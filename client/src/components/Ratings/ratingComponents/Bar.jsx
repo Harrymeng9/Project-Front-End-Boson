@@ -15,12 +15,17 @@ var Bar = (props) => {
     }))
   }
 
+  var reviewsCount = props.ratingList[props.num];
+  if (reviewsCount === undefined) {
+    reviewsCount = 0;
+  }
+
   return (
     <div className='stars-bar-score' onClick={resetFilterStars}>
       <div className='stars-decoration'>{props.num} Stars </div>
       <div className='greenBar' style={{ width: greenWidthValue }}></div>
       <div className='greyBar' style={{ width: greyWidthValue }}></div>
-      <div className='star-reviews'>{props.ratingList[props.num]}</div>
+      <div className='star-reviews'>{reviewsCount}</div>
     </div>
   )
 }

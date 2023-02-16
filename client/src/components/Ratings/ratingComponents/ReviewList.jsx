@@ -108,10 +108,10 @@ var ReviewList = (props) => {
           }
         </div>
         {/* More Review Button */}
-        {renderCount <= filteredReviewListToRender.length && <button onClick={(e) => setRenderCount(renderCount + 2)}>MORE REVIEWS</button>}
+        {renderCount <= filteredReviewListToRender.length && <button onClick={(e) => setRenderCount(renderCount + 2)}><strong>MORE REVIEWS</strong></button>}
         {/* Add a Review Button */}
-        <button onClick={(e) => setModal(!modal)}>ADD A REVIEW + </button>
-        {modal && <Modal setModal={setModal} modal={modal} product_id={props.product_id} productChars={props.productChars} />}
+        <button onClick={(e) => setModal(!modal)}><strong>ADD A REVIEW + </strong></button>
+        {modal && <Modal setModal={setModal} modal={modal} product_id={props.product_id} productChars={props.productChars} currentProductInfo={props.currentProductInfo} />}
       </div >
     )
   } else {

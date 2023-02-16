@@ -11,7 +11,7 @@ var ReviewTile = (props) => {
   var time = new Date(review.date);
   var month = new Intl.DateTimeFormat("en-US", { month: 'long' }).format(time);
   var year = time.getFullYear();
-  var date = time.getUTCDate(); //
+  var date = time.getUTCDate();
   var adjDate = month + ' ' + date + ', ' + year;
   var usernameAndAdjDate = review.reviewer_name + ', ' + adjDate;
 
