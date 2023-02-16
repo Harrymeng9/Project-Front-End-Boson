@@ -15,7 +15,7 @@ var IndStyle = (props) => {
         <div onClick={finalizer}>
           <div className="indStyle">
             <ul> <strong>{props.name}</strong></ul>
-            <ul>$<del>{props.price}</del> <ins>{props.sale}</ins></ul>
+            <ul><del className="styleOnSale">${props.price}</del> <ins>${props.sale}</ins></ul>
           </div>
         </div>
       )
