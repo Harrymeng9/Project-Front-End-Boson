@@ -25,7 +25,7 @@ var ReviewList = (props) => {
           console.log(err);
         });
     };
-  }, [props.product_id]);
+  }, []);
 
 
   // Once sort option changes, retrieve the data from API
@@ -104,7 +104,6 @@ var ReviewList = (props) => {
                 </div>
               )
             }
-              // }
             )
           }
         </div>

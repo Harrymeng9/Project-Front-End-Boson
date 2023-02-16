@@ -11,7 +11,7 @@ var Ratings = (props) => {
   const [totalReviews, setTotalReviews] = useState(-1);
   const [averageRating, setAverageRating] = useState(0);
   const [adjustAverageRating, setAdjustAverageRating] = useState(0);
-  const [recommendRate, setRecommendRate] = useState(0);
+  const [recommendRate, setRecommendRate] = useState(-1);
   const [filterStars, setFilterStars] = useState({ 1: false, 2: false, 3: false, 4: false, 5: false });
 
   useEffect(() => {
@@ -28,7 +28,7 @@ var Ratings = (props) => {
       .catch((err) => {
         console.log(err);
       });
-  }, [props.productId]);
+  }, []);
 
   return (
     <div>
@@ -36,11 +36,11 @@ var Ratings = (props) => {
       <div className="ratingsLeftRight">
         <div className='ratings-left'>
           {/* Don't render RatingBreakdown until 'productChars' is ready!*/}
-          {productChars && <RatingBreakdown productChars={productChars} totalReviews={totalReviews} averageRating={averageRating}
+          {Object.keys(productChars).length > 0 && <RatingBreakdown productChars={productChars} totalReviews={totalReviews} averageRating={averageRating}
             adjustAverageRating={adjustAverageRating} recommendRate={recommendRate} setFilterStars={setFilterStars} filterStars={filterStars}/>}
-          {productChars && <ProductBreakdown productChars={productChars} />}
+          {Object.keys(productChars).length > 0  && <ProductBreakdown productChars={productChars} />}
         </div>
-        {productChars && totalReviews !== -1 && <ReviewList product_id={props.productId} productChars={productChars} totalReviews={totalReviews} filterStars={filterStars}/>}
+        {Object.keys(productChars).length > 0  && totalReviews !== -1 && <ReviewList product_id={props.productId} productChars={productChars} totalReviews={totalReviews} filterStars={filterStars}/>}
       </div>
     </div>
   )

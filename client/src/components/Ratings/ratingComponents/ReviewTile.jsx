@@ -20,6 +20,10 @@ var ReviewTile = (props) => {
   const [frontEndYesCount, setFrontEndYesCount] = useState(review.helpfulness);
   var commentedReviewsList = {};
 
+  useEffect(() => {
+    setFrontEndYesCount(props.review.helpfulness);
+  }, [props.review]);
+
   var clickYesButton = () => {
     // If user has not clicked on "YES" yet (even change the sorting option or not), then will run below
     if (!isYesClicked && props.commentedReviews[props.review_id] !== true) {
@@ -59,7 +63,7 @@ var ReviewTile = (props) => {
         </div>}
       {review.body.length > 250 && !isMoreToShow && <div className='reviewtile-margin-bottom'>{review.body}</div>}
       {/* Photos */}
-      {/* <div style={{ display: 'flex' }}>
+      <div style={{ display: 'flex' }}>
         {props.photos.map((photo, key) => {
           return (
             <div key={key}>
@@ -69,8 +73,7 @@ var ReviewTile = (props) => {
             </div>
           )
         })}
-      </div> */}
-
+      </div>
       {/* Recommend */}
       {review.recommend && <div className='reviewtile-margin-bottom'><ImCheckmark color='green' /> I recommend this product</div>}
       {/* Response */}

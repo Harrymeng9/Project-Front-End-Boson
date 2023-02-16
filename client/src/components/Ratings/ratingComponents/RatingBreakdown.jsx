@@ -15,7 +15,6 @@ var RatingBreakdown = (props) => {
   if (props.filterStars[2]) { filteredByList += '2 Stars/'; }
   if (props.filterStars[1]) { filteredByList += '1 Stars/'; }
 
-  // console.log('apple',filteredByList.length);
   return (
     <div className='rating'>
       <div className='avg-rating-star'>
@@ -41,7 +40,7 @@ var RatingBreakdown = (props) => {
         }
       })
       }
-      <div className='ratingBreakdown-margin-bottom'> {props.recommendRate} of reviews recommend this product</div>
+      {props.recommendRate > 0 && <div className='ratingBreakdown-margin-bottom'> {props.recommendRate}% of reviews recommend this product</div>}
     </div>
   )
 }
