@@ -17,7 +17,7 @@ var FirstStyle = (props) => {
           <div className="firstStyle">
             <span>&#10003;
               <ul> <strong>{props.name}</strong></ul>
-              <ul><strong>$<del>{props.price}</del> <ins>{props.sale}</ins></strong></ul>
+              <ul><strong><del className="styleOnSale">${props.price}</del> <ins>${props.sale}</ins></strong></ul>
             </span>
           </div>
         </div>
