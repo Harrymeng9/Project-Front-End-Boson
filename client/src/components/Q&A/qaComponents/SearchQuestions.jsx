@@ -27,7 +27,7 @@ export var SearchQuestions = (props) => {
   }
 
   return (
-    <div>
+    <div id="question-search-bar">
       <form>
         <input id="filter-questions" onChange={handleChange}
             type="text"

@@ -13,7 +13,6 @@ var keys = Object.keys(props.answers);
 
   return (
     <div>
-      A:
       {keys.map((answerId) => {
         var item = props.answers[answerId];
        return <Answer key={answerId} answerBody={item.body} author={item.answerer_name} date={item.date}/>

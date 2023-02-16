@@ -572,20 +572,80 @@ h4 {
 }
 
 .question {
-  width: 1700px;
+  /* display: flex;
+  flex-direction: column; */
+  /* margin-right: 4%;
+  margin-left: 4%; */
   padding-top: 15px;
   border-bottom: solid;
   border-color: rgb(52, 61, 67);
+}
+
+.question-header {
+  display: flex;
+}
+
+.helpful-yes-answer {
+  display: flex;
+  margin-right: 5px;
+}
+
+.answer-header {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.answer-details {
+  display: flex;
+}
+
+.answer-body {
+  font-size: large;
 }
 
 #filter-questions {
   width: 400px;
 }
 
-.qa-parent {
-  /* margin-right: 30px;
-  margin-left: 30px; */
+.A {
+  font-weight: bold;
+  font-size: large;
+  margin-right: 5px;
+}
+
+.Q {
+  font-weight: bold;
+  font-size: large;
+  margin-right: 5px;
+}
+
+.question-body {
   display: flex;
-  align-items: center;
+  font-weight: bold;
+  font-size: large;
+  margin-right: 200px;
+}
+
+.qa-parent {
+  display: flex;
+  /* align-items: center; */
   flex-direction: column;
+  margin-right: 4%;
+  margin-left: 4%;
+}
+
+.answer-name-date {
+  display: flex;
+  text-align: right;
+  margin-bottom: 10px;
+}
+
+.helpful-yes-report-answer {
+  display: flex;
+  margin-right: 5px;
+}
+
+#question-search-bar {
+  display: flex;
+  justify-content: center;
 }
