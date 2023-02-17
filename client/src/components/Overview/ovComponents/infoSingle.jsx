@@ -21,10 +21,10 @@ var InfoSingle = (props) => {
     return (
       <div>
         <Stars
-          starRatedColor = 'gold'
-          rating = {rates}
-          starDimension = '20px'
-          starSpacing = '3px'/>
+          starRatedColor='gold'
+          rating={rates}
+          starDimension='20px'
+          starSpacing='3px' />
       </div>
     )
   }
@@ -34,11 +34,12 @@ var InfoSingle = (props) => {
       <div>Loading the Product</div> :
 
       <div className="overview-details">
-        <h2>{props.name} <button onClick={outfit}><ImStarFull /></button></h2>
-        <div>Product Category: {props.category}</div>
-        <div ><span className="productRating"> {starRenders(props.ratings)} </span></div>
-        <div>{props.slogan}</div>
-        <div>{props.description}</div>
+        <div className="productInfo">
+          <h3>Product Category: {props.category} <button onClick={outfit}><ImStarFull /></button></h3>
+          <div ><span className="productRating"> {starRenders(props.ratings)} </span></div>
+          <div>{props.slogan}</div>
+          <div>{props.description}</div>
+        </div>
         <FeaturesList features={props.features} key={props.id} id={props.id} />
       </div>
   )

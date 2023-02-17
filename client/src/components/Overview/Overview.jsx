@@ -13,13 +13,14 @@ var Overview = (props) => {
   const [bigPic, setBigPic] = useState('');
   const [windowPic, setWindowPic] = useState('');
   const [urlArray, setURLArray] = useState([]);
+  const [title, setTitle] = useState('')
 
-  // //add the axios get here
   // first item to render //
   var initialFetch = () => {
     return axios.get(`/products/${props.initial}`)
       .then(data => {
         setInitial([data.data]);
+        setTitle(data.data.name)
       })
       .catch(err => console.log(err));
   }
@@ -52,8 +53,6 @@ var Overview = (props) => {
       .catch(err => console.log(err));
   }
 
-
-  ///////////////////////////////////////////
   // click function to set the style as the first/default style
   let sets = (styleID) => {
     var redone = [];
@@ -96,13 +95,11 @@ var Overview = (props) => {
     return (
       <div>
         <div><GalleryCarousel firstWindowPic={windowPic} setWindowPic={setWindowPic} urlArray={urlArray}/></div>
-        <div><InfoList info={initial} ratings={review} yourOutfitProducts={props.yourOutfitProducts}
+        <h1>{title}</h1>
+        <div className="upmost-style"><StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}
+        setBigPic={setBigPic} setWindowPic={setWindowPic} setURLArray={setURLArray} /></div>
+        <div className="upper-info"><InfoList info={initial} ratings={review} yourOutfitProducts={props.yourOutfitProducts}
         setYourOutfitProducts={props.setYourOutfitProducts}/></div>
-        <div className="bottomHalf">
-        <StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}
-        setBigPic={setBigPic} setWindowPic={setWindowPic} setURLArray={setURLArray} />
-        </div>
-
       </div>
     )
   }

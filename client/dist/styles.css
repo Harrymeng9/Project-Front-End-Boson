@@ -36,21 +36,35 @@ h4 {
 }
 
 .overview-details {
-  max-width: 1200px;
+  /* max-width: 800px; */
+  display: flex;
+}
+
+.productInfo {
+  max-width: 500px;
+  margin-left: 10%;
+  margin-right: 15%;
+}
+
+.upmost-style {
+  justify-content: space-between;
+}
+
+.upper-info {
+  padding-top: 250px;
 }
 
 .styleCont {
   height: 100px;
-  padding: 10px;
   align: center;
   margin: 10px;
+  padding-top: 10%;
   flex-wrap: wrap;
 }
 
-
 .indStyle {
   border-radius: 30px;
-  padding: 5px;
+  margin: 5px;
   width: 120px;
   height: 80px;
   float: left;
@@ -62,7 +76,7 @@ h4 {
 
 .firstStyle {
   border-radius: 30px;
-  padding: 5px;
+  margin: 5px;
   width: 120px;
   height: 80px;
   float: left;
@@ -73,10 +87,7 @@ h4 {
 }
 
 .gallery {
-  height: 100px;
-  padding: 3%;
-  margin-top: 5%;
-  justify-content: space-between;
+  height: 10px;
 }
 
 .galleryOverhead {
@@ -96,8 +107,8 @@ h4 {
 .singlePic .thumbNail {
   border-radius: 30%;
   padding: 5px;
-  width: 100px;
-  height: 100px;
+  width: 90px;
+  height: 90px;
   float: left;
   cursor: pointer;
   justify-content: space-between;
@@ -107,16 +118,12 @@ h4 {
 .mainPic {
   border-radius: 30%;
   padding: 15px;
-  width: 450px;
-  height: 450px;
+  width: 500px;
+  height: 500px;
   float: left;
   object-fit: cover;
 }
 
-.bottomHalf {
-  padding-top: 100px;
-  justify-content: flex-start;
-}
 
 .OVcarousel-button-left,
 .OVcarousel-button-right {

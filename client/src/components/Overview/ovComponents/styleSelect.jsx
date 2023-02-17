@@ -27,6 +27,7 @@ var StyleSelect = (props) => {
             }
             ) }
           </div>
+
         </div>
   )
 }

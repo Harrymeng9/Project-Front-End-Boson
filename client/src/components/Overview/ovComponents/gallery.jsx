@@ -17,7 +17,6 @@ var Gallery = (props) => {
     if (indexes.start !== 0) {
       indexes.start--;
       indexes.end--;
-      // setFive((props.pics.slice(start, end)))
     }
     setFive((props.pics.slice(indexes.start, indexes.end)))
   }
@@ -27,7 +26,6 @@ var Gallery = (props) => {
     if (indexes.end !== props.pics.length - 1) {
       indexes.start++;
       indexes.end++;
-      // setFive((props.pics.slice(start, end)))
     }
     setFive((props.pics.slice(indexes.start, indexes.end)))
   }
