@@ -4,6 +4,10 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
+.Dark {
+  background-color: rgb(54, 51, 51);
+}
+
 /* .boson {
   width: 1200px;
 } */
