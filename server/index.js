@@ -7,6 +7,9 @@ const { relatedProds } = require('./helpers/RelatedAPI.js');
 const { fetchQuestions } = require('./helpers/questionAnswerAPI.js');
 const { postQuestion } = require('./helpers/questionAnswerAPI.js');
 const { postAnswer } = require('./helpers/questionAnswerAPI');
+const compression = require('compression');
+// Compress all HTTP responses
+app.use(compression());
 
 // basic middleware
 app.use(express.json());
