@@ -75,6 +75,7 @@ h4 {
 .gallery {
   height: 100px;
   padding: 3%;
+  margin-top: 5%;
   justify-content: space-between;
 }
 

@@ -8,7 +8,7 @@ var Gallery = (props) => {
   //confirm if props are being passed down
 
   const [fivePics, setFive] = useState((props.pics.slice(0, 5)));
-  const [indexes, setIndexes] = useState({start: 0, end: 5})
+  const [indexes, setIndexes] = useState({start: 0, end: 5});
 
   var id = 0;
 
