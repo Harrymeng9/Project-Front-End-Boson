@@ -8,6 +8,8 @@ var GalleryCarousel = (props) => {
   //props.setWindowPic sets the new state
   //props.urlArray is the total array of URLS
 
+  var none = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'
+
   let func = props.setWindowPic;
 
   let leftShift = (e) => {
@@ -28,17 +30,29 @@ var GalleryCarousel = (props) => {
     }
   }
 
-  // add return/render here
+  let picRender = () => {
     return (
-      props.urlArray.length === 0 ?
-      <div>Loading the Product</div> :
+      props.firstWindowPic === null ?
+      <div className="galleryOverhead">
+        <div><img className="mainPic" src={none}></img></div>
 
+      </div>
+      :
       <div className="galleryOverhead">
         <ImCircleLeft size="32px" className="OVcarousel-button-left" onClick={leftShift} />
         <div><img className="mainPic" src={props.firstWindowPic} onClick={(e) => window.open(props.firstWindowPic)}></img></div>
         <ImCircleRight size="32px" className="OVcarousel-button-right" onClick={rightShift} />
       </div>
     )
+  }
+
+  // add return/render here
+
+  useEffect(() => {
+    picRender();
+  }, [props.firstWindowPic])
+
+  return picRender();
   }
 
 

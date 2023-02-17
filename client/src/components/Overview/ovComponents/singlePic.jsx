@@ -6,6 +6,8 @@ var SinglePic = (props) => {
   // add return/render here
   var noPics = (props.full === null) && (props.thumb === null);
 
+  var none = 'https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'
+
   let picClick = (e) => {
     e.preventDefault();
     props.setBigPic(e.target.currentSrc);
@@ -14,9 +16,10 @@ var SinglePic = (props) => {
 
   return (
     noPics ?
-    <div>
-      <h3>No Pics to show</h3>
-    </div> :
+    <div className="singlePic">
+      <img className="thumbNail" alt="smallPic" src={none}/>
+    </div>
+    :
 
     <div className="singlePic" onClick={picClick}>
       <a href={props.full} target="_blank"><img className="thumbNail" alt="smallPic" src={props.thumb} id={props.full}/></a>
