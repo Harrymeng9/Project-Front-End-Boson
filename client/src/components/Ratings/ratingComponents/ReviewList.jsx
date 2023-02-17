@@ -93,7 +93,7 @@ var ReviewList = (props) => {
             </select>
           </div>
         </div>
-        <div><input className='reviewList-margin-bottom' type='text' placeholder='Enter your keyword' onChange={(e) => { setSearchInput(e.target.value) }} /></div>
+        <div><input className='reviewList-margin-bottom' style={{ width: 300, height: 30 }} type='text' placeholder='Enter your keyword' onChange={(e) => { setSearchInput(e.target.value) }} /></div>
         {/* Each Review Tile */}
         <div style={{ maxHeight: '800px', overflow: 'auto' }}>
           {
@@ -108,9 +108,9 @@ var ReviewList = (props) => {
           }
         </div>
         {/* More Review Button */}
-        {renderCount <= filteredReviewListToRender.length && <button onClick={(e) => setRenderCount(renderCount + 2)}><strong>MORE REVIEWS</strong></button>}
+        {renderCount <= filteredReviewListToRender.length && <button className='reviewList-buttons' onClick={(e) => setRenderCount(renderCount + 2)}><strong>MORE REVIEWS</strong></button>}
         {/* Add a Review Button */}
-        <button onClick={(e) => setModal(!modal)}><strong>ADD A REVIEW + </strong></button>
+        <button className='reviewList-buttons' onClick={(e) => setModal(!modal)}><strong>ADD A REVIEW + </strong></button>
         {modal && <Modal setModal={setModal} modal={modal} product_id={props.product_id} productChars={props.productChars} currentProductInfo={props.currentProductInfo} />}
       </div >
     )
