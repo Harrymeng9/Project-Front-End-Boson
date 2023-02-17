@@ -16,23 +16,29 @@ var Question = (props) => {
 
   return (
     <div>
+
       <div className="question">
         <div className="question-header">
           <div className="Q">Q:</div>
-          <div className="question-body"> {props.questionBody}</div>
-          <div className="helpful-yes-answer">
-          <div className="helpful-yes-answer"> Helpful?</div>
-          <div className="helpful-yes-answer"> Yes</div>
-          <div onClick={handleClick} className="helpful-yes-answer"> Add Answer</div>
-        </div>
+          <div className="question-body"> {props.questionBody} </div>
+      </div>
+
+      <div className="helpful-yes-answer">
+        <div className="q-helpful"> Helpful?</div>
+        <div className="q-yes"> Yes </div>
+        <div className="q-num"> 0 |</div>
+        <div className="q-add" onClick={handleClick}>Add Answer</div>
       </div>
 
 
       {answerModal &&  <AnswerModal id={props.id} setAnswerModal={setAnswerModal}/>}
+
         <div className="answerList">
         < AnswerList answers={props.answers}/>
         </div>
+
       </div>
+
     </div>
   )
 }
