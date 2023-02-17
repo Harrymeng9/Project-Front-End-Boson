@@ -36,7 +36,7 @@ h4 {
 }
 
 .overview-details {
-  max-width: 1000px;
+  max-width: 1200px;
 }
 
 .styleCont {
@@ -82,7 +82,7 @@ h4 {
   display: flex;
   align-items: center;
   float: left;
-  padding-right: 3%;
+  padding-right: 5%;
 }
 
 .galleryScroll {
@@ -106,8 +106,8 @@ h4 {
 .mainPic {
   border-radius: 30%;
   padding: 15px;
-  width: 350px;
-  height: 350px;
+  width: 450px;
+  height: 450px;
   float: left;
   object-fit: cover;
 }
@@ -144,9 +144,6 @@ h4 {
   color: red;
 }
 
-.overview-details {
-  max-width: 800px;
-}
 
 /*
 -----------Ratings-----------
