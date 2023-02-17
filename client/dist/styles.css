@@ -233,6 +233,24 @@ h4 {
   margin-bottom: 20px;
 }
 
+.reviewList-buttons {
+  background-color: #ddd0f1;
+  border: none;
+  color: black;
+  cursor: pointer;
+  font-size: medium;
+  margin-left: 5px;
+  margin-right: 5px;
+  margin-top: 5px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
 /* ReviewTile Component */
 .reviewTile {
   margin-bottom: 20px;

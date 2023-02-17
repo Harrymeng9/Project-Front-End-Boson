@@ -161,7 +161,7 @@ const Modal = (props) => {
           {/* Review Summary */}
           <div className='writeReview-title-box'>
             <div className='writeReview-title'>Review summary</div>
-            <textarea maxLength='60' rows={2} cols={40} placeholder='Best purchase ever!' onChange={(e) => setReviewSummary(e.target.value)} />
+            <textarea maxLength='60' value ={reviewSummary} rows={2} cols={40} placeholder='Best purchase ever!' onChange={(e) => setReviewSummary(e.target.value)} />
           </div>
           {/* Review Body */}
           <div className='writeReview-title-box'>
