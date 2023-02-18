@@ -84,8 +84,18 @@ var App = () => {
   const [productId, setProductId] = useState(71701);
   const [yourOutfitProducts, setYourOutfitProducts] = useState({ ...localStorage });
   const [currentProductInfo, setCurrentProductInfo] = useState({});
+  const [mode, setMode] = useState('Light');
+
+  let modeSwitch = () => {
+    if (mode === 'Light') {
+      setMode('Dark');
+    } else if (mode === 'Dark') {
+      setMode('Light');
+    }
+  }
 
   useEffect(() => {
+    modeSwitch();
     var split = window.location.pathname.split('/');
     var last = Number(split[split.length - 1]);
     setProductId(last);
@@ -101,11 +111,11 @@ var App = () => {
   }, []);
 
   return (
-    <div className='boson'>
+    <div className={mode}>
       <div className="header">
         <h1>Project Atelier</h1>
       </div>
-
+      <button onClick={modeSwitch}>Current Mode: {mode}</button>
       <ErrorBoundary><OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts} /></ErrorBoundary>
       <div><RelatedRender currentProductInfo={currentProductInfo} setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QARender productId={productId} /></div>
