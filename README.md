@@ -1,40 +1,76 @@
-FEC Atelier
-Team Boson
+# FEC (Front End Capstone) Atelier
+## *To design a product detail page for a clothing company*
 
-Contributors:
-Guillermo Hasbun (Overview)
-Maddie Sime (Related)
-Fig Fishkin (Questions and Answers)
-Harry Meng (Reviews)
+<br>
 
-Overview:
-Product overview is the first widget that appears on the page. It displays the main product info for the currently selected product, as well as the styles available, and the pictures of the current styles. The start button allows the current product to be added to the outfit carousel. The main images scroll in loop, and the gallery has a scroll for more than 7 images. The styles show the sale price, and have a red strikethrough for discounted items.
+##  Team Boson
+- Guillermo Hasbun (Overview)
+- Maddie Sime (Related)
+- Fig Fishkin (Questions and Answers)
+- Harry Meng (Ratings & Reviews)
 
-Related Products:
+<br>
 
-Questions & Answers:
+## Four Widgets
+1. **Overview**
 
-Reviews:
+    Product overview is the first widget that appears on the page. It displays the main product info for the currently selected product, as well as the styles available, and the pictures of the current styles. The star button allows the current product to be added to the outfit carousel. The main images scroll in loop, and the gallery has a scroll for more than 7 images. The styles show the sale price, and have a red strikethrough for discounted items.
 
-Setup Instructions:
-Clone the repo in your local machine
-Obtain a GitHub token
-Open the repo in VS Code
-Run npm install
-Create a .env file
-Add the Token to the file
-Open two terminals on VS Code
-Run npm run react-dev on one terminal
-Run npm run server-dev on the other terminal
-Open http://localhost:3000/ on browser.
+    <img title="Rating" alt="Alt text" src="./Images/Overview.png">
 
-Testing:
+<br>
+
+2. **Related Products**
+
+
+    <img title="Rating" alt="Alt text" src="./Images/Related.png">
+<br>
+
+3. **Questions & Answers**
+
+
+    <img title="Rating" alt="Alt text" src="./Images/QA.png">
+<br>
+
+4. **Ratings & Reviews**
+
+   Ratings & Reviews is the last widget, and it allows viewing and submission of reviews for the product selected. It displays the average rating score for the selected product, as well as the number of reviews for 1-5 stars evaluation. The grey bars shows the user comment for product's characteristics, include size, width, comfort, quality, length and fit. You can filter the reviews easily by selecting stars option, sorting dropdown menu and search bar as well to find their needed information quickly, and submit a new review by clicking the button at the bottom.
+
+    <img title="Rating" alt="Alt text" src="./Images/Ratings.png">
+
+<br>
+
+## Setup Instructions:
+1. Clone the repo in your local machine
+2. Obtain a GitHub token
+3. Open the repo in VS Code
+4. Run npm install
+5. Create a .env file
+6. Add the Token to the file
+7. Open two terminals on VS Code
+8. Run npm run react-dev on one terminal
+9. Run npm run server-dev on the other terminal
+10. Open http://localhost:3000/ on browser.
+
+<br>
+
+## Testing
 The repo uses Jest to test the components, and checks the app coverage for optimal performance. Jest also uses a react testing environment to create a render, which allows us to feed the test data, and check the output.
 
+<br>
 
-The spring in phases:
-Phase 0: During this phase, we each were randomly assigned our app widgets. Guillermo Hasbun was assigned Product Overview, Harry Meng was assigned Ratings, Fig Fishkin was assigned Q&A, and Maddie Sime was assigned Related. The main portion of Phase 0 was spent delegating our duties as a team via the Business Requirements Document, and setting community standards for each team member to follow. We worked on understanding our Git Workflow, and created engineering journals to help keep track of our coding time and reflections.
-Phase 1: During this phase, we worked on our widget layouts and components. We began utilizing Trello more often to write tickets to render our app components, as well as structure our components in a cleaner organization style. Working on our branches as a group proved to be rocky at first, but communication was key to keeping us on track. This phase allowed each group member the ability to work on their respective component independently, but also ask for assistance for bugs and general guidance.
-Phase 2: During phase 2, we continued working on implementing the functionality of our widgets. We continued to utilize and update Trello and continued to strengthen our Git/Github workflow skills. We got some exposure to Chrome DevTools' Lighthouse tool which allowed us to assess multiple aspects of our application's performance. For those of us who have widgets that require information from our teammate's widgets, we began to communicate around how we will accomplish gaining access to that information. Overall, we dove deeper into the requirements of our widgets and continued to work as a team.
-Phase 3:
-Phase 4:
+## The spring in phases
+- Phase 0
+  > During this phase, we each were randomly assigned our app widgets. Guillermo Hasbun was assigned Product Overview, Harry Meng was assigned Ratings, Fig Fishkin was assigned Q&A, and Maddie Sime was assigned Related. The main portion of Phase 0 was spent delegating our duties as a team via the Business Requirements Document, and setting community standards for each team member to follow. We worked on understanding our Git Workflow, and created engineering journals to help keep track of our coding time and reflections.
+
+- Phase 1
+  >  During this phase, we worked on our widget layouts and components. We began utilizing Trello more often to write tickets to render our app components, as well as structure our components in a cleaner organization style. Working on our branches as a group proved to be rocky at first, but communication was key to keeping us on track. This phase allowed each group member the ability to work on their respective component independently, but also ask for assistance for bugs and general guidance.
+
+- Phase 2
+  > During phase 2, we continued working on implementing the functionality of our widgets. We continued to utilize and update Trello and continued to strengthen our Git/Github workflow skills. We got some exposure to Chrome DevTools' Lighthouse tool which allowed us to assess multiple aspects of our application's performance. For those of us who have widgets that require information from our teammate's widgets, we began to communicate around how we will accomplish gaining access to that information. Overall, we dove deeper into the requirements of our widgets and continued to work as a team.
+
+- Phase 3
+  > During phase 3, we continued working on the functionality and styling for our widgets, and began to add unit/integration test suite to cross check the app. Then we deployed the app to Amazon Web Service (AWS), therefore it could be viewed publicly.
+
+- Phase 4
+  > During phase 4, we worked on the CSS properties together to make the app looks pretty and clean. There are two theme color, light and dark by clicking on the button to switch over. Ran the google page speed against the app, and implemented the optimizations, such as compress the files, remove duplicate API calls in the individual widget and etc. Tested the app in most popular browsers, Safari/Google Chrome/Firefox/Edge, and all work well.
