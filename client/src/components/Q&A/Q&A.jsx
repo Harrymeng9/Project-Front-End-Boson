@@ -16,7 +16,7 @@ function QuestionAndAnswer(props) {
   useEffect(() => {
     //on component render
     //make axios req to server endpoint
-    axios.get('/questions', { params: { product_id: 71705 } })
+    axios.get('/questions', { params: { product_id: props.productId} })
       .then((results) => {
         //results returned here is the RESPONSE object from the server
         console.log(results.data);

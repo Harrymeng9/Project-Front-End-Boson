@@ -622,6 +622,7 @@ h4 {
 
 .helpful-yes-answer {
   display: flex;
+  justify-content: right;
   margin-right: 5px;
 }
 
@@ -660,8 +661,9 @@ h4 {
   display: flex;
   font-weight: bold;
   font-size: large;
-  margin-right: 200px;
+  margin-right: 50px;
 }
+
 
 .qa-parent {
   display: flex;
@@ -680,6 +682,7 @@ h4 {
 .helpful-yes-report-answer {
   display: flex;
   margin-right: 5px;
+  font-size: small;
 }
 
 #question-search-bar {
@@ -700,9 +703,28 @@ h4 {
   padding-right: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+  font-weight: bold;
 }
 
 .qa-buttons {
   display: flex;
   justify-content: center;
+}
+
+.q-yes {
+  text-decoration: underline;
+  margin-right: 5px;
+}
+
+.q-add {
+  text-decoration: underline;
+  margin-right: 5px;
+}
+
+.q-num {
+  margin-right: 5px;
+}
+
+.q-helpful {
+  margin-right: 5px;
 }
