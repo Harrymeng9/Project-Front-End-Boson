@@ -1,12 +1,47 @@
 /* Boson */
 
-#root {
+.Dark{
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: rgb(54, 51, 51);
+  text: white;
+}
+
+.Light{
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-.Dark {
-  background-color: rgb(54, 51, 51);
+.Dark, text * {
+  color: white;
 }
+
+.Dark h1{
+  color: black;
+  }
+
+.Dark h2 {
+  color: black;
+  }
+
+.Dark h3 {
+  color: black;
+  }
+
+.Dark h4 {
+color: black;
+}
+
+.Dark .prodTitle {
+  color: rgb(6, 158, 158);
+}
+
+.Dark .prodCat {
+  color: rgb(6, 158, 158);
+}
+
+.Dark .prodFeat {
+  color: rgb(6, 158, 158);
+}
+
 
 /* .boson {
   width: 1200px;

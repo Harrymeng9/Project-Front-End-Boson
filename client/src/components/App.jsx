@@ -112,9 +112,8 @@ var App = () => {
   return (
     <div className={mode}>
       <div className="header">
-        <h1>Project Atelier</h1>
+        <h1>Project Atelier <button onClick={modeSwitch}>Current Mode: {mode}</button></h1>
       </div>
-      <button onClick={modeSwitch}>Current Mode: {mode}</button>
       <ErrorBoundary><OverviewRender data={productId} yourOutfitProducts={yourOutfitProducts} setYourOutfitProducts={setYourOutfitProducts} /></ErrorBoundary>
       <div><RelatedRender currentProductInfo={currentProductInfo} setYourOutfitProducts={setYourOutfitProducts} yourOutfitProducts={yourOutfitProducts} productId={productId} setProductId={setProductId} /></div>
       <div><QARender productId={productId} /></div>
