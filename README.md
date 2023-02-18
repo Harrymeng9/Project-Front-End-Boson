@@ -1,5 +1,6 @@
 # FEC (Front End Capstone) Atelier
-## *To design a product detail page for a clothing company*
+
+This e-commerce application for Atelier facilitates a simple and pleasant user experience for consumers. Created by Team Boson, this application boasts a score of 100 in the area of Best Practices. Performance scores range from approximately 52-80, depending on user's machine and network. The application has an accessibility rating of 72 according to our Lighthouse Audit report. This application particularly excels in accessibility as it pertains to page elements being labeled for screen readers.
 
 <br>
 
