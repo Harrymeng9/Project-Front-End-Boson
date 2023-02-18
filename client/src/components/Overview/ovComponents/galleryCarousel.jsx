@@ -34,7 +34,7 @@ var GalleryCarousel = (props) => {
     return (
       props.firstWindowPic === null ?
       <div className="galleryOverhead">
-        <div><img className="mainPic" src={none}></img></div>
+        <div><img className="mainPic" alt="loadedPic" src={none}></img></div>
 
       </div>
       :
