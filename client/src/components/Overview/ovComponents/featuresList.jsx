@@ -13,7 +13,7 @@ var FeaturesList = (props) => {
       <div>Loading the Product</div> :
 
       <div className="featuresList">
-        <h3>Product Features</h3>
+        <h3 className="prodFeat">Product Features</h3>
       {features.map(block => {
         return (
           <FeatureSingle feat={block.feature} value={block.value} key={id += 1}/>

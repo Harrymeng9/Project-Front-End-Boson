@@ -95,7 +95,7 @@ var Overview = (props) => {
     return (
       <div>
         <div><GalleryCarousel firstWindowPic={windowPic} setWindowPic={setWindowPic} urlArray={urlArray}/></div>
-        <h1>{title}</h1>
+        <h1 className="prodTitle">{title}</h1>
         <div className="upmost-style"><StyleSelect styles={intStyle} id={props.initial} clickfunc={sets}
         setBigPic={setBigPic} setWindowPic={setWindowPic} setURLArray={setURLArray} /></div>
         <div className="upper-info"><InfoList info={initial} ratings={review} yourOutfitProducts={props.yourOutfitProducts}

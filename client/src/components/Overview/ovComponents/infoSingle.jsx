@@ -35,7 +35,7 @@ var InfoSingle = (props) => {
 
       <div className="overview-details">
         <div className="productInfo">
-          <h3>Product Category: {props.category} <button onClick={outfit}><ImStarFull /></button></h3>
+          <h3 className="prodCat">Product Category: {props.category} <button onClick={outfit}><ImStarFull /></button></h3>
           <div ><span className="productRating"> {starRenders(props.ratings)} </span></div>
           <div>{props.slogan}</div>
           <div>{props.description}</div>
