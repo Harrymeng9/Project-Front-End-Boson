@@ -19,7 +19,6 @@ function QuestionAndAnswer(props) {
     axios.get('/questions', { params: { product_id: props.productId} })
       .then((results) => {
         //results returned here is the RESPONSE object from the server
-        console.log(results.data);
         var productQuestions = results.data;
         //set questions state equal to the results of this call
         setQuestions(productQuestions);

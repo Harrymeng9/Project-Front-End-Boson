@@ -43,7 +43,6 @@ var handleSubmit = (event) => {
 }
 
 var handleChange = (event) => {
-  console.log(aResponse);
   event.preventDefault();
   setAResponse({...aResponse, [event.target.name]: event.target.value});
 }
