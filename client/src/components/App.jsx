@@ -95,7 +95,6 @@ var App = () => {
   }
 
   useEffect(() => {
-    modeSwitch();
     var split = window.location.pathname.split('/');
     var last = Number(split[split.length - 1]);
     setProductId(last);
