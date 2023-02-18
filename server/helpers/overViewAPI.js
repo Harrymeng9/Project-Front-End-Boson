@@ -12,7 +12,6 @@ let getAllProducts = (cb) => {
   };
   axios.get(options.url, { headers: options.headers })
     .then(list => {
-      console.log('Products Fetched');
       cb(null, list.data)
     })
     .catch(err => {

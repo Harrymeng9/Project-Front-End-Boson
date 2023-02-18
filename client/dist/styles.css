@@ -15,7 +15,7 @@
 }
 
 .Dark h1{
-  color: black;
+  color: white;
   }
 
 .Dark h2 {
@@ -26,9 +26,9 @@
   color: black;
   }
 
-.Dark h4 {
+/* .Dark h4 {
 color: black;
-}
+} */
 
 .Dark .prodTitle {
   color: rgb(6, 158, 158);
@@ -40,6 +40,25 @@ color: black;
 
 .Dark .prodFeat {
   color: rgb(6, 158, 158);
+}
+
+.Dark .header {
+  margin-right: 50px;
+  margin-left: 50px;
+  text-align: center;
+  background: rgb(6, 158, 158);
+  color: white;
+  font-size: 30px;
+}
+
+.Dark h4 {
+  margin-right: 50px;
+  margin-left: 50px;
+  text-align: center;
+  background: rgb(6, 158, 158);
+  color: white;
+  font-size: 20px;
+  text-align: center;
 }
 
 
@@ -296,6 +315,11 @@ h4 {
   width: 300px;
   height: 50px;
   margin-bottom: 10px;
+}
+
+.Dark .reviewList-buttons {
+  background-color: rgb(6, 158, 158);
+  color: white;
 }
 
 /* ReviewTile Component */
@@ -637,7 +661,7 @@ h4 {
 /* Q&A */
 
 .question-list {
-  max-height: 500px;
+  max-height: 250px;
   overflow-y: scroll;
 }
 
@@ -649,6 +673,10 @@ h4 {
   padding-top: 15px;
   border-bottom: solid;
   border-color: rgb(52, 61, 67);
+}
+
+.Dark .question {
+  border-color: white;
 }
 
 .question-header {
@@ -706,6 +734,11 @@ h4 {
   flex-direction: column;
   margin-right: 4%;
   margin-left: 4%;
+}
+
+.Dark .QA-Ratings-buttons {
+  background-color: rgb(6, 158, 158);
+  color: white;
 }
 
 .answer-name-date {

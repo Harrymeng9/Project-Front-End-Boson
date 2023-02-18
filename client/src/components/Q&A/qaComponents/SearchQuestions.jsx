@@ -18,7 +18,6 @@ export var SearchQuestions = (props) => {
           }
         }
         //the log below shows me the array i am expecting in the console
-        console.log('before setting state', filtered);
         props.setFiltered(filtered);
       }
       //set filtered questions state to filtered array

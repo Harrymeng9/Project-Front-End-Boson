@@ -56,7 +56,6 @@ var postAnswer = (reqBody, params) => {
     }
   };
   //make a get request to the Atelier API using axios
-  console.log(options.body);
   return axios.post(options.url, options.body, { headers: options.headers, params: options.params});
 };
 

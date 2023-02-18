@@ -222,8 +222,6 @@ app.post('/reviews', (req, res) => {
 // Put request to update API data
 app.put('/reviews/:id/helpful', (req, res) => {
   var review_id = req.body.review_id;
-  console.log('review_id', review_id);
-
   let options = {
     url: `http://app-hrsei-api.herokuapp.com/api/fec2/hr-rpp/reviews/${review_id}/helpful`,
     headers: {
@@ -294,7 +292,6 @@ app.post('/questions', (req, res) => {
   //make post request to the API
   postQuestion(params)
     .then((results) => {
-      console.log(results);
       res.sendStatus(201);
     })
     .catch((err) => {
@@ -306,14 +303,12 @@ app.post('/questions', (req, res) => {
 app.post('/answers', (req, res) => {
   //grab data from request
   var body = req.body.body;
-  console.log(body);
   var params = {
     question_id: req.body.question_id
   };
   //make post request to the API
   postAnswer(body, params)
     .then((results) => {
-      console.log(results);
       res.sendStatus(201);
     })
     .catch((err) => {

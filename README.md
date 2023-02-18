@@ -22,12 +22,14 @@
 
 2. **Related Products**
 
+  The Related Products widget showcases all products that are related to the current product. If the amount of related products doesn’t fit on the screen, it is displayed in a carousel fashion to allow for scrolling. The same functionality applies to the “Your Outfit” section, where the user can build unique outfits by clicking the “Add Item to Outfit” button (or the star button in the Overview section). Clicking on the star button on a related product card brings up a comparison modal, which compares the characteristics for the current product and the product that was clicked on.
 
     <img title="Rating" alt="Alt text" src="./Images/Related.png">
 <br>
 
 3. **Questions & Answers**
 
+  QA summary: Questions and Answers displays questions asked by customers and potential customers. It also displays answers submitted by site users. Users can enter a search term, and the widget will display only questions and answers which contain the entered term. Site users can select if they find the question helpful, and the number of users who have previously selected they found the question helpful is displayed. Each question offers the option for users to add an answer. For each individual answer, users can select if they found it helpful and see how many other users found it helpful. The nickname for the author of the answer appears below the answer along with the date it was posted. Users also have the option to report the answer, marking it for review by an administrator.
 
     <img title="Rating" alt="Alt text" src="./Images/QA.png">
 <br>
