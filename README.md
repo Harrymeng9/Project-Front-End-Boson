@@ -62,7 +62,7 @@ The repo uses Jest to test the components, and checks the app coverage for optim
 
 <br>
 
-## The spring in phases
+## The sprints in phases
 - Phase 0
   > During this phase, we each were randomly assigned our app widgets. Guillermo Hasbun was assigned Product Overview, Harry Meng was assigned Ratings, Fig Fishkin was assigned Q&A, and Maddie Sime was assigned Related. The main portion of Phase 0 was spent delegating our duties as a team via the Business Requirements Document, and setting community standards for each team member to follow. We worked on understanding our Git Workflow, and created engineering journals to help keep track of our coding time and reflections.
 
